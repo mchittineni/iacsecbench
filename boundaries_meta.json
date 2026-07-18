@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-07-10T10:03:15Z",
+  "source": "github.com/ramSeraph/indian_admin_boundaries (LGD admin polygons)",
+  "levels": {
+    "districts": {
+      "features": 33,
+      "simplified": true,
+      "size_kb": 197
+    },
+    "mandals": {
+      "features": 587,
+      "simplified": true,
+      "size_kb": 737
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "state": "Telangana",
+  "state_code": 36,
+  "generated_at": "2026-07-15T04:50:32Z",
+  "source": "Local Government Directory (lgdirectory.gov.in), Ministry of Panchayati Raj, Govt. of India",
+  "source_mirror": "data.gov.in (Open Government Data platform, LGD API)",
+  "source_date": "15Jul2026",
+  "counts": {
+    "districts": 33,
+    "mandals": 616,
+    "villages": 9287,
+    "with_pincode": 9287,
+    "with_local_names": 1533
+  },
+  "native_lang": "te",
+  "dropped_villages_without_mandal": 0,
+  "verification": {
+    "ran": true,
+    "ok": true,
+    "checks": [
+      {
+        "check": "district count",
+        "live": 33,
+        "dump": 33,
+        "pass": true
+      },
+      {
+        "check": "mandals in Adilabad",
+        "live": 21,
+        "dump": 21,
+        "pass": true
+      }
+    ],
+    "error": null
+  }
+}
