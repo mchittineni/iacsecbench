@@ -1,0 +1,328 @@
+{
+  "version": "1.0.0",
+  "state": "andhra_pradesh",
+  "updated_at": "2026-07-19",
+  "properties": [
+    {
+      "property_id": "PROP-AP-VIZ-01",
+      "name": "Sea Breeze Towers",
+      "type": "Apartment",
+      "construction_year": 2015,
+      "address": "Beach Road, Pandurangapuram, Visakhapatnam",
+      "mandal": "Visakhapatnam Urban",
+      "district": "Visakhapatnam",
+      "state": "andhra_pradesh",
+      "total_sqft": 2100,
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "rera_id": "P03200000411",
+      "lat": 17.7123,
+      "lng": 83.3214,
+      "price_summary": {
+        "initial_price_inr": 7350000,
+        "latest_price_inr": 21000000,
+        "total_appreciation_pct": 185.71,
+        "cagr_pct": 10.02,
+        "holding_period_years": 11
+      },
+      "sale_history": [
+        {
+          "year": 2015,
+          "sale_date": "2015-02-14",
+          "sale_price_inr": 7350000,
+          "price_per_sqft_inr": 3500,
+          "seller_type": "Coastal Apex Infra Ltd",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-VIZ-2015-3301",
+          "growth_over_initial_pct": 0.0,
+          "cagr_pct": 0.0
+        },
+        {
+          "year": 2019,
+          "sale_date": "2019-05-20",
+          "sale_price_inr": 11550000,
+          "price_per_sqft_inr": 5500,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-VIZ-2019-7819",
+          "growth_over_initial_pct": 57.14,
+          "cagr_pct": 11.96
+        },
+        {
+          "year": 2023,
+          "sale_date": "2023-09-08",
+          "sale_price_inr": 16800000,
+          "price_per_sqft_inr": 8000,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-VIZ-2023-14209",
+          "growth_over_initial_pct": 128.57,
+          "cagr_pct": 10.87
+        },
+        {
+          "year": 2026,
+          "sale_date": "2026-07-01",
+          "sale_price_inr": 21000000,
+          "price_per_sqft_inr": 10000,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Current Valuation (Coastal Prime Corridor)",
+          "registration_doc_no": "VALUATION-EST-2026",
+          "growth_over_initial_pct": 185.71,
+          "cagr_pct": 10.02
+        }
+      ],
+      "nearby_services": [
+        {
+          "name": "Timpany Senior Secondary School",
+          "category": "schools",
+          "type": "ICSE & CBSE Co-Ed School",
+          "distance_km": 1.8,
+          "travel_time_mins": 5,
+          "rating": 4.6,
+          "lat": 17.7198,
+          "lng": 83.3150
+        },
+        {
+          "name": "KIMS ICON Hospital",
+          "category": "hospitals",
+          "type": "Multi-Specialty Super Hospital",
+          "distance_km": 1.5,
+          "travel_time_mins": 5,
+          "rating": 4.7,
+          "lat": 17.7082,
+          "lng": 83.3105
+        },
+        {
+          "name": "Visakhapatnam Junction Station",
+          "category": "metro_railways",
+          "type": "Waltair Railway Division HQ",
+          "distance_km": 4.2,
+          "travel_time_mins": 12,
+          "rating": 4.5,
+          "lat": 17.7210,
+          "lng": 83.2891
+        },
+        {
+          "name": "RK Beach Promenade & INS Kursura Museum",
+          "category": "shopping_parks",
+          "type": "Coastal Tourist Walkway & Submarine Park",
+          "distance_km": 0.2,
+          "travel_time_mins": 1,
+          "rating": 4.9,
+          "lat": 17.7135,
+          "lng": 83.3230
+        }
+      ]
+    },
+    {
+      "property_id": "PROP-AP-VJA-01",
+      "name": "Capital Crest Heights",
+      "type": "Apartment",
+      "construction_year": 2017,
+      "address": "Benz Circle Main Road, Vijayawada",
+      "mandal": "Vijayawada Urban",
+      "district": "NTR",
+      "state": "andhra_pradesh",
+      "total_sqft": 1400,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "rera_id": "P03300000789",
+      "lat": 16.5062,
+      "lng": 80.6482,
+      "price_summary": {
+        "initial_price_inr": 4900000,
+        "latest_price_inr": 10500000,
+        "total_appreciation_pct": 114.29,
+        "cagr_pct": 8.83,
+        "holding_period_years": 9
+      },
+      "sale_history": [
+        {
+          "year": 2017,
+          "sale_date": "2017-03-29",
+          "sale_price_inr": 4900000,
+          "price_per_sqft_inr": 3500,
+          "seller_type": "Krishna Valley Developers",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-VJA-2017-1822",
+          "growth_over_initial_pct": 0.0,
+          "cagr_pct": 0.0
+        },
+        {
+          "year": 2021,
+          "sale_date": "2021-07-15",
+          "sale_price_inr": 7700000,
+          "price_per_sqft_inr": 5500,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-VJA-2021-9921",
+          "growth_over_initial_pct": 57.14,
+          "cagr_pct": 11.96
+        },
+        {
+          "year": 2026,
+          "sale_date": "2026-07-01",
+          "sale_price_inr": 10500000,
+          "price_per_sqft_inr": 7500,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Current Valuation (Benz Commercial Hub)",
+          "registration_doc_no": "VALUATION-EST-2026",
+          "growth_over_initial_pct": 114.29,
+          "cagr_pct": 8.83
+        }
+      ],
+      "nearby_services": [
+        {
+          "name": "Atkinson High School",
+          "category": "schools",
+          "type": "Heritage Convent School",
+          "distance_km": 1.2,
+          "travel_time_mins": 4,
+          "rating": 4.6,
+          "lat": 16.5110,
+          "lng": 80.6521
+        },
+        {
+          "name": "Ramesh Hospitals Benz Circle",
+          "category": "hospitals",
+          "type": "Advanced Cardiac & Multi-Specialty Centre",
+          "distance_km": 0.6,
+          "travel_time_mins": 2,
+          "rating": 4.8,
+          "lat": 16.5041,
+          "lng": 80.6450
+        },
+        {
+          "name": "Vijayawada Railway Junction",
+          "category": "metro_railways",
+          "type": "A-1 Category Central Railway Hub",
+          "distance_km": 4.8,
+          "travel_time_mins": 13,
+          "rating": 4.6,
+          "lat": 16.5180,
+          "lng": 80.6201
+        },
+        {
+          "name": "Trendset Mall & Multiplex",
+          "category": "shopping_parks",
+          "type": "Shopping Mall & Entertainment Zone",
+          "distance_km": 0.5,
+          "travel_time_mins": 2,
+          "rating": 4.7,
+          "lat": 16.5075,
+          "lng": 80.6500
+        }
+      ]
+    },
+    {
+      "property_id": "PROP-AP-AMR-01",
+      "name": "Amaravati Smart City Residency",
+      "type": "Apartment",
+      "construction_year": 2018,
+      "address": "Seed Capital Expressway, Nelapadu, Amaravati",
+      "mandal": "Thullur",
+      "district": "Guntur",
+      "state": "andhra_pradesh",
+      "total_sqft": 1750,
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "rera_id": "P03400000102",
+      "lat": 16.5134,
+      "lng": 80.5165,
+      "price_summary": {
+        "initial_price_inr": 5250000,
+        "latest_price_inr": 11375000,
+        "total_appreciation_pct": 116.67,
+        "cagr_pct": 10.14,
+        "holding_period_years": 8
+      },
+      "sale_history": [
+        {
+          "year": 2018,
+          "sale_date": "2018-05-10",
+          "sale_price_inr": 5250000,
+          "price_per_sqft_inr": 3000,
+          "seller_type": "Capital Infra Corp Ltd",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-AMR-2018-0912",
+          "growth_over_initial_pct": 0.0,
+          "cagr_pct": 0.0
+        },
+        {
+          "year": 2022,
+          "sale_date": "2022-10-18",
+          "sale_price_inr": 7875000,
+          "price_per_sqft_inr": 4500,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-AMR-2022-4410",
+          "growth_over_initial_pct": 50.0,
+          "cagr_pct": 10.67
+        },
+        {
+          "year": 2026,
+          "sale_date": "2026-07-01",
+          "sale_price_inr": 11375000,
+          "price_per_sqft_inr": 6500,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Current Valuation (Capital Corridor)",
+          "registration_doc_no": "VALUATION-EST-2026",
+          "growth_over_initial_pct": 116.67,
+          "cagr_pct": 10.14
+        }
+      ],
+      "nearby_services": [
+        {
+          "name": "SRM University AP Campus",
+          "category": "schools",
+          "type": "Higher Education University & Research Institute",
+          "distance_km": 3.5,
+          "travel_time_mins": 8,
+          "rating": 4.8,
+          "lat": 16.5320,
+          "lng": 80.5010
+        },
+        {
+          "name": "VIT-AP University",
+          "category": "schools",
+          "type": "Deemed Engineering University",
+          "distance_km": 4.2,
+          "travel_time_mins": 9,
+          "rating": 4.8,
+          "lat": 16.5410,
+          "lng": 80.4950
+        },
+        {
+          "name": "AIIMS Mangalagiri Hospital",
+          "category": "hospitals",
+          "type": "Apex National Medical Institute & Hospital",
+          "distance_km": 6.8,
+          "travel_time_mins": 14,
+          "rating": 4.9,
+          "lat": 16.4420,
+          "lng": 80.5510
+        },
+        {
+          "name": "Amaravati High-Speed Highway Transit Node",
+          "category": "metro_railways",
+          "type": "Expressway Arterial Station",
+          "distance_km": 1.0,
+          "travel_time_mins": 2,
+          "rating": 4.7,
+          "lat": 16.5180,
+          "lng": 80.5210
+        },
+        {
+          "name": "Capital Central Park & Lake",
+          "category": "shopping_parks",
+          "type": "Civic Lakefront & Botanical Park",
+          "distance_km": 1.5,
+          "travel_time_mins": 4,
+          "rating": 4.6,
+          "lat": 16.5100,
+          "lng": 80.5280
+        }
+      ]
+    }
+  ]
+}
