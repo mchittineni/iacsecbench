@@ -1,0 +1,81 @@
+{
+  "state": "telangana",
+  "last_updated": "2026-07-15",
+  "employment_hubs": [
+    {
+      "id": "ts_hub_1",
+      "name": "HITECH City & Cyber Towers Hub",
+      "district": "Hyderabad",
+      "lat": 17.4504,
+      "lng": 78.3808
+    },
+    {
+      "id": "ts_hub_2",
+      "name": "Financial District & Nanakramguda Hub",
+      "district": "Rangareddy",
+      "lat": 17.4156,
+      "lng": 78.3428
+    },
+    {
+      "id": "ts_hub_3",
+      "name": "Gachibowli Knowledge City",
+      "district": "Rangareddy",
+      "lat": 17.4401,
+      "lng": 78.3489
+    },
+    {
+      "id": "ts_hub_4",
+      "name": "Begumpet & Somajiguda Corporate Hub",
+      "district": "Hyderabad",
+      "lat": 17.4435,
+      "lng": 78.4674
+    },
+    {
+      "id": "ts_hub_5",
+      "name": "Pocharam IT SEZ & Infosys Hub",
+      "district": "Medchal-Malkajgiri",
+      "lat": 17.4688,
+      "lng": 78.6712
+    }
+  ],
+  "time_series": {
+    "quarters": [
+      "2016-Q1", "2017-Q1", "2018-Q1", "2019-Q1", "2020-Q1", 
+      "2021-Q1", "2022-Q1", "2023-Q1", "2024-Q1", "2025-Q1", "2026-Q2"
+    ],
+    "localities": [
+      {
+        "locality": "Gachibowli Financial District",
+        "district": "Rangareddy",
+        "avg_price_sqft_trajectory": [4500, 5200, 6000, 6900, 7500, 8400, 9600, 10800, 12200, 13500, 14800],
+        "cagr_5yr": 14.5,
+        "rental_yield_pct": 4.8,
+        "annual_volume": 890
+      },
+      {
+        "locality": "Madhapur Cyber Towers Zone",
+        "district": "Hyderabad",
+        "avg_price_sqft_trajectory": [4800, 5500, 6300, 7200, 7800, 8600, 9700, 10900, 12100, 13200, 14200],
+        "cagr_5yr": 12.7,
+        "rental_yield_pct": 4.6,
+        "annual_volume": 760
+      },
+      {
+        "locality": "Kokapet Neopolis Hub",
+        "district": "Rangareddy",
+        "avg_price_sqft_trajectory": [3200, 3900, 4800, 5800, 6500, 7600, 9100, 10800, 12600, 14200, 15900],
+        "cagr_5yr": 17.2,
+        "rental_yield_pct": 5.1,
+        "annual_volume": 1120
+      },
+      {
+        "locality": "Tellapur Tech Zone",
+        "district": "Rangareddy",
+        "avg_price_sqft_trajectory": [2900, 3400, 4100, 4900, 5500, 6400, 7600, 8900, 10200, 11600, 12900],
+        "cagr_5yr": 15.6,
+        "rental_yield_pct": 4.9,
+        "annual_volume": 940
+      }
+    ]
+  }
+}

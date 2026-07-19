@@ -1,0 +1,290 @@
+{
+  "version": "1.0.0",
+  "state": "telangana",
+  "updated_at": "2026-07-19",
+  "properties": [
+    {
+      "property_id": "PROP-TG-HYD-01",
+      "name": "Cyber Heights Residency",
+      "type": "Apartment",
+      "construction_year": 2012,
+      "address": "Plot 42-45, Hitec City Main Road, Gachibowli",
+      "mandal": "Serilingampally",
+      "district": "Rangareddy",
+      "state": "telangana",
+      "total_sqft": 1850,
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "rera_id": "P02400001209",
+      "lat": 17.4401,
+      "lng": 78.3489,
+      "price_summary": {
+        "initial_price_inr": 4255000,
+        "latest_price_inr": 19425000,
+        "total_appreciation_pct": 356.52,
+        "cagr_pct": 11.42,
+        "holding_period_years": 14
+      },
+      "sale_history": [
+        {
+          "year": 2012,
+          "sale_date": "2012-04-15",
+          "sale_price_inr": 4255000,
+          "price_per_sqft_inr": 2300,
+          "seller_type": "Cyber City Developers Ltd",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-HYD-2012-4412",
+          "growth_over_initial_pct": 0.0,
+          "cagr_pct": 0.0
+        },
+        {
+          "year": 2016,
+          "sale_date": "2016-08-22",
+          "sale_price_inr": 6845000,
+          "price_per_sqft_inr": 3700,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-HYD-2016-8921",
+          "growth_over_initial_pct": 60.87,
+          "cagr_pct": 12.62
+        },
+        {
+          "year": 2020,
+          "sale_date": "2020-11-10",
+          "sale_price_inr": 10545000,
+          "price_per_sqft_inr": 5700,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Institutional Realty Fund",
+          "registration_doc_no": "SRO-HYD-2020-15320",
+          "growth_over_initial_pct": 147.83,
+          "cagr_pct": 11.99
+        },
+        {
+          "year": 2024,
+          "sale_date": "2024-03-05",
+          "sale_price_inr": 16280000,
+          "price_per_sqft_inr": 8800,
+          "seller_type": "Institutional Realty Fund",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-HYD-2024-22104",
+          "growth_over_initial_pct": 282.61,
+          "cagr_pct": 11.83
+        },
+        {
+          "year": 2026,
+          "sale_date": "2026-07-01",
+          "sale_price_inr": 19425000,
+          "price_per_sqft_inr": 10500,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Current Valuation (SRO Benchmark)",
+          "registration_doc_no": "VALUATION-EST-2026",
+          "growth_over_initial_pct": 356.52,
+          "cagr_pct": 11.42
+        }
+      ],
+      "nearby_services": [
+        {
+          "name": "Oakridge International School",
+          "category": "schools",
+          "type": "K-12 IB World School",
+          "distance_km": 0.8,
+          "travel_time_mins": 3,
+          "rating": 4.8,
+          "lat": 17.4435,
+          "lng": 78.3521
+        },
+        {
+          "name": "Chirec International School",
+          "category": "schools",
+          "type": "CBSE / Cambridge School",
+          "distance_km": 1.4,
+          "travel_time_mins": 5,
+          "rating": 4.7,
+          "lat": 17.4478,
+          "lng": 78.3562
+        },
+        {
+          "name": "Continental Hospitals",
+          "category": "hospitals",
+          "type": "Multi-Specialty Super Tertiary Hospital",
+          "distance_km": 1.2,
+          "travel_time_mins": 4,
+          "rating": 4.6,
+          "lat": 17.4365,
+          "lng": 78.3412
+        },
+        {
+          "name": "AIG Hospitals",
+          "category": "hospitals",
+          "type": "Gastroenterology & Multi-Specialty Centre",
+          "distance_km": 2.8,
+          "travel_time_mins": 8,
+          "rating": 4.8,
+          "lat": 17.4491,
+          "lng": 78.3685
+        },
+        {
+          "name": "Raidurg Metro Station",
+          "category": "metro_railways",
+          "type": "Hyderabad Metro Blue Line Terminal",
+          "distance_km": 1.9,
+          "travel_time_mins": 6,
+          "rating": 4.9,
+          "lat": 17.4412,
+          "lng": 78.3641
+        },
+        {
+          "name": "Hitec City Metro Station",
+          "category": "metro_railways",
+          "type": "Hyderabad Metro Blue Line",
+          "distance_km": 2.5,
+          "travel_time_mins": 7,
+          "rating": 4.8,
+          "lat": 17.4468,
+          "lng": 78.3732
+        },
+        {
+          "name": "Lingampally Railway Station",
+          "category": "metro_railways",
+          "type": "South Central Railway Junction",
+          "distance_km": 6.2,
+          "travel_time_mins": 15,
+          "rating": 4.2,
+          "lat": 17.4831,
+          "lng": 78.3168
+        },
+        {
+          "name": "Botanical Garden Park",
+          "category": "shopping_parks",
+          "type": "Eco Urban Forest Reserve",
+          "distance_km": 1.1,
+          "travel_time_mins": 4,
+          "rating": 4.6,
+          "lat": 17.4510,
+          "lng": 78.3540
+        },
+        {
+          "name": "Inorbit Mall Hitec City",
+          "category": "shopping_parks",
+          "type": "Shopping Mall & Entertainment Hub",
+          "distance_km": 3.2,
+          "travel_time_mins": 9,
+          "rating": 4.7,
+          "lat": 17.4372,
+          "lng": 78.3789
+        }
+      ]
+    },
+    {
+      "property_id": "PROP-TG-HYD-02",
+      "name": "Jubilee Imperial Royal Villas",
+      "type": "Villa",
+      "construction_year": 2008,
+      "address": "Road No. 36, Jubilee Hills",
+      "mandal": "Shaikpet",
+      "district": "Hyderabad",
+      "state": "telangana",
+      "total_sqft": 4500,
+      "bedrooms": 5,
+      "bathrooms": 6,
+      "rera_id": "P02500000844",
+      "lat": 17.4312,
+      "lng": 78.4072,
+      "price_summary": {
+        "initial_price_inr": 18000000,
+        "latest_price_inr": 112500000,
+        "total_appreciation_pct": 525.0,
+        "cagr_pct": 10.74,
+        "holding_period_years": 18
+      },
+      "sale_history": [
+        {
+          "year": 2008,
+          "sale_date": "2008-01-10",
+          "sale_price_inr": 18000000,
+          "price_per_sqft_inr": 4000,
+          "seller_type": "Royal Heritage Builders Ltd",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-JUB-2008-1029",
+          "growth_over_initial_pct": 0.0,
+          "cagr_pct": 0.0
+        },
+        {
+          "year": 2014,
+          "sale_date": "2014-06-18",
+          "sale_price_inr": 36000000,
+          "price_per_sqft_inr": 8000,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-JUB-2014-5541",
+          "growth_over_initial_pct": 100.0,
+          "cagr_pct": 12.25
+        },
+        {
+          "year": 2019,
+          "sale_date": "2019-10-12",
+          "sale_price_inr": 67500000,
+          "price_per_sqft_inr": 15000,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-JUB-2019-12401",
+          "growth_over_initial_pct": 275.0,
+          "cagr_pct": 11.98
+        },
+        {
+          "year": 2026,
+          "sale_date": "2026-07-01",
+          "sale_price_inr": 112500000,
+          "price_per_sqft_inr": 25000,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Current Valuation (Prime Tier)",
+          "registration_doc_no": "VALUATION-EST-2026",
+          "growth_over_initial_pct": 525.0,
+          "cagr_pct": 10.74
+        }
+      ],
+      "nearby_services": [
+        {
+          "name": "Bharatiya Vidya Bhavan Public School",
+          "category": "schools",
+          "type": "Senior Secondary CBSE School",
+          "distance_km": 1.1,
+          "travel_time_mins": 4,
+          "rating": 4.8,
+          "lat": 17.4350,
+          "lng": 78.4120
+        },
+        {
+          "name": "Apollo Hospitals Jubilee Hills",
+          "category": "hospitals",
+          "type": "Super Specialty Health City",
+          "distance_km": 0.9,
+          "travel_time_mins": 3,
+          "rating": 4.9,
+          "lat": 17.4278,
+          "lng": 78.4132
+        },
+        {
+          "name": "Jubilee Hills Check Post Metro Station",
+          "category": "metro_railways",
+          "type": "Hyderabad Metro Blue Line",
+          "distance_km": 0.7,
+          "travel_time_mins": 2,
+          "rating": 4.8,
+          "lat": 17.4341,
+          "lng": 78.4101
+        },
+        {
+          "name": "KBR National Park",
+          "category": "shopping_parks",
+          "type": "Kasusu Brahmananda Reddy National Reserve",
+          "distance_km": 0.5,
+          "travel_time_mins": 2,
+          "rating": 4.9,
+          "lat": 17.4285,
+          "lng": 78.4150
+        }
+      ]
+    }
+  ]
+}
