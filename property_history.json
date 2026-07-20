@@ -261,6 +261,265 @@
           "lng": 78.344
         }
       ]
+    },
+    {
+      "property_id": "PROP-TG-HYD-04",
+      "name": "Lanco Hills Luxury Apartments",
+      "type": "Apartment",
+      "construction_year": 2005,
+      "address": "Tower 9, Lanco Hills Boulevard, Manikonda, Serilingampally",
+      "mandal": "Serilingampally",
+      "district": "Rangareddy",
+      "state": "telangana",
+      "total_sqft": 2100,
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "rera_id": "P02400003310",
+      "lat": 17.4182,
+      "lng": 78.3698,
+      "price_summary": {
+        "initial_price_inr": 3780000,
+        "latest_price_inr": 21000000,
+        "total_appreciation_pct": 455.56,
+        "cagr_pct": 8.48,
+        "holding_period_years": 21
+      },
+      "sale_history": [
+        {
+          "year": 2005,
+          "sale_date": "2005-06-18",
+          "sale_price_inr": 3780000,
+          "price_per_sqft_inr": 1800,
+          "seller_type": "Commercial Property Developer",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-HYD-2005-4421",
+          "growth_over_initial_pct": 0.0,
+          "cagr_pct": 0.0
+        },
+        {
+          "year": 2016,
+          "sale_date": "2016-11-20",
+          "sale_price_inr": 10920000,
+          "price_per_sqft_inr": 5200,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-HYD-2016-9042",
+          "growth_over_initial_pct": 188.89,
+          "cagr_pct": 10.12
+        },
+        {
+          "year": 2026,
+          "sale_date": "2026-07-01",
+          "sale_price_inr": 21000000,
+          "price_per_sqft_inr": 10000,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Current Valuation (SRO Benchmark)",
+          "registration_doc_no": "VALUATION-EST-2026",
+          "growth_over_initial_pct": 455.56,
+          "cagr_pct": 8.48
+        }
+      ],
+      "nearby_services": [
+        {
+          "name": "Delhi Public School Hyderabad",
+          "category": "schools",
+          "type": "CBSE K-12 School",
+          "distance_km": 1.6,
+          "travel_time_mins": 5,
+          "rating": 4.8,
+          "lat": 17.422,
+          "lng": 78.375
+        },
+        {
+          "name": "Sunshine Hospitals Gachibowli",
+          "category": "hospitals",
+          "type": "Multi-Specialty Hospital",
+          "distance_km": 2.1,
+          "travel_time_mins": 6,
+          "rating": 4.7,
+          "lat": 17.425,
+          "lng": 78.362
+        },
+        {
+          "name": "Khajaguda Metro Junction",
+          "category": "metro_railways",
+          "type": "Metro Station",
+          "distance_km": 1.2,
+          "travel_time_mins": 4,
+          "rating": 4.6,
+          "lat": 17.419,
+          "lng": 78.365
+        }
+      ]
+    },
+    {
+      "property_id": "PROP-TG-HYD-05",
+      "name": "My Home Jewel Residency",
+      "type": "Apartment",
+      "construction_year": 2004,
+      "address": "Block F, Madeenaguda Main Road, Chanda Nagar, Kukatpally",
+      "mandal": "Kukatpally",
+      "district": "Medchal-Malkajgiri",
+      "state": "telangana",
+      "total_sqft": 1680,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "rera_id": "P02400002204",
+      "lat": 17.4952,
+      "lng": 78.3341,
+      "price_summary": {
+        "initial_price_inr": 2520000,
+        "latest_price_inr": 14280000,
+        "total_appreciation_pct": 466.67,
+        "cagr_pct": 8.19,
+        "holding_period_years": 22
+      },
+      "sale_history": [
+        {
+          "year": 2004,
+          "sale_date": "2004-04-10",
+          "sale_price_inr": 2520000,
+          "price_per_sqft_inr": 1500,
+          "seller_type": "Commercial Property Developer",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-KUK-2004-1802",
+          "growth_over_initial_pct": 0.0,
+          "cagr_pct": 0.0
+        },
+        {
+          "year": 2015,
+          "sale_date": "2015-07-15",
+          "sale_price_inr": 7224000,
+          "price_per_sqft_inr": 4300,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-KUK-2015-6610",
+          "growth_over_initial_pct": 186.67,
+          "cagr_pct": 10.08
+        },
+        {
+          "year": 2026,
+          "sale_date": "2026-07-01",
+          "sale_price_inr": 14280000,
+          "price_per_sqft_inr": 8500,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Current Valuation (SRO Benchmark)",
+          "registration_doc_no": "VALUATION-EST-2026",
+          "growth_over_initial_pct": 466.67,
+          "cagr_pct": 8.19
+        }
+      ],
+      "nearby_services": [
+        {
+          "name": "Genesis International School",
+          "category": "schools",
+          "type": "CBSE School",
+          "distance_km": 1.0,
+          "travel_time_mins": 3,
+          "rating": 4.6,
+          "lat": 17.498,
+          "lng": 78.337
+        },
+        {
+          "name": "Medicover Hospitals Chandanagar",
+          "category": "hospitals",
+          "type": "Multi-Specialty Hospital",
+          "distance_km": 1.4,
+          "travel_time_mins": 4,
+          "rating": 4.7,
+          "lat": 17.492,
+          "lng": 78.331
+        },
+        {
+          "name": "Miyapur Metro Station",
+          "category": "metro_railways",
+          "type": "Hyderabad Metro Red Line Terminal",
+          "distance_km": 2.5,
+          "travel_time_mins": 7,
+          "rating": 4.8,
+          "lat": 17.496,
+          "lng": 78.358
+        }
+      ]
+    },
+    {
+      "property_id": "PROP-TG-HYD-06",
+      "name": "Rainbow Vistas Rock Garden",
+      "type": "Apartment",
+      "construction_year": 2003,
+      "address": "Phase 2, Moosapet Green Hills, Kukatpally Housing Board",
+      "mandal": "Kukatpally",
+      "district": "Medchal-Malkajgiri",
+      "state": "telangana",
+      "total_sqft": 1750,
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "rera_id": "P02400004189",
+      "lat": 17.4721,
+      "lng": 78.4215,
+      "price_summary": {
+        "initial_price_inr": 2800000,
+        "latest_price_inr": 15400000,
+        "total_appreciation_pct": 450.0,
+        "cagr_pct": 7.69,
+        "holding_period_years": 23
+      },
+      "sale_history": [
+        {
+          "year": 2003,
+          "sale_date": "2003-03-24",
+          "sale_price_inr": 2800000,
+          "price_per_sqft_inr": 1600,
+          "seller_type": "Commercial Property Developer",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-KUK-2003-0941",
+          "growth_over_initial_pct": 0.0,
+          "cagr_pct": 0.0
+        },
+        {
+          "year": 2026,
+          "sale_date": "2026-07-01",
+          "sale_price_inr": 15400000,
+          "price_per_sqft_inr": 8800,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Current Valuation (SRO Benchmark)",
+          "registration_doc_no": "VALUATION-EST-2026",
+          "growth_over_initial_pct": 450.0,
+          "cagr_pct": 7.69
+        }
+      ],
+      "nearby_services": [
+        {
+          "name": "DAV Public School KPHB",
+          "category": "schools",
+          "type": "Senior Secondary School",
+          "distance_km": 0.8,
+          "travel_time_mins": 3,
+          "rating": 4.7,
+          "lat": 17.475,
+          "lng": 78.424
+        },
+        {
+          "name": "KIMS Hospital Kondapur / KPHB",
+          "category": "hospitals",
+          "type": "Super Specialty Hospital",
+          "distance_km": 1.9,
+          "travel_time_mins": 6,
+          "rating": 4.8,
+          "lat": 17.469,
+          "lng": 78.418
+        },
+        {
+          "name": "KPHB Colony Metro Station",
+          "category": "metro_railways",
+          "type": "Hyderabad Metro Station",
+          "distance_km": 1.2,
+          "travel_time_mins": 4,
+          "rating": 4.8,
+          "lat": 17.474,
+          "lng": 78.412
+        }
+      ]
     }
   ]
 }
