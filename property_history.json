@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "state": "telangana",
-  "updated_at": "2026-07-19",
+  "updated_at": "2026-07-20",
   "properties": [
     {
       "property_id": "PROP-TG-HYD-01",
@@ -169,6 +169,96 @@
           "rating": 4.7,
           "lat": 17.433,
           "lng": 78.41
+        }
+      ]
+    },
+    {
+      "property_id": "PROP-TG-HYD-03",
+      "name": "Financial District Tech Park Suite",
+      "type": "Commercial Space",
+      "construction_year": 2001,
+      "address": "Tower 2, Nanakramguda Financial District, Serilingampally",
+      "mandal": "Serilingampally",
+      "district": "Rangareddy",
+      "state": "telangana",
+      "total_sqft": 3000,
+      "bedrooms": 0,
+      "bathrooms": 3,
+      "rera_id": "P02400009941",
+      "lat": 17.4156,
+      "lng": 78.3428,
+      "price_summary": {
+        "initial_price_inr": 4500000,
+        "latest_price_inr": 44400000,
+        "total_appreciation_pct": 886.67,
+        "cagr_pct": 9.61,
+        "holding_period_years": 25
+      },
+      "sale_history": [
+        {
+          "year": 2001,
+          "sale_date": "2001-05-22",
+          "sale_price_inr": 4500000,
+          "price_per_sqft_inr": 1500,
+          "seller_type": "Commercial Property Developer",
+          "buyer_type": "Institutional Realty Fund",
+          "registration_doc_no": "SRO-FD-2001-0301",
+          "growth_over_initial_pct": 0.0,
+          "cagr_pct": 0.0
+        },
+        {
+          "year": 2015,
+          "sale_date": "2015-10-14",
+          "sale_price_inr": 20700000,
+          "price_per_sqft_inr": 6900,
+          "seller_type": "Institutional Realty Fund",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-FD-2015-7720",
+          "growth_over_initial_pct": 360.0,
+          "cagr_pct": 11.53
+        },
+        {
+          "year": 2026,
+          "sale_date": "2026-07-01",
+          "sale_price_inr": 44400000,
+          "price_per_sqft_inr": 14800,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Current Valuation (SRO Benchmark)",
+          "registration_doc_no": "VALUATION-EST-2026",
+          "growth_over_initial_pct": 886.67,
+          "cagr_pct": 9.61
+        }
+      ],
+      "nearby_services": [
+        {
+          "name": "Keystone International School",
+          "category": "schools",
+          "type": "International School",
+          "distance_km": 1.1,
+          "travel_time_mins": 4,
+          "rating": 4.8,
+          "lat": 17.418,
+          "lng": 78.345
+        },
+        {
+          "name": "Star Hospitals Nanakramguda",
+          "category": "hospitals",
+          "type": "Super Specialty Hospital",
+          "distance_km": 0.7,
+          "travel_time_mins": 2,
+          "rating": 4.9,
+          "lat": 17.414,
+          "lng": 78.341
+        },
+        {
+          "name": "Financial District Metro Line",
+          "category": "metro_railways",
+          "type": "Metro Station",
+          "distance_km": 0.8,
+          "travel_time_mins": 3,
+          "rating": 4.8,
+          "lat": 17.416,
+          "lng": 78.344
         }
       ]
     }
