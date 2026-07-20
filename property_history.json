@@ -1,13 +1,13 @@
 {
   "version": "1.0.0",
   "state": "andhra_pradesh",
-  "updated_at": "2026-07-19",
+  "updated_at": "2026-07-20",
   "properties": [
     {
       "property_id": "PROP-AP-VSKP-01",
       "name": "Amaravati Skyline Towers",
       "type": "Apartment",
-      "construction_year": 2004,
+      "construction_year": 2001,
       "address": "Door 48-14-3, MVP Colony Sector 4, Visakhapatnam",
       "mandal": "Visakhapatnam Urban",
       "district": "Visakhapatnam",
@@ -19,34 +19,34 @@
       "lat": 17.7423,
       "lng": 83.3312,
       "price_summary": {
-        "initial_price_inr": 2145000,
+        "initial_price_inr": 1815000,
         "latest_price_inr": 9570000,
-        "total_appreciation_pct": 346.15,
-        "cagr_pct": 7.03,
-        "holding_period_years": 22
+        "total_appreciation_pct": 427.27,
+        "cagr_pct": 6.87,
+        "holding_period_years": 25
       },
       "sale_history": [
         {
-          "year": 2004,
-          "sale_date": "2004-03-12",
-          "sale_price_inr": 2145000,
-          "price_per_sqft_inr": 1300,
+          "year": 2001,
+          "sale_date": "2001-03-12",
+          "sale_price_inr": 1815000,
+          "price_per_sqft_inr": 1100,
           "seller_type": "Commercial Property Developer",
           "buyer_type": "Private Individual Owner",
-          "registration_doc_no": "SRO-VSKP-2004-1042",
+          "registration_doc_no": "SRO-VSKP-2001-1042",
           "growth_over_initial_pct": 0.0,
           "cagr_pct": 0.0
         },
         {
-          "year": 2015,
-          "sale_date": "2015-08-20",
-          "sale_price_inr": 5115000,
-          "price_per_sqft_inr": 3100,
+          "year": 2013,
+          "sale_date": "2013-08-20",
+          "sale_price_inr": 4620000,
+          "price_per_sqft_inr": 2800,
           "seller_type": "Private Individual Owner",
           "buyer_type": "Private Individual Owner",
-          "registration_doc_no": "SRO-VSKP-2015-6812",
-          "growth_over_initial_pct": 138.46,
-          "cagr_pct": 8.24
+          "registration_doc_no": "SRO-VSKP-2013-6812",
+          "growth_over_initial_pct": 154.55,
+          "cagr_pct": 8.12
         },
         {
           "year": 2026,
@@ -56,8 +56,8 @@
           "seller_type": "Private Individual Owner",
           "buyer_type": "Current Valuation (SRO Benchmark)",
           "registration_doc_no": "VALUATION-EST-2026",
-          "growth_over_initial_pct": 346.15,
-          "cagr_pct": 7.03
+          "growth_over_initial_pct": 427.27,
+          "cagr_pct": 6.87
         }
       ],
       "nearby_services": [
@@ -169,6 +169,96 @@
           "rating": 4.9,
           "lat": 17.737,
           "lng": 83.344
+        }
+      ]
+    },
+    {
+      "property_id": "PROP-AP-VJA-01",
+      "name": "Benz Circle Commercial Hub",
+      "type": "Commercial Space",
+      "construction_year": 2001,
+      "address": "Plot 5, M.G. Road, Benz Circle, Vijayawada",
+      "mandal": "Vijayawada East",
+      "district": "NTR Vijayawada",
+      "state": "andhra_pradesh",
+      "total_sqft": 2400,
+      "bedrooms": 0,
+      "bathrooms": 2,
+      "rera_id": "P03290009102",
+      "lat": 16.5062,
+      "lng": 80.648,
+      "price_summary": {
+        "initial_price_inr": 3600000,
+        "latest_price_inr": 23520000,
+        "total_appreciation_pct": 553.33,
+        "cagr_pct": 7.82,
+        "holding_period_years": 25
+      },
+      "sale_history": [
+        {
+          "year": 2001,
+          "sale_date": "2001-02-10",
+          "sale_price_inr": 3600000,
+          "price_per_sqft_inr": 1500,
+          "seller_type": "Commercial Property Developer",
+          "buyer_type": "Institutional Realty Fund",
+          "registration_doc_no": "SRO-VJA-2001-0120",
+          "growth_over_initial_pct": 0.0,
+          "cagr_pct": 0.0
+        },
+        {
+          "year": 2014,
+          "sale_date": "2014-11-05",
+          "sale_price_inr": 11520000,
+          "price_per_sqft_inr": 4800,
+          "seller_type": "Institutional Realty Fund",
+          "buyer_type": "Private Individual Owner",
+          "registration_doc_no": "SRO-VJA-2014-5510",
+          "growth_over_initial_pct": 220.0,
+          "cagr_pct": 9.35
+        },
+        {
+          "year": 2026,
+          "sale_date": "2026-07-01",
+          "sale_price_inr": 23520000,
+          "price_per_sqft_inr": 9800,
+          "seller_type": "Private Individual Owner",
+          "buyer_type": "Current Valuation (SRO Benchmark)",
+          "registration_doc_no": "VALUATION-EST-2026",
+          "growth_over_initial_pct": 553.33,
+          "cagr_pct": 7.82
+        }
+      ],
+      "nearby_services": [
+        {
+          "name": "Atkinson High School",
+          "category": "schools",
+          "type": "Senior Secondary School",
+          "distance_km": 0.9,
+          "travel_time_mins": 3,
+          "rating": 4.7,
+          "lat": 16.508,
+          "lng": 80.65
+        },
+        {
+          "name": "Ramesh Hospitals Benz Circle",
+          "category": "hospitals",
+          "type": "Super Specialty Hospital",
+          "distance_km": 0.6,
+          "travel_time_mins": 2,
+          "rating": 4.9,
+          "lat": 16.505,
+          "lng": 80.646
+        },
+        {
+          "name": "Vijayawada Bus Terminal",
+          "category": "metro_railways",
+          "type": "Central Transit Hub",
+          "distance_km": 3.2,
+          "travel_time_mins": 10,
+          "rating": 4.6,
+          "lat": 16.512,
+          "lng": 80.621
         }
       ]
     }
