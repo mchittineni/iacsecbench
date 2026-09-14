@@ -29,6 +29,13 @@ Releases are published automatically by [`release-please.yml`](.github/workflows
 - **`MINOR` (x.Y.0)** — New corpus cases, new canonical controls, or new rule mappings (`benchmark/**`, `evaluation/control_map.json`).
 - **`MAJOR` (X.0.0)** — Changes to what a reported number means: the control taxonomy, the matching criteria, or the admissibility gate.
 
+## [2.1.0](https://github.com/mchittineni/iacsecbench/compare/v2.0.0...v2.1.0) (2026-09-14)
+
+
+### Features
+
+* add optional paired transition verification ([#88](https://github.com/mchittineni/iacsecbench/issues/88)) ([4cc8de2](https://github.com/mchittineni/iacsecbench/commit/4cc8de29fde4e0d47c082a66d1cb05a62c9f6ad5))
+
 ## [2.0.0](https://github.com/mchittineni/iacsecbench/compare/v1.3.1...v2.0.0) (2026-08-20)
 
 
