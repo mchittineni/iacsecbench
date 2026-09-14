@@ -19,6 +19,8 @@ evaluation/
 ├── stats.py               # Statistical Significance & Confidence Interval Calculator
 ├── normalize.py           # Finding Normalization Engine & Canonical Schema Mapper
 ├── control_map.json       # Mapping between CIS AWS controls & benchmark test cases
+├── paired_verification.py # Optional vulnerable-to-compliant transition verification
+├── paired_verification_map.json # Reviewed exact-property mappings
 └── tests/                 # Unit Tests for Evaluation Protocol & Baseline Tools
 ```
 
@@ -108,6 +110,19 @@ python -m evaluation.external            # measure; writes results + two tables
 Output is byte-reproducible: scan duration is neither timed nor recorded, because
 latency describes the measuring host rather than the subset, and every other field
 is deterministic.
+
+### 5. Optional paired transition verification
+
+`paired_verification.py` evaluates a different question from scanner scoring. It
+uses the internal corpus metadata to bind each vulnerable and compliant member to
+one canonical control and expected resource, then invokes an external IaC-Guard-V
+executable for exact mappings reviewed in `paired_verification_map.json`.
+
+This capability is optional. It does not contribute to scanner scores, confusion
+matrices, confidence intervals, tables, or leaderboard rankings. Results are
+written to a separate `results/paired_verification.json` artifact. See
+[`docs/framework/paired-verification.md`](../docs/framework/paired-verification.md)
+for the status model, dependency policy, and commands.
 
 ---
 

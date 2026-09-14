@@ -1,0 +1,180 @@
+{
+  "schema_version": "iacsecbench-paired-verification-map-v1",
+  "verifier": {
+    "name": "iac-guard-v",
+    "version": "0.1.0b1",
+    "scanner": "checkov",
+    "scanner_version": "3.3.0"
+  },
+  "controls": {
+    "CMP_MUTABLE_IMAGE_TAGS": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_51"],
+      "rationale": "The pair changes image_tag_mutability from MUTABLE to IMMUTABLE on the same repository. CKV_AWS_51 checks that exact property."
+    },
+    "CMP_NO_IMAGE_SCANNING": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_163"],
+      "rationale": "The pair changes scan_on_push from false to true on the same repository. CKV_AWS_163 checks that exact property."
+    },
+    "CMP_NO_IMDSV2": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_79"],
+      "rationale": "The pair changes http_tokens from optional to required on the same instance. CKV_AWS_79 checks IMDSv2 enforcement."
+    },
+    "ENC_NO_KEY_ROTATION": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_7"],
+      "rationale": "The pair changes enable_key_rotation from false to true on the same KMS key. CKV_AWS_7 checks that exact property."
+    },
+    "ENC_UNENCRYPTED_DATABASE": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_16"],
+      "rationale": "The pair changes storage_encrypted from false to true on the same RDS instance. CKV_AWS_16 checks that exact property."
+    },
+    "ENC_UNENCRYPTED_VOLUME": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_3"],
+      "rationale": "The pair changes encrypted from false to true on the same EBS volume. CKV_AWS_3 checks that exact property."
+    },
+    "IAM_WILDCARD_ACTION": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_62"],
+      "rationale": "The pair replaces Action and Resource wildcards with a specific action and ARN. CKV_AWS_62 checks full administrative wildcard privileges on the same policy."
+    },
+    "IAM_WILDCARD_TRUST": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": false,
+      "property_ids": [],
+      "reason_code": "NO_PUBLIC_EXACT_PROPERTY",
+      "rationale": "The pair changes a wildcard trust principal, but the reviewed verifier release has no exact public IAM trust-policy predicate for this case."
+    },
+    "K8S_NO_RESOURCE_LIMITS": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": [
+        "CHECKOV:3.3.0:CKV_K8S_11",
+        "CHECKOV:3.3.0:CKV_K8S_12"
+      ],
+      "rationale": "The compliant member adds both CPU and memory limits to the same pod. The two selected rules jointly match the benchmark control."
+    },
+    "K8S_PRIVILEGED_CONTAINER": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_K8S_16"],
+      "rationale": "The pair changes privileged from true to false on the same Terraform Kubernetes pod. CKV_K8S_16 checks that exact property."
+    },
+    "K8S_ROOT_CONTAINER": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_K8S_6"],
+      "rationale": "The pair changes RunAsAny to MustRunAsNonRoot on the same pod security policy. CKV_K8S_6 checks root-container admission."
+    },
+    "MON_NO_LOG_ENCRYPTION": {
+      "semantic_mapping": "BOUNDARY_EQUIVALENT",
+      "supported": false,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_35"],
+      "reason_code": "PROPERTY_BOUNDARY_NOT_EXACT",
+      "rationale": "The case and selected rule concern CloudTrail KMS encryption, while the canonical control title says log group. This boundary mismatch is excluded."
+    },
+    "MON_NO_TRAIL_VALIDATION": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_36"],
+      "rationale": "The pair changes enable_log_file_validation from false to true on the same trail. CKV_AWS_36 checks that exact property."
+    },
+    "MON_TRAIL_NOT_MULTIREGION": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_67"],
+      "rationale": "The pair changes is_multi_region_trail from false to true on the same trail. CKV_AWS_67 checks that exact property."
+    },
+    "NET_ALB_INVALID_HEADERS": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_131"],
+      "rationale": "The pair changes drop_invalid_header_fields from false to true on the same load balancer. CKV_AWS_131 checks that exact property."
+    },
+    "NET_NO_FLOW_LOGS": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV2_AWS_11"],
+      "rationale": "The selected relationship rule checks that the same VPC is connected to an aws_flow_log, which the compliant member adds."
+    },
+    "NET_NO_HTTPS_REDIRECT": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_34"],
+      "rationale": "The pair changes viewer_protocol_policy from allow-all to redirect-to-https on the same distribution. CKV_AWS_34 checks HTTPS enforcement."
+    },
+    "NET_PUBLIC_INSTANCE": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_88"],
+      "rationale": "The pair changes associate_public_ip_address on the same instance. CKV_AWS_88 checks that exact property."
+    },
+    "NET_UNRESTRICTED_INGRESS": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": false,
+      "property_ids": [],
+      "reason_code": "NO_PUBLIC_EXACT_PROPERTY",
+      "rationale": "The case uses a dynamic ingress block driven by a local value. The reviewed verifier release has no exact native CIDR and port property for this case."
+    },
+    "SEC_HARDCODED_CREDENTIAL": {
+      "semantic_mapping": "UNKNOWN",
+      "supported": false,
+      "property_ids": [],
+      "reason_code": "PROPERTY_MAPPING_UNKNOWN",
+      "rationale": "Reference resolution to Secrets Manager would not prove the same absence-of-hardcoded-secret predicate, so no exact mapping is asserted."
+    },
+    "SRV_NO_API_AUTHORIZATION": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_59"],
+      "rationale": "The pair changes authorization from NONE to AWS_IAM on the same API method. CKV_AWS_59 checks that exact condition."
+    },
+    "SRV_NO_FUNCTION_ENCRYPTION": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_173"],
+      "rationale": "The compliant member adds kms_key_arn to the same Lambda function. CKV_AWS_173 checks customer-managed environment encryption."
+    },
+    "STO_NO_ACCESS_LOGGING": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_18"],
+      "rationale": "The selected relationship rule checks whether the same bucket has an access-logging configuration, which the compliant member adds."
+    },
+    "STO_PUBLIC_BUCKET": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": [
+        "CHECKOV:3.3.0:CKV_AWS_53",
+        "CHECKOV:3.3.0:CKV_AWS_54",
+        "CHECKOV:3.3.0:CKV_AWS_55",
+        "CHECKOV:3.3.0:CKV_AWS_56"
+      ],
+      "rationale": "The pair flips the four public-access-block attributes checked by the selected rules on the same exact resource address."
+    },
+    "STO_PUBLIC_DATABASE": {
+      "semantic_mapping": "EXACT_SAME_PROPERTY",
+      "supported": true,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_17"],
+      "rationale": "The pair changes publicly_accessible from true to false on the same RDS instance. CKV_AWS_17 checks that exact property."
+    },
+    "STO_UNENCRYPTED_BUCKET": {
+      "semantic_mapping": "BOUNDARY_EQUIVALENT",
+      "supported": false,
+      "property_ids": ["CHECKOV:3.3.0:CKV_AWS_145"],
+      "reason_code": "PROPERTY_BOUNDARY_NOT_EXACT",
+      "rationale": "The pair changes the encryption-configuration resource, while CKV_AWS_145 is attributed to the related bucket. The target boundary is not exact."
+    }
+  }
+}
