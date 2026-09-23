@@ -62,8 +62,7 @@ def flatten(path: pathlib.Path) -> str:
     body = body.replace(FIGURE_PREFIX, "\\paperfigure{")
     path.write_text(f"{MARKER}\n{preamble}{body}", encoding="utf-8")
     return (
-        f"{path}: \\resulttable redirected to the bundle root, "
-        f"{figures} figure path(s) flattened"
+        f"{path}: \\resulttable redirected to the bundle root, {figures} figure path(s) flattened"
     )
 
 
