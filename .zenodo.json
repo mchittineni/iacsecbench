@@ -1,0 +1,32 @@
+{
+  "title": "IaCSecBench: A Finding-Normalization Methodology and Reproducible Harness for Evaluating Infrastructure-as-Code Security Validation",
+  "description": "Replication package and benchmark framework for evaluating Infrastructure-as-Code (IaC) security validation tools across multiple abstraction levels. Includes canonical control taxonomy, mechanically admitted test corpus (56 cases), finding normalization engine, exact statistical testing suite, and raw scanner telemetry.",
+  "creators": [
+    {
+      "name": "Chittineni, Manideep",
+      "orcid": "0009-0003-9709-5842"
+    }
+  ],
+  "access_right": "open",
+  "license": "MIT",
+  "upload_type": "software",
+  "publication_date": "2026-07-28",
+  "keywords": [
+    "Infrastructure as Code",
+    "Security Validation",
+    "Benchmarking Methodology",
+    "Static Analysis",
+    "Policy as Code",
+    "Cloud Security",
+    "Terraform",
+    "Empirical Software Engineering",
+    "Reproducibility"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/mchittineni/iacsecbench",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

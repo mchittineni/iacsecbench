@@ -4,17 +4,34 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "iacsecbench"
-version = "1.0.0"
+version = "2.1.0" # x-release-please-version
 description = "IaCSecBench: a reproducible benchmark for Infrastructure-as-Code security scanners"
-authors = [{ name = "IaCSecBench" }]
+authors = [{ name = "Manideep Chittineni", email = "manideep.chittineni@hotmail.com" }]
+readme = "README.md"
 requires-python = ">=3.11"
 license = { file = "LICENSE" }
+keywords = [
+    "infrastructure-as-code",
+    "cloud-security",
+    "benchmark",
+    "static-analysis",
+    "policy-as-code",
+    "terraform",
+    "reproducibility",
+]
 classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Security",
     "Intended Audience :: Science/Research",
 ]
+
+[project.urls]
+Repository = "https://github.com/mchittineni/iacsecbench"
+Documentation = "https://mchittineni.github.io/iacsecbench/"
+DOI = "https://doi.org/10.5281/zenodo.21645016"
 # Deliberately empty. Every module under evaluation/, experiments/, benchmark/,
 # scripts/ and security_framework/ imports only the standard library; the tools
 # under comparison are invoked as subprocesses and pinned by
