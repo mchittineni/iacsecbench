@@ -28,10 +28,6 @@ classifiers = [
     "Intended Audience :: Science/Research",
 ]
 
-[project.urls]
-Repository = "https://github.com/mchittineni/iacsecbench"
-Documentation = "https://mchittineni.github.io/iacsecbench/"
-DOI = "https://doi.org/10.5281/zenodo.21645016"
 # Deliberately empty. Every module under evaluation/, experiments/, benchmark/,
 # scripts/ and security_framework/ imports only the standard library; the tools
 # under comparison are invoked as subprocesses and pinned by
@@ -40,6 +36,11 @@ DOI = "https://doi.org/10.5281/zenodo.21645016"
 # application that has moved to its own repository, and nothing in this one
 # imported them.
 dependencies = []
+
+[project.urls]
+Repository = "https://github.com/mchittineni/iacsecbench"
+Documentation = "https://mchittineni.github.io/iacsecbench/"
+DOI = "https://doi.org/10.5281/zenodo.21645016"
 
 [project.optional-dependencies]
 # The gates, and nothing else: ci.yml runs ruff, flake8, bandit and pytest, and
