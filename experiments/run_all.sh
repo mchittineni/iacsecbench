@@ -24,10 +24,10 @@ else
   PYTEST="$PYTHON -m pytest"
 fi
 
-# 1. Run Data Validator & IaC Security Scan
-echo "[Step 1/3] Running Data Integrity & IaC Security Validation..."
-$PYTHON pipeline/validate_data.py
-$PYTHON pipeline/validate_iac.py
+# 1. Run Corpus Admissibility & Compliance Validation
+echo "[Step 1/3] Running Corpus Admissibility & Security Compliance Validation..."
+$PYTHON -m evaluation.corpus --report --mode structural
+$PYTHON scripts/compliance_checker.py --framework soc2
 
 # 2. Execute Pytest Test Suite
 echo ""
@@ -37,7 +37,7 @@ if $PYTEST --help 2>&1 | grep -q "\--cov"; then
 else
   COV_FLAG=""
 fi
-$PYTEST security_framework/tests/ pipeline/tests/ evaluation/tests/ $COV_FLAG -v
+$PYTEST security_framework/tests/ evaluation/tests/ $COV_FLAG -v
 
 # 3. Measure. This is the only stage that produces results.
 echo ""

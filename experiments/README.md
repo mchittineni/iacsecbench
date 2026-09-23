@@ -25,7 +25,7 @@ experiments/
 
 Three stages, none of which fabricates anything:
 
-1. **Data Integrity & IaC Security Validation** — `validate_data.py` and `validate_iac.py`.
+1. **Corpus Admissibility & Compliance Validation** — `python -m evaluation.corpus --report --mode structural` and `scripts/compliance_checker.py --framework soc2`.
 2. **Pytest Verification** — the unit test suite. No `IACSECBENCH_ALLOW_SYNTHETIC` is
    exported: tests that exercise a fabricating stage opt in individually, and one
    asserts those stages refuse without it.
