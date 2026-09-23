@@ -29,6 +29,7 @@ cd "$(dirname "$0")/.."
 
 if [ -x ".venv/bin/python" ]; then
   PYTHON=".venv/bin/python"
+  export PATH="$PWD/.venv/bin:$PATH"
 else
   PYTHON="$(command -v python3)"
 fi
