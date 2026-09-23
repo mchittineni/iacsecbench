@@ -8,7 +8,6 @@
     }
   ],
   "access_right": "open",
-  "license": "MIT",
   "upload_type": "software",
   "keywords": [
     "Infrastructure as Code",
@@ -20,12 +19,5 @@
     "Terraform",
     "Empirical Software Engineering",
     "Reproducibility"
-  ],
-  "related_identifiers": [
-    {
-      "identifier": "https://github.com/mchittineni/iacsecbench",
-      "relation": "isSupplementTo",
-      "scheme": "url"
-    }
   ]
 }
