@@ -8,27 +8,35 @@ paper. **Target venue: Empirical Software Engineering (Springer).**
 | Path                        | Role                                                                                          |
 | --------------------------- | --------------------------------------------------------------------------------------------- |
 | `iacsecbench.tex`           | The manuscript.                                                                               |
-| `refs.bib`                  | Bibliography, 52 entries. Every DOI resolves in Crossref or DataCite; none was typed by hand. |
+| `refs.bib`                  | Bibliography, 53 entries. Every DOI resolves in Crossref or DataCite; none was typed by hand. |
 | `Makefile`                  | Build automation. Prefers `tectonic`, falls back to `pdflatex` + `bibtex`.                    |
 | `figures/`                  | Two generated diagrams plus their sources. See `figures/README.md`.                           |
-| `flatten_for_submission.py` | Rewrites `\resulttable` in the bundle copy so tables resolve locally. Invoked by `make dist`. |
+| `flatten_for_submission.py` | Rewrites table and figure paths in the bundle copy so everything resolves from one flat directory. Invoked by `make dist`. |
 
-**No result table lives here.** All eight are generated into `results/tables/` by
+**No result table lives here.** All ten are generated into `results/tables/` by
 `evaluation/analyze.py` and `evaluation/corpus.py`, and pulled in with
 `\resulttable`. `make` refuses to typeset if any is missing, so the manuscript
 cannot contain a hand-written number.
 
 ## ⚠️ The class file you must fetch before submitting
 
-EMSE requires Springer's **`svjour3`** class. Springer distributes it only in its
-own template archive: it is **not on CTAN** and not in any TeX distribution's
-package set, so no build can fetch it automatically.
+EMSE's guidelines offer Springer's **`svjour3`** macro package
+([direct zip](https://media.springer.com/full/springer-instructions-for-authors-assets/zip/468198_LaTeX_DL_468198_01072021.zip))
+and also recommend the newer Springer Nature LaTeX template. This manuscript
+targets `svjour3`. Springer distributes it only in its own template archive: it is
+**not on CTAN** and not in any TeX distribution's package set, so no build can
+fetch it automatically.
 
+```bash
+# once per checkout, before `make dist`
+curl -sSLo /tmp/svjour3.zip \
+  https://media.springer.com/full/springer-instructions-for-authors-assets/zip/468198_LaTeX_DL_468198_01072021.zip
+unzip -j /tmp/svjour3.zip '*/svjour3.cls' '*/svglov3.clo' '*/spbasic.bst' -d .
 ```
-# once, before submission
-#   1. download the LaTeX template from the EMSE submission-guidelines page
-#   2. place svjour3.cls, svglov3.clo and spbasic.bst in this directory
-```
+
+The three files are "(c) Springer" with no redistribution grant, so they are
+gitignored rather than committed under this repository's MIT licence. `make dist`
+copies them into the bundle, which is what Springer asks for.
 
 The manuscript detects them and switches automatically:
 
@@ -64,35 +72,38 @@ make clean    # remove intermediates
 under natbib author–year), ampersands loose in prose, Markdown bold left in the
 source, citations absent from `refs.bib`, and `refs.bib` entries never cited.
 
-**Three `TODO(author)` markers are open and block submission**, all one fact: the
-identity of the large language model used as the second rater in the blind
-relabelling pass. Springer requires methodological AI use to be disclosed in the
-methods, and an unnamed automated rater is not reproducible. The disclosure
-paragraph is written and sits in Section 4.3; it draws the two missing values from
-`\ratermodel` and `\rateraccess`, defined together in the preamble, which render as
-visible placeholders in the PDF until filled. Paste the verbatim prompt into
-[`benchmark/labelling/rater_prompt.txt`](../benchmark/labelling/rater_prompt.txt),
-which the manuscript cites by path, and record the same two values under `method`
-in `independent_relabelling.json`.
+No `TODO(author)` markers remain. The AI-use declaration names the assistant
+products (Claude Code and Gemini); their model versions and parameters were not
+recorded, and the manuscript says so. The second labeller in the consistency audit
+(Section 4.3) was a large language model whose identity, parameters and
+instruction were not recorded. The manuscript says so in the methods, the threats
+to validity and the AI-use declaration, and treats the resulting κ as an
+observation: it can be recomputed from the recorded labels, but the labelling
+cannot be repeated. AI coding assistance in building the harness, policies and
+cases is disclosed in the methods (Section 4.5) and the declarations. Do not fill these in from memory: a
+reconstructed disclosure is worse than a stated omission.
 
 ## ✅ EMSE format compliance
 
 Checked against Springer's [EMSE submission
 guidelines](https://link.springer.com/journal/10664/submission-guidelines):
 
-| Requirement                                            | Status                                        |
-| ------------------------------------------------------ | --------------------------------------------- |
-| Abstract 150–250 words                                 | 249, structured (Context…Conclusion)          |
-| 4–6 keywords                                           | 6                                             |
-| Single-blind review                                    | no anonymisation needed; author details stay  |
-| Statements and Declarations (Springer's exact heading) | present, all seven sub-statements             |
-| Affiliation as institution, city, country              | **open** — currently a job title, no city     |
-| ORCID                                                  | **absent** (recommended, not mandatory)       |
-| `svjour3` class files                                  | **absent** — fetch before `make dist`         |
-| DOIs as full links in references                       | 43 of 52; the other 9 are books and standards |
+| Requirement                                            | Status                                            |
+| ------------------------------------------------------ | ------------------------------------------------- |
+| Abstract 150–250 words                                 | 229 words, structured (Context…Conclusion)        |
+| 4–6 keywords                                           | 6                                                 |
+| Single-blind review                                    | no anonymisation needed; author details stay      |
+| Statements and Declarations (Springer's exact heading) | present, all seven sub-statements                 |
+| Affiliation as institution, city, country              | present (London, United Kingdom)                  |
+| ORCID                                                  | present (`0009-0003-9709-5842`)                   |
+| `svjour3` class files                                  | fetched locally (gitignored), shipped in bundle   |
+| Running head                                           | `\titlerunning` and `\authorrunning` set          |
+| DOIs as full links in references                       | 43 of 53, rendered as https://doi.org links; the rest are books and standards |
+| LaTeX source without subfolders                        | `make dist` emits a flat bundle and fails if not  |
+| Data availability statement                            | in Statements and Declarations                    |
 
-The abstract is 1 word under the ceiling. **Re-run the count after any edit to
-it** — an added clause is a format violation, not a style choice.
+The abstract is 229 words. **Re-run `make check` after any edit to it**: the ceiling
+is 250, and an added clause can cross it.
 
 ## 📦 Submission bundle
 
@@ -105,9 +116,18 @@ The working tree keeps result tables in `../results/tables/` so the generator ow
 them. That path does not survive submission: publishers unpack the source into a
 single directory, where `\input{../results/tables/...}` resolves to nothing and the
 build fails once per table. `make dist` flattens the tables and figures into
-`dist/`, redirects `\resulttable` at the copy, copies Springer's class files if
-present, **compiles the bundle standalone to prove it builds**, and only then tars
-it. `dist/` and the tarball are gitignored; they are pure derived output.
+`dist/`, rewrites the table and figure paths in the copy, copies Springer's class
+files if present, **compiles the bundle standalone to prove it builds**, and only
+then tars it. `dist/` and the tarball are gitignored; they are pure derived output.
+
+The bundle is **flat**. EMSE's guidelines say: "Please do not use subfolders for
+your LaTeX submission, e.g. for figures or bibliographic files." Tables and
+figures therefore sit beside `iacsecbench.tex`, and `make dist` fails if `dist/`
+contains a directory or the flattened source still references a path with a `/`.
+The tarball holds sources only (`.tex`, `.bib`, `.bbl`, figure PDFs and any
+Springer class files). The `.bbl` is included in case Springer's system does not
+run BibTeX. Intermediates and the compiled PDF stay in `dist/`; upload the PDF
+separately if the submission system asks for one.
 
 ## 🖼️ Figures
 
@@ -146,9 +166,9 @@ describe the measuring host and CI's host is not the one the paper reports; add
   `/` without inserting a hyphen, and needs no `_` escaping. It is **fragile**:
   inside a `\caption` it fails with "`\url` used in a moving argument", so use
   `\texttt` there.
-- **Em-dashes are not used in the prose.** A previous revision deleted 24 of them
+- **Em-dashes are rare and spaced (` --- `).** A previous revision deleted 24 of them
   without restructuring the surrounding sentences, leaving 24 ungrammatical
-  sentences including one in the abstract. Where a parenthetical is needed, use
-  commas, parentheses, or a sentence break.
+  sentences including one in the abstract. Prefer commas, parentheses or a sentence
+  break; where a dash stays, rewrite the sentence around it rather than delete it.
 - **A missing figure prints a visible placeholder box** rather than failing the
   build, so an incomplete figure set cannot pass silently as finished work.

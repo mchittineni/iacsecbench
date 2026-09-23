@@ -35,7 +35,7 @@ paper: $(TEX).pdf
 # "Nothing to be done" and left the old numbers in the PDF -- the precise drift
 # this build is supposed to prevent.
 $(TEX).pdf: $(TEX).tex refs.bib $(wildcard $(TABLES)/*.tex) $(wildcard figures/*.pdf)
-	@for t in performance rates strictness mcnemar allpairs latency layers corpus; do \
+	@for t in performance rates strictness mcnemar allpairs latency layers corpus external external_agreement; do \
 	  test -f $(TABLES)/$$t.tex || { \
 	    echo "error: $(TABLES)/$$t.tex missing."; \
 	    echo "       Run 'make tables' -- do not hand-write result tables."; \
@@ -104,23 +104,12 @@ sys.exit(0 if 150<=n<=250 else 1)' || echo "  fix the abstract before submitting
 ## `check' reports them and `paper' prints a NOTE, but both exit 0, so neither
 ## stops anything: the placeholders render as visible bold [TODO(author): ...]
 ## boxes in the PDF body and would have travelled to the editorial office intact.
-## The two that exist name the model and access route of the labelling audit's
-## second labeller (Section 4.3), which Springer's policy on methodological use of
-## a language model requires be disclosed, and without which the reported
-## agreement is a property of an unnamed instrument and cannot be re-derived.
-## benchmark/labelling/rater_prompt.txt is checked with them, because the
-## manuscript asserts that file holds the instruction verbatim; while it holds a
-## TODO note instead, that assertion is false.
 .PHONY: nodraft
 nodraft:
 	@fail=0; \
 	if grep -q 'TODO(author)' $(TEX).tex; then \
 	  echo "error: unresolved TODO(author) markers in $(TEX).tex:"; \
 	  grep -n 'TODO(author)' $(TEX).tex | sed 's/^/       /'; \
-	  fail=1; fi; \
-	if grep -q 'TODO(author)' ../benchmark/labelling/rater_prompt.txt 2>/dev/null; then \
-	  echo "error: ../benchmark/labelling/rater_prompt.txt is still the placeholder note."; \
-	  echo "       $(TEX).tex cites it as the verbatim audit instruction."; \
 	  fail=1; fi; \
 	test $$fail -eq 0 || { \
 	  echo; \
@@ -131,23 +120,37 @@ nodraft:
 ##
 ## The working tree keeps the result tables in ../results/tables/ so that the
 ## generator owns them and the manuscript cannot drift from the measurements. That
-## layout does not survive submission: IEEE and arXiv unpack the source into one
+## layout does not survive submission: Springer unpacks the source into one
 ## directory, where `\input{../results/tables/...}` resolves to nothing and the
-## build dies with six missing-file errors. So the bundle flattens the tables in
-## and redefines \resulttable to read them locally. The manuscript source is not
-## edited -- the redefinition is appended to a copy.
+## build dies once per table. EMSE also forbids subfolders outright ("Please do
+## not use subfolders for your LaTeX submission, e.g. for figures or
+## bibliographic files"), so the bundle is flat: tables and figures sit beside the
+## manuscript, and flatten_for_submission.py rewrites both kinds of reference in a
+## copy. The manuscript source is not edited.
+##
+## Only source files go into the tarball. The .bbl travels with them because
+## Springer's system may not run BibTeX; .aux, .log, .out and the compiled PDF
+## are build output and stay in $(DIST)/ for inspection.
+BUNDLE_GLOBS := *.tex *.bib *.bbl *.cls *.clo *.bst *.pdf *.eps
 dist: nodraft $(TEX).pdf
 	rm -rf $(DIST)
-	mkdir -p $(DIST)/figures $(DIST)/tables
+	mkdir -p $(DIST)
 	cp $(TEX).tex refs.bib $(DIST)/
-	cp $(TABLES)/*.tex $(DIST)/tables/
+	@# A table sharing a name with the manuscript would overwrite it in a flat
+	@# directory. Refuse rather than ship a bundle with the wrong main file.
+	@test ! -e $(TABLES)/$(TEX).tex || { echo "error: a table is named $(TEX).tex"; exit 1; }
+	@# Only the tables the manuscript includes. results/tables/ also holds tables
+	@# for analyses the paper does not report, which a reviewer unpacking the
+	@# bundle would otherwise find and look for in vain.
+	for t in $$(grep -o '\\resulttable{[^}]*}' $(TEX).tex | sed 's/.*{//;s/}//' | sort -u); do \
+	  cp $(TABLES)/$$t.tex $(DIST)/ || exit 1; done
 	@# Only the rendered figures, and only those that exist: figures/ also holds the
 	@# .mmd sources, the mermaid config, and superseded/, none of which belong in a
 	@# submission. A missing figure must not fail the bundle either, because
 	@# \paperfigure degrades to a visible placeholder box that the check below
 	@# reports. `find -exec' rather than a glob, so an empty match is not an error.
 	@find figures -maxdepth 1 -type f \( -name '*.pdf' -o -name '*.eps' \) \
-	  -exec cp {} $(DIST)/figures/ \;
+	  -exec cp {} $(DIST)/ \;
 	@# Springer's class, .clo and .bst if the author has fetched them. EMSE wants
 	@# the source to build as submitted, and svjour3 is not in any TeX
 	@# distribution, so the bundle has to carry it. `find -exec' rather than a
@@ -171,7 +174,16 @@ dist: nodraft $(TEX).pdf
 	  fi; }
 	@grep -l 'figure not yet produced' $(DIST)/$(TEX).log >/dev/null 2>&1 && \
 	  echo "NOTE: bundle contains figure placeholders; regenerate figures/ first." || true
-	tar -czf $(TEX)-submission.tar.gz -C $(DIST) .
+	@# EMSE rejects subfolders, and the rewrite above is only as good as its
+	@# pattern: check both the layout and the text before packing.
+	@test -z "$$(find $(DIST) -mindepth 1 -type d)" || { \
+	  echo "error: $(DIST)/ contains subfolders; EMSE requires a flat submission."; exit 1; }
+	@! grep -nE '\\(paperfigure|includegraphics|input)(\[[^]]*\])?\{[^}]*/' $(DIST)/$(TEX).tex \
+	  || { echo "error: $(DIST)/$(TEX).tex still references a subfolder (above)."; exit 1; }
+	@# The bundle's own PDF is the compiled manuscript, not a figure; keep it out.
+	cd $(DIST) && tar -czf ../$(TEX)-submission.tar.gz \
+	  $$(ls $(BUNDLE_GLOBS) 2>/dev/null | grep -vx '$(TEX).pdf')
+	@echo "Bundle contents:"; tar -tzf $(TEX)-submission.tar.gz | sed 's/^/  /'
 	@echo
 	@echo "Built $(TEX)-submission.tar.gz from $(DIST)/"
 	@echo "Check the PDF in $(DIST)/ before uploading."
