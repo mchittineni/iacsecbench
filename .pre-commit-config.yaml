@@ -23,7 +23,7 @@ repos:
         args: ["--branch", "main"]
 
   - repo: https://github.com/PyCQA/autoflake
-    rev: v2.3.3
+    rev: v2.4.0
     hooks:
       - id: autoflake
         args:
@@ -32,19 +32,19 @@ repos:
           - "--remove-all-unused-imports"
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.0
+    rev: v0.16.8
     hooks:
       - id: ruff
         args: [--fix]
       - id: ruff-format
 
   - repo: https://github.com/pycqa/isort
-    rev: 8.0.1
+    rev: 9.0.1
     hooks:
       - id: isort
 
   - repo: https://github.com/pycqa/flake8
-    rev: 7.3.0
+    rev: 7.4.1
     hooks:
       - id: flake8
         additional_dependencies:
@@ -62,7 +62,7 @@ repos:
         additional_dependencies: ["bandit[toml]"]
 
   - repo: https://github.com/pylint-dev/pylint
-    rev: v4.0.6
+    rev: v4.0.8
     hooks:
       - id: pylint
         args: ["--rcfile=pyproject.toml"]
