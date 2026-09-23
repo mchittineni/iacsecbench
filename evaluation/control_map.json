@@ -1,4 +1,5 @@
 {
+  "cis_aws_version": "3.0.0",
   "$comment": [
     "Canonical control taxonomy for the IaCSecBench finding-normalization engine.",
     "",
@@ -42,13 +43,15 @@
     "removed: both lost their only rule with the phantom OPA identifiers, no tool",
     "could report them, and no case exercises them.",
     "",
-    "Eight controls retain verified=false, each naming its single uncorroborated",
-    "identifier in 'unverified_identifiers'. All eight are tfsec long IDs that could",
-    "not be confirmed in this environment: tfsec 1.28.14 has no check-listing",
-    "command, and '--include-passed' only surfaces checks whose target resource type",
-    "appears in the scanned corpus -- which contains no API Gateway and no Kubernetes",
-    "resources at all. '--filter-results' is not a test either: it returns zero",
-    "results for an unknown identifier and for a real-but-untriggered one alike.",
+    "Eight controls were once flagged verified=false because each named a tfsec",
+    "long ID that could not be confirmed in this environment: tfsec 1.28.14 has no",
+    "check-listing command, and '--filter-results' returns zero results for an",
+    "unknown identifier and for a real-but-untriggered one alike. Purpose-built",
+    "cases then confirmed three from emitted output; the three Kubernetes controls",
+    "were resolved by recording tfsec and Trivy as inapplicable, with Checkov's",
+    "firing as the evidence. Two remain verified=false (NET_PUBLIC_INSTANCE,",
+    "SEC_HARDCODED_CREDENTIAL), each naming its uncorroborated identifier in",
+    "'unverified_identifiers'.",
     "",
     "They are retained rather than deleted because a wrong identifier here is inert:",
     "nothing emits it, so it never matches, and the only possible effect of keeping",
@@ -62,8 +65,8 @@
     "violating, which is only correct under a customer-managed-key requirement. The",
     "text was corrected to match the label rather than the label to match the text,",
     "because requiring a CMK is a defensible control and is what the corpus, the",
-    "policy set and the tfsec/checkov CMK rules all actually test. Note that this",
-    "makes the control stricter than CIS AWS 2.1.1, which the 'note' field records.",
+    "policy set and the CMK rules of all three source-level scanners actually test.",
+    "It derives from CIS AWS v1.4.0 2.1.1, which v3.0.0 removed; 'cis_aws_note' records this.",
     "",
     "Trivy identifiers are AVD numbers as Trivy spells them ('AWS-0086'). They were",
     "not authored by hand and were not chosen by observing what Trivy emits on this",
@@ -80,9 +83,10 @@
     "for the two are expected to correlate strongly and must not be read as agreement",
     "between independent implementations.",
     "",
-    "Six controls carry an empty trivy list: three Kubernetes controls the corpus does",
-    "not exercise, API-gateway authorization, public-instance addressing, and hardcoded",
-    "credentials. The last is a scanner-scope boundary rather than a gap -- 'trivy",
+    "Six controls carry an empty trivy list: three Kubernetes controls, which Trivy's",
+    "Terraform checks do not cover, public-instance addressing, Lambda environment",
+    "encryption (rule removed after audit), and hardcoded credentials. The last is a",
+    "scanner-scope boundary rather than a gap -- 'trivy",
     "config' evaluates misconfiguration only; secret detection is a separate scanner",
     "('trivy fs --scanners secret') and is not part of this comparison."
   ],
@@ -91,7 +95,7 @@
     "STO_PUBLIC_BUCKET": {
       "title": "Object storage bucket permits public access",
       "domain": "STO",
-      "cis_aws": "2.1.5",
+      "cis_aws": "2.1.4",
       "severity": "CRITICAL",
       "verified": true,
       "tools": {
@@ -126,7 +130,8 @@
     "STO_UNENCRYPTED_BUCKET": {
       "title": "Object storage bucket not encrypted with a customer-managed key",
       "domain": "ENC",
-      "cis_aws": "2.1.1",
+      "cis_aws": "n/a",
+      "cis_aws_note": "CIS v3.0.0 has no S3 encryption-at-rest requirement. The control derives from v1.4.0 2.1.1 ('Ensure all S3 buckets employ encryption-at-rest'), which v3.0.0 removed; this control is stricter still, requiring a customer-managed key.",
       "severity": "HIGH",
       "verified": true,
       "tools": {
@@ -146,12 +151,13 @@
           "s3_server_side_encryption"
         ]
       },
-      "note": "Stricter than the CIS control it cites. CIS AWS 2.1.1 requires encryption at rest and is satisfied by SSE-S3 (sse_algorithm = AES256); this control additionally requires a customer-managed KMS key, matching MON_NO_LOG_ENCRYPTION. The previous title, 'Object storage bucket lacks server-side encryption', described the weaker CIS requirement while the corpus labelled an AES256 bucket as violating -- the one disagreement found by independent relabelling. The title now states the requirement the label actually encodes."
+      "note": "Stricter than the CIS requirement it derives from. CIS AWS v1.4.0 2.1.1 (removed in v3.0.0) requires encryption at rest and is satisfied by SSE-S3 (sse_algorithm = AES256); this control additionally requires a customer-managed KMS key, matching MON_NO_LOG_ENCRYPTION. The previous title, 'Object storage bucket lacks server-side encryption', described the weaker CIS requirement while the corpus labelled an AES256 bucket as violating -- the one disagreement found by independent relabelling. The title now states the requirement the label actually encodes."
     },
     "STO_NO_ACCESS_LOGGING": {
       "title": "Object storage bucket lacks access logging",
       "domain": "MON",
-      "cis_aws": "2.1.3",
+      "cis_aws": "n/a",
+      "cis_aws_note": "No CIS v3.0.0 requirement covers access logging on an ordinary bucket; 3.4 covers only the CloudTrail bucket. The previous citation, 2.1.3, is data discovery in v3.0.0 and MFA delete in v1.4.0.",
       "severity": "MEDIUM",
       "verified": true,
       "tools": {
@@ -198,7 +204,8 @@
     "NET_PUBLIC_INSTANCE": {
       "title": "Compute instance assigned a public address",
       "domain": "NET",
-      "cis_aws": "5.6",
+      "cis_aws": "n/a",
+      "cis_aws_note": "No CIS v3.0.0 requirement covers public IP assignment; the previous citation, 5.6, is the IMDSv2 requirement.",
       "severity": "HIGH",
       "verified": false,
       "tools": {
@@ -220,7 +227,7 @@
     "NET_NO_FLOW_LOGS": {
       "title": "Virtual network lacks flow logging",
       "domain": "MON",
-      "cis_aws": "3.9",
+      "cis_aws": "3.7",
       "severity": "MEDIUM",
       "verified": true,
       "tools": {
@@ -274,7 +281,8 @@
     "IAM_WILDCARD_TRUST": {
       "title": "Role trust policy permits assumption by any principal",
       "domain": "IAM",
-      "cis_aws": "1.16",
+      "cis_aws": "n/a",
+      "cis_aws_note": "No CIS v3.0.0 requirement covers role trust policies; the previous citation, 1.16, is the full-administrative-privileges requirement cited by IAM_WILDCARD_ACTION.",
       "severity": "CRITICAL",
       "verified": true,
       "tools": {
@@ -341,7 +349,7 @@
     "ENC_NO_KEY_ROTATION": {
       "title": "Key management key lacks automatic rotation",
       "domain": "ENC",
-      "cis_aws": "3.8",
+      "cis_aws": "3.6",
       "severity": "MEDIUM",
       "verified": true,
       "tools": {
@@ -517,14 +525,19 @@
         "checkov": [
           "CKV_AWS_173"
         ],
+        "tfsec": [],
+        "trivy": [],
+        "opa": []
+      },
+      "removed_identifiers": {
         "tfsec": [
           "aws-lambda-enable-tracing"
         ],
         "trivy": [
           "AWS-0066"
-        ],
-        "opa": []
-      }
+        ]
+      },
+      "correction": "aws-lambda-enable-tracing and AWS-0066 check X-Ray tracing, not environment-variable encryption, so they were removed: a tracing finding must not be credited as this control. Neither fires on the SRV-NO-FUNCTION-ENCRYPTION pair, so no classification changed; tfsec and Trivy have no rule for this control in this map."
     },
     "SRV_NO_API_AUTHORIZATION": {
       "title": "API endpoint permits unauthenticated invocation",
@@ -549,7 +562,8 @@
     "SEC_HARDCODED_CREDENTIAL": {
       "title": "Credential material embedded in configuration source",
       "domain": "SEC",
-      "cis_aws": "1.4",
+      "cis_aws": "n/a",
+      "cis_aws_note": "No CIS v3.0.0 requirement covers credentials embedded in configuration; the previous citation, 1.4, is 'no root user access key'.",
       "severity": "CRITICAL",
       "verified": false,
       "tools": {

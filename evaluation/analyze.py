@@ -192,6 +192,13 @@ def aggregate(
             if outcome.resource_matching_applicable:
                 resource_applicable[level_key] += 1
             for level in MATCH_LEVELS:
+                # A case that names no resource address cannot be scored under the
+                # resource criterion. Counting it as a miss there made every tool
+                # look worse under resource than under control purely because the
+                # external cases declare no address, which is an artefact of the
+                # corpus rather than a property of any tool.
+                if level == "resource" and not outcome.resource_matching_applicable:
+                    continue
                 label = outcome.classification(level)
                 counts[level][label] += 1
                 per_level[level][case.case_id] = label
@@ -230,7 +237,8 @@ def aggregate(
             if (run := runs_by_key.get((tool, case.case_id))) is not None and run["status"] == "ok"
         )
         for level in MATCH_LEVELS:
-            results[tool][level].matrix.assert_total(n_scored)
+            expected_total = resource_applicable["all"] if level == "resource" else n_scored
+            results[tool][level].matrix.assert_total(expected_total)
 
     return results, status
 
@@ -569,6 +577,17 @@ def main(argv: list[str] | None = None) -> int:
     return 0
 
 
+def _csv_field(value: str) -> str:
+    """Quotes a CSV field when it needs it (RFC 4180).
+
+    Trivy's category is "HCL scanning, tfsec successor"; written bare, its comma
+    split the row into one field too many and shifted every later column.
+    """
+    if any(ch in value for ch in ',"\n'):
+        return '"' + value.replace('"', '""') + '"'
+    return value
+
+
 def emit_leaderboard_csv(
     results: dict[str, dict[str, ToolResult]],
     status: dict[str, str],
@@ -612,8 +631,8 @@ def emit_leaderboard_csv(
         lines.append(
             ",".join(
                 [
-                    label,
-                    category,
+                    _csv_field(label),
+                    _csv_field(category),
                     str(m.total),
                     str(m.tp),
                     str(m.fp),
