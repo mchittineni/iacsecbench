@@ -1,6 +1,6 @@
 tool_name,category,total_cases,tp,fp,tn,fn,accuracy_pct,precision_pct,recall_pct,f1_score_pct,fpr_pct,fnr_pct,recall_ci_low_pct,recall_ci_high_pct,latency_mean_ms,latency_sd_ms,latency_samples,matching_level
 Checkov,AST static analysis,56,27,0,26,3,94.64,100.00,90.00,94.74,0.00,10.00,73.47,97.89,1913.6,60.6,168,control
 tfsec,HCL lexical scanning,56,23,2,24,7,83.93,92.00,76.67,83.64,7.69,23.33,57.72,90.07,275.2,7.6,168,control
-Trivy,HCL scanning, tfsec successor,56,22,1,25,8,83.93,95.65,73.33,83.02,3.85,26.67,54.11,87.72,400.7,26.7,168,control
+Trivy,"HCL scanning, tfsec successor",56,22,1,25,8,83.93,95.65,73.33,83.02,3.85,26.67,54.11,87.72,400.7,26.7,168,control
 OPA (plan-level),Rego over compiled plan,56,20,0,26,10,82.14,100.00,66.67,80.00,0.00,33.33,47.19,82.71,12.8,2.2,168,control
 IaCSecBench L1,Repository-edge scanning,56,1,1,25,29,46.43,50.00,3.33,6.25,3.85,96.67,0.08,17.22,0.1,0.1,168,control
