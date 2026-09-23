@@ -9,29 +9,28 @@ This document details the exact methodology, environment prerequisites, and exec
 ## 📋 Prerequisites & Environment Setup
 
 - **Python Version**: Python 3.11+
-- **Node.js**: v18+ (for frontend/JSDoc validation if running full pipeline)
 - **Terraform CLI**: >= 1.15.0 (for native `.tftest.hcl` execution)
-- **Dependencies**: Installed via `pip install -r pipeline/requirements.txt -r experiments/requirements.txt`
+- **Dependencies**: Installed via `pip install -e '.[dev]'`
 
 ---
 
 ## 🧪 Execution Steps
 
-### 1. Run Data & IaC Validators
+### 1. Run Corpus Admissibility & Security Validators
 
 ```bash
-# Verify dataset integrity & zero-PII rules
-python3 pipeline/validate_data.py
+# Verify corpus admissibility across all 56 benchmark cases
+python3 -m evaluation.corpus --report --mode structural
 
-# Verify IaC structure & CIS AWS Benchmark OPA/Rego policies
-python3 pipeline/validate_iac.py
+# Verify compliance framework mapping (SOC2, GDPR, etc.)
+python3 scripts/compliance_checker.py --framework soc2
 ```
 
 ### 2. Run Reproducible Benchmark Experiments & Scoring Protocol
 
 ```bash
-# Execute evaluation scoring protocol
-python evaluation/score.py
+# Execute evaluation analysis and regenerate LaTeX tables from recorded output
+python3 -m evaluation.analyze --level control
 
 # Execute full one-command reproducibility suite
 ./experiments/run_all.sh
@@ -59,7 +58,7 @@ it evaluates.
 ### 3. Run Framework Unit & Integration Test Suite
 
 ```bash
-.venv/bin/pytest security_framework/tests/ pipeline/tests/ -v
+.venv/bin/pytest security_framework/tests/ evaluation/tests/ -v
 ```
 
 ---
