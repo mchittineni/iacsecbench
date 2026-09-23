@@ -474,7 +474,35 @@ def _git_commit() -> str:
         return "unknown"
 
 
+def _git_dirty_paths() -> list[str] | None:
+    """Tracked paths that differ from HEAD, or None when git is unavailable.
+
+    A commit alone does not identify the measured tree. The run reported in the
+    manuscript recorded release 1.3.1, whose corpus had 44 internal cases, while
+    52 were measured: the tree carried uncommitted changes and nothing said so.
+    Recording the dirty paths makes that visible in the manifest itself.
+    """
+    git = shutil.which("git")
+    if git is None:
+        return None
+    try:
+        proc = subprocess.run(
+            [git, "status", "--porcelain", "--untracked-files=no"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            timeout=30,
+            check=False,
+        )
+    except OSError:
+        return None
+    if proc.returncode != 0:
+        return None
+    return sorted(line[3:] for line in proc.stdout.splitlines() if line.strip())
+
+
 def _environment() -> dict[str, Any]:
+    dirty = _git_dirty_paths()
     return {
         "platform": platform.platform(),
         "machine": platform.machine(),
@@ -482,6 +510,8 @@ def _environment() -> dict[str, Any]:
         "python": sys.version.split()[0],
         "cpu_count": os.cpu_count(),
         "git_commit": _git_commit(),
+        "git_dirty": None if dirty is None else bool(dirty),
+        "git_dirty_paths": dirty,
     }
 
 

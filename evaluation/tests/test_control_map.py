@@ -188,7 +188,7 @@ def test_cis_citation_agrees_with_the_corpus_generator() -> None:
     pipeline would notice.
 
     This is the check that would have caught STO_UNENCRYPTED_BUCKET sooner. Its
-    map text stated the CIS 2.1.1 requirement, which SSE-S3 satisfies, while its
+    map text stated the CIS v1.4.0 2.1.1 requirement, which SSE-S3 satisfies, while its
     corpus labelled an AES256 bucket as violating -- a stricter,
     customer-managed-key requirement. Titles are deliberately not compared: the
     two files phrase controls neutrally and negatively by convention

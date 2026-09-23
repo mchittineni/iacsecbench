@@ -575,8 +575,7 @@ def emit_admissibility_table(cases: list[Case], results: list[ValidationResult],
         "\\caption{Corpus admissibility. The admissible count is the corpus size "
         "reported throughout; catalogue entries without configuration are not "
         "cases. The declared and present counts are given per collection because "
-        "the two collections diverge by very different factors, and the external "
-        "collection is the one the generalization analysis rests on. Rejection "
+        "the two collections diverge by very different factors. Rejection "
         "reasons are determined mechanically by \\texttt{evaluation/corpus.py}.}",
         "\\label{tab:admissibility}",
         "\\centering",
@@ -614,6 +613,7 @@ def emit_admissibility_table(cases: list[Case], results: list[ValidationResult],
         )
         return internal, external, internal + external
 
+    rejected_rows = 0
     for status in CaseStatus:
         count = counts.get(status, 0)
         if count == 0 or status is CaseStatus.OK:
@@ -622,6 +622,12 @@ def emit_admissibility_table(cases: list[Case], results: list[ValidationResult],
         lines.append(
             f"\\quad rejected: {STATUS_DESCRIPTIONS[status].lower()} & {i} & {e} & {t} \\\\"
         )
+        rejected_rows += 1
+    # With nothing rejected the block would be empty and the two rules around it
+    # would print as a doubled line. A zero row says the same thing legibly, and
+    # "the gate rejected nothing" is a result the manuscript reports.
+    if rejected_rows == 0:
+        lines.append("Rejected & 0 & 0 & 0 \\\\")
 
     n_int = sum(1 for c in usable if c.collection == "internal")
     n_ext = len(usable) - n_int
