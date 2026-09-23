@@ -1312,7 +1312,7 @@ None holds fully here. The run manifest records the commit checked out at
 measurement time, but the reported run was taken on a working tree with
 uncommitted changes: the recorded commit is release 1.3.1, whose corpus had 44
 internal cases, not the 52 measured. The measured corpus is therefore identified
-by the released package rather than by that commit, and the harness now records
+by the released package (release 3.0.0) rather than by that commit, and the harness now records
 the tree's uncommitted paths alongside it. The first three are the substantive
 ones, and independent relabelling by a second human who has not read
 the policy set is the cheapest step toward them. A benchmark satisfying all four
@@ -1574,11 +1574,14 @@ artefacts and involves no human participants or personal data.
 \paragraph{Data and code availability} The corpus, ground-truth annotations,
 canonical control taxonomy, normalization engine, execution harness, statistical
 implementation, analysis code, and the raw per-case tool output from which every
-table in this paper is generated are openly available:
+table in this paper is generated are openly available. The version reported here
+is release 3.0.0, archived at the first DOI below; the second always resolves to
+the latest release.
 
 \begin{center}
-\url{https://github.com/mchittineni/IaCSecBench}\\
-\url{https://doi.org/10.5281/zenodo.21645016}
+\url{https://doi.org/10.5281/zenodo.22921654}\\
+\url{https://doi.org/10.5281/zenodo.21645016}\\
+\url{https://github.com/mchittineni/IaCSecBench}
 \end{center}
 
 \paragraph{Author contributions} The sole author designed the study, implemented
