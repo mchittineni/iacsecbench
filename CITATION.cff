@@ -5,7 +5,7 @@ authors:
     given-names: "Manideep"
     orcid: "https://orcid.org/0009-0003-9709-5842"
 title: "IaCSecBench: A Finding-Normalization Methodology and Reproducible Harness for Evaluating Infrastructure-as-Code Security Validation"
-version: 2.1.0 # x-release-please-version
+version: 3.0.0 # x-release-please-version
 license: MIT
 identifiers:
   - type: doi

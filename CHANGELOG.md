@@ -29,6 +29,20 @@ Releases are published automatically by [`release-please.yml`](.github/workflows
 - **`MINOR` (x.Y.0)** — New corpus cases, new canonical controls, or new rule mappings (`benchmark/**`, `evaluation/control_map.json`).
 - **`MAJOR` (X.0.0)** — Changes to what a reported number means: the control taxonomy, the matching criteria, or the admissibility gate.
 
+## [3.0.0](https://github.com/mchittineni/iacsecbench/compare/v2.1.0...v3.0.0) (2026-09-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* **evaluation:** resource-level recall and precision now exclude cases where the criterion is inapplicable, so reported numbers change meaning.
+
+### Bug Fixes
+
+* **benchmark:** cite CIS AWS v3.0.0 and document external case provenance ([db49e1f](https://github.com/mchittineni/iacsecbench/commit/db49e1f6d1eb0c04a980811379f86866b5ced497))
+* **build:** move project.urls below dependencies in pyproject ([4765734](https://github.com/mchittineni/iacsecbench/commit/476573478d61b3c35c0081e6d93290f8240c0c8d))
+* **evaluation:** score resource criterion only where it applies ([ab028d4](https://github.com/mchittineni/iacsecbench/commit/ab028d409417688a871f665bef3d21647a4d61cc))
+* **release:** let Zenodo date each version from its release ([ffcfeb2](https://github.com/mchittineni/iacsecbench/commit/ffcfeb2a3ed0b78553d7fd30295ca86122e093cd))
+
 ## [2.1.0](https://github.com/mchittineni/iacsecbench/compare/v2.0.0...v2.1.0) (2026-09-14)
 
 
