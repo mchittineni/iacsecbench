@@ -97,7 +97,7 @@ are in `results/run_manifest.json` and `results/evaluation.json`. See
 
 ---
 
-## Ground-truth labelling and its independent check
+## Ground-truth labelling and its automated consistency audit
 
 Labels are derived mechanically by `generate_corpus.py` from per-control
 specifications, so rater disagreement is impossible by construction and

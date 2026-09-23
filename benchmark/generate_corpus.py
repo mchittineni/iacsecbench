@@ -138,7 +138,7 @@ SPECS: list[ControlSpec] = [
     ControlSpec(
         control_id="STO_PUBLIC_BUCKET",
         domain="STO",
-        cis_control="2.1.5",
+        cis_control="2.1.4",
         severity="CRITICAL",
         title="Object storage public access block",
         vulnerable_summary="All four public access block flags are disabled.",
@@ -183,7 +183,7 @@ resource "aws_s3_bucket_public_access_block" "target" {
     ControlSpec(
         control_id="STO_UNENCRYPTED_BUCKET",
         domain="ENC",
-        cis_control="2.1.1",
+        cis_control="n/a",
         severity="HIGH",
         title="Object storage encryption at rest",
         vulnerable_summary="Bucket encryption uses AES256 rather than a customer-managed key.",
@@ -237,7 +237,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "target" {
     ControlSpec(
         control_id="STO_NO_ACCESS_LOGGING",
         domain="MON",
-        cis_control="2.1.3",
+        cis_control="n/a",
         severity="MEDIUM",
         title="Object storage access logging",
         vulnerable_summary="No access logging configuration is declared for the bucket.",
@@ -352,7 +352,7 @@ resource "aws_security_group" "target" {
     ControlSpec(
         control_id="NET_NO_FLOW_LOGS",
         domain="MON",
-        cis_control="3.9",
+        cis_control="3.7",
         severity="MEDIUM",
         title="Virtual network flow logging",
         vulnerable_summary="No flow log is declared for the VPC.",
@@ -400,7 +400,7 @@ resource "aws_flow_log" "target" {
     ControlSpec(
         control_id="NET_PUBLIC_INSTANCE",
         domain="NET",
-        cis_control="5.6",
+        cis_control="n/a",
         severity="HIGH",
         title="Compute instance public addressing",
         vulnerable_summary="Instance is launched with a public IP association.",
@@ -655,7 +655,7 @@ resource "aws_iam_policy" "target" {
     ControlSpec(
         control_id="IAM_WILDCARD_TRUST",
         domain="IAM",
-        cis_control="1.16",
+        cis_control="n/a",
         severity="CRITICAL",
         title="Role trust policy principal scope",
         vulnerable_summary="Trust policy allows sts:AssumeRole from principal '*'.",
@@ -783,7 +783,7 @@ resource "aws_db_instance" "target" {
     ControlSpec(
         control_id="ENC_NO_KEY_ROTATION",
         domain="ENC",
-        cis_control="3.8",
+        cis_control="3.6",
         severity="MEDIUM",
         title="Key management rotation",
         vulnerable_summary="KMS key has automatic rotation disabled.",
@@ -1180,7 +1180,7 @@ resource "aws_lambda_function" "target" {
     ControlSpec(
         control_id="SEC_HARDCODED_CREDENTIAL",
         domain="SEC",
-        cis_control="1.4",
+        cis_control="n/a",
         severity="CRITICAL",
         title="Embedded credential material",
         vulnerable_summary="Function environment embeds a literal credential value.",

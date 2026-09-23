@@ -8,7 +8,7 @@
     "IAM_WILDCARD_TRUST"
   ],
   "benchmark_category": "IAM",
-  "cis_control": "1.16",
+  "cis_control": "n/a",
   "severity": "CRITICAL",
   "provider": "aws",
   "benchmark_features": [

@@ -8,7 +8,7 @@
     "ENC_NO_KEY_ROTATION"
   ],
   "benchmark_category": "ENC",
-  "cis_control": "3.8",
+  "cis_control": "3.6",
   "severity": "NONE",
   "provider": "aws",
   "benchmark_features": [

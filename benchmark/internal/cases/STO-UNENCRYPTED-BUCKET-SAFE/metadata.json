@@ -8,7 +8,7 @@
     "STO_UNENCRYPTED_BUCKET"
   ],
   "benchmark_category": "ENC",
-  "cis_control": "2.1.1",
+  "cis_control": "n/a",
   "severity": "NONE",
   "provider": "aws",
   "benchmark_features": [

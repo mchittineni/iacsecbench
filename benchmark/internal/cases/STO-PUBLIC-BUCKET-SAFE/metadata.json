@@ -8,7 +8,7 @@
     "STO_PUBLIC_BUCKET"
   ],
   "benchmark_category": "STO",
-  "cis_control": "2.1.5",
+  "cis_control": "2.1.4",
   "severity": "NONE",
   "provider": "aws",
   "benchmark_features": [
