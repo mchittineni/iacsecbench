@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-r"""Rewrites a copied manuscript so its result tables resolve inside the bundle.
+r"""Rewrites a copied manuscript so its tables and figures resolve inside the bundle.
 
 The working tree keeps generated tables in ``results/tables/`` and reaches them
 with ``\input{../results/tables/...}``, so the generator owns them and the
@@ -7,9 +7,17 @@ manuscript cannot drift from the measurements. That path does not survive
 submission: Springer and arXiv unpack the source into a single directory, where the
 parent reference resolves to nothing and the build fails once per table.
 
-This appends a ``\renewcommand`` for ``\resulttable`` immediately before
-``\begin{document}``, after the preamble definition it overrides. It edits the
-copy inside the bundle, never the tracked source.
+EMSE's guidelines go further: "Please do not use subfolders for your LaTeX
+submission, e.g. for figures or bibliographic files." So the bundle is flat, and
+this rewrites both kinds of reference to match it:
+
+- the ``\resulttable`` definition in the preamble loses its
+  ``../results/tables/`` prefix, so each table is read from the bundle root;
+- every ``\paperfigure{figures/...}`` call loses its ``figures/`` prefix, because
+  ``\paperfigure`` tests the path with ``\IfFileExists``, which ignores
+  ``\graphicspath``, and would otherwise degrade to a placeholder box.
+
+It edits the copy inside the bundle, never the tracked source.
 
 Kept as a script rather than inlined into the Makefile because the replacement
 text is made of backslashes, braces and a ``#`` parameter marker, each of which is
@@ -23,7 +31,9 @@ from __future__ import annotations
 import pathlib
 import sys
 
-MARKER = "% ---- injected by `make dist`: flattened table paths ----"
+MARKER = "% ---- injected by `make dist`: flattened table and figure paths ----"
+TABLE_PREFIX = "../results/tables/"
+FIGURE_PREFIX = "\\paperfigure{figures/"
 
 
 def flatten(path: pathlib.Path) -> str:
@@ -37,23 +47,24 @@ def flatten(path: pathlib.Path) -> str:
     if at < 0:
         raise SystemExit(f"error: {path} has no {anchor}; not a manuscript source")
 
-    if "\\resulttable" not in source[:at]:
+    preamble, body = source[:at], source[at:]
+    if "\\resulttable" not in preamble or TABLE_PREFIX not in preamble:
         raise SystemExit(
-            f"error: {path} does not define \\resulttable in its preamble.\n"
-            "       The table-input mechanism has changed and this script is stale;\n"
-            "       fix it rather than shipping a bundle whose tables silently vanish."
+            f"error: {path} does not define \\resulttable over {TABLE_PREFIX} in its\n"
+            "       preamble. The table-input mechanism has changed and this script is\n"
+            "       stale; fix it rather than shipping a bundle whose tables vanish."
         )
 
-    injection = "\n".join(
-        [
-            "",
-            MARKER,
-            "\\renewcommand{\\resulttable}[1]{\\input{tables/#1.tex}}",
-            "",
-        ]
+    # Rewritten in place rather than overridden with \renewcommand, so the bundle
+    # a reviewer opens holds no parent-directory path at all.
+    preamble = preamble.replace(TABLE_PREFIX, "")
+    figures = body.count(FIGURE_PREFIX)
+    body = body.replace(FIGURE_PREFIX, "\\paperfigure{")
+    path.write_text(f"{MARKER}\n{preamble}{body}", encoding="utf-8")
+    return (
+        f"{path}: \\resulttable redirected to the bundle root, "
+        f"{figures} figure path(s) flattened"
     )
-    path.write_text(source[:at] + injection + source[at:], encoding="utf-8")
-    return f"{path}: \\resulttable redirected to tables/"
 
 
 def main(argv: list[str]) -> int:

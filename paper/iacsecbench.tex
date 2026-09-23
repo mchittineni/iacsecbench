@@ -46,6 +46,8 @@
   \newcommand{\institute}[1]{}
   \newcommand{\journalname}[1]{}
   \providecommand{\and}{\unskip\ $\cdot$\ \ignorespaces}
+  \newcommand{\titlerunning}[1]{}
+  \newcommand{\authorrunning}[1]{}
 \fi
 
 % Long file paths set in typewriter are single unbreakable tokens, and at a
@@ -55,20 +57,17 @@
 % so a path cannot acquire a stray backslash in transcription.
 \usepackage[hidelinks,breaklinks]{hyperref}   % load last
 
-% The identity of the model used in the consistency audit of Section~\ref{sec:labelling}.
-% Springer's policy requires methodological use of a large language model to be
-% disclosed in the methods, and an unnamed rater is not reproducible in any case:
-% the reported agreement is a property of one model under one instruction.
-% Defined here so there is a single place to edit, and left as TODO(author) so
-% `make check' keeps blocking submission until the real values are supplied.
-% Each renders a visible placeholder in the PDF rather than silently omitting.
-% Kept short: a long bold placeholder with no hyphenation points overfulls the
-% line it lands on, and that warning would then be reported against the prose
-% rather than against the missing value. benchmark/labelling/rater_prompt.txt
-% carries the full statement of what each value must contain.
-\newcommand{\ratermodel}{\textbf{[TODO(author): model id, version]}}
-\newcommand{\rateraccess}{\textbf{[TODO(author): access route and decoding
-  parameters]}}
+% EMSE asks for DOIs "as full DOI links in your reference list (e.g.
+% 'https://doi.org/abc')". spbasic prints "DOI 10.xxx" and defines \doi only if
+% it is undefined, so defining it here wins. The argument is read with `_' as an
+% ordinary character because one DOI in refs.bib contains an underscore.
+\makeatletter
+\providecommand{\doi}{}
+\renewcommand{\doi}{\begingroup\catcode`\_=12\relax\iacsb@doi}
+\def\iacsb@doi#1{\endgroup\href{https://doi.org/#1}{\nolinkurl{https://doi.org/#1}}}
+\makeatother
+
+\providecommand{\orcidID}[1]{\unskip~(\href{https://orcid.org/#1}{\footnotesize ORCID: #1})}
 
 % Author-year citation groups are long, and two or three in one parenthesis do not
 % fit a narrow measure at any breakpoint TeX would otherwise choose.
@@ -115,11 +114,14 @@
 
 \title{IaCSecBench: A Finding-Normalization Methodology and Reproducible
 Harness for Evaluating Infrastructure-as-Code Security Validation}
+% svjour3 warns that the full title is too long for the running head.
+\titlerunning{IaCSecBench: Finding Normalization for IaC Security Validation}
 
-\author{Manideep Chittineni}
+\author{Manideep Chittineni \orcidID{0009-0003-9709-5842}}
+\authorrunning{M. Chittineni}
 
 \institute{M. Chittineni \at
-  Senior Platform, Cloud and DevOps Engineer, United Kingdom \\
+  Independent Researcher, London, United Kingdom \\
   \email{manideep.chittineni@hotmail.com}}
 
 \date{Received: date / Accepted: date}
@@ -128,43 +130,11 @@ Harness for Evaluating Infrastructure-as-Code Security Validation}
 
 %------------------------------------------------------------------------------
 \begin{abstract}
-% Springer caps the abstract at 250 words. The long form ran to 344 and this one
-% sits at 246, so the cuts are load-bearing and the slack is four words: the "two
-% independent rule sets" gloss and the normalization-engine enumeration in the
-% closing sentence both survive in the body and were dropped here first. The
-% repository-edge 88.5-point figure was bought back, because it is the honest
-% version of a claim this abstract previously made as "and reorders them" -- the
-% criterion does not reorder the four attribute-level tools (Table~\ref{tab:strictness}),
-% it moves the repository-edge layer from last to joint second.
-\textbf{Context.} Infrastructure as Code (IaC) dominates cloud provisioning, and
-its pre-deployment security validation is fragmented across static scanners,
-policy engines, and test frameworks. Comparison is impeded by incompatible
-abstraction levels, from lexical scanning to policy evaluation over resolved
-plans, and by bespoke schemas lacking shared rule semantics. Developer-authored
-benchmarks compound this.
-\textbf{Objective.} We ask how far the evaluation procedure, what counts as a
-detection and which cases are admitted, determines a comparison's conclusions.
-\textbf{Method.} IaCSecBench is an open harness that normalizes heterogeneous
-scanner output onto a canonical control taxonomy, admits cases through a
-mechanically enforced procedure, and scores three matching criteria. Over 56
-admissible cases (30 vulnerable, 26 compliant) we evaluate three third-party
-scanners, plan-level policy evaluation, and a repository-edge layer, reporting
-exact Clopper--Pearson intervals and exact McNemar tests under Holm--Bonferroni
-correction.
-\textbf{Results.} Relaxing the criterion from control attribution to any finding
-moves apparent recall by 6.7 to 10.0 points among the source-level and
-plan-level tools, and by 90.0 points for the repository-edge layer, promoting it
-from last to second. The 23.3-point spread separating the four tools is larger,
-but 8.5 points of it are attributable to two comparators reading none of the
-Kubernetes resources three controls govern; on the subset those controls do not
-touch, the spread is 14.8 points and the two effects are within a factor of
-two. No pairwise difference survives correction; for three pairs no outcome
-could have been significant, so we do not call them equivalent. A third-party
-scanner, not our pipeline, attains the highest recall.
-\textbf{Conclusion.} A comparison that does not state its matching criterion and
-admissibility rule is not reproducible at any corpus size. The replication
-package releases corpus, harness, and analysis code; every reported table there
-is a generated artefact.
+\textbf{Context.} Infrastructure as Code (IaC) dominates cloud provisioning, yet pre-deployment security validation remains fragmented across static scanners, policy engines, and test frameworks. Incompatible abstraction levels, bespoke schemas, and developer-authored benchmarks impede rigorous comparison.
+\textbf{Objective.} We investigate how far the matching criterion (what counts as a detection) determines a comparison's conclusions.
+\textbf{Method.} IaCSecBench is an open evaluation harness that normalizes heterogeneous scanner outputs onto a canonical control taxonomy, enforces mechanical corpus admissibility, and scores under three matching criteria. Over 56 admissible cases (30 vulnerable, 26 compliant), we evaluate three third-party scanners, plan-level policy evaluation, and a repository-edge layer, reporting exact Clopper--Pearson intervals and exact McNemar tests under Holm--Bonferroni correction.
+\textbf{Results.} Relaxing the criterion from control attribution to any finding shifts apparent recall by 6.7 to 10.0 percentage points for source- and plan-level tools, under half the 23.3-point spread between them, and by 90.0 points for repository-edge scanning, promoting it from last to second. No difference among the four survives correction; under it, three of their six pairs could not have survived under any outcome, and the rest only with a unanimous split. A third-party scanner, not our pipeline, attains the highest point-estimate recall.
+\textbf{Conclusion.} A comparison that does not state its matching criterion cannot be interpreted, since that choice alone moved one layer from last to second. We release our open replication package; every results table is a generated artefact.
 \end{abstract}
 
 \keywords{Infrastructure as Code \and Security validation \and Benchmarking
@@ -194,28 +164,28 @@ Because remediation after provisioning implies a window of exposure,
 contemporary practice shifts validation earlier, into continuous integration
 \citep{bass2015devops, humble2010continuous}. Doing so raises an evaluation
 problem the literature has not resolved. Candidate gates operate at incomparable
-abstraction levels: lexical scanning of HCL source, abstract-syntax-tree
+abstraction levels: lexical scanning of HashiCorp Configuration Language (HCL) source, abstract-syntax-tree
 analysis, and policy evaluation over resolved plan state. Each reports findings
 in a bespoke schema, with rule identifiers that carry no shared semantics.
 Comparative claims are consequently difficult to reproduce, and when a benchmark
 is authored by the developer of one of the tools under comparison, agreement
 between that tool and the ground truth is close to guaranteed by construction.
 
-This paper addresses the evaluation problem; it does not propose a further
-analyser. Two commitments shape the design.
+This paper addresses the evaluation problem; the pipeline it evaluates alongside
+third-party tools composes existing mechanisms and is not a new analyser. Two commitments shape the design.
 
 First, \emph{normalization before comparison}. A canonical control taxonomy
 mediates between native rule identifiers and benchmark ground truth, so that a
 finding is credited when it identifies the control a case was authored to
 violate rather than merely because the tool emitted something. Findings whose
-rule identifiers the taxonomy does not cover are counted and reported rather
-than discarded, since silently treating an unmapped detection as a miss biases
+rule identifiers the taxonomy does not cover are counted and recorded in the
+released results rather than discarded, since silently treating an unmapped detection as a miss biases
 the comparison toward whichever tool the taxonomy was authored around.
 
 Second, \emph{measurement separated from assumption}. A case is admitted only by
 a mechanically enforced rule: valid HCL2 referencing resource types the declared
 provider defines, a non-contradictory ground-truth label, and an unambiguous
-canonical control. The reported corpus size is the admissible count, not the
+mapping onto canonical controls. The reported corpus size is the admissible count, not the
 number of entries in a catalogue. A tool that is not installed in the measurement
 environment is reported as such and excluded; it is never represented by an
 assumed detection rate. Latency is sampled repeatedly and reported with
@@ -227,10 +197,10 @@ publish its admission rule and its measurement configuration rather than only it
 headline scores.
 
 One outcome should be stated at the outset rather than discovered in
-Section~\ref{sec:results}. Applied to the pipeline this paper contributes, the
-procedure reports a third-party scanner ahead of it. We report that unadjusted,
-and it is the paper's own evidence that the procedure does not flatter the party
-that wrote it.
+Section~\ref{sec:results}. Applied to the pipeline this paper evaluates, the
+procedure reports a third-party scanner ahead of it on point estimates. We report
+that unadjusted; it is one indication, though not proof, that the procedure does
+not flatter the party that wrote it.
 
 \subsection{Contributions}
 % Three bullets, not five. The two that were cut -- the admissibility procedure
@@ -243,21 +213,23 @@ that wrote it.
 render heterogeneous IaC scanner output commensurable, with three explicit
 matching criteria that separate correct attribution from incidental detection,
 and a measurement of how far the choice among them moves the conclusion. On this
-corpus that choice moves recall as much as the entire spread between the tools
-compared.
+corpus that choice moves recall by 29 to 43 percent of the spread between the
+tools compared, and moves one layer from last to second.
 \item A statistical protocol for paired, small-sample scanner comparison: exact
 Clopper--Pearson intervals \citep{clopper1934use}, the exact binomial form of
 McNemar's test \citep{mcnemar1947note, dietterich1998approximate},
 Holm--Bonferroni correction \citep{holm1979simple}, and $d_{\min}$, the smallest
-discordant imbalance a comparison could have resolved. Three of the ten
-comparisons reported here could not have reached significance under any outcome;
-$d_{\min}$ is what distinguishes that from evidence of similarity, and it is
-computable from the discordant count alone.
+discordant imbalance a comparison could have resolved. Under the correction
+applied here, three of the six comparisons among the four source- and plan-level
+tools could not have reached significance under any outcome, and the other three
+only under a unanimous split; $d_{\min}$ is what distinguishes that from evidence
+of similarity, and it is computable from the discordant count
+alone.
 \item An open replication package --- corpus, generator specifications,
 admissibility gate, normalization engine, execution harness, and analysis code
 --- in which every reported table is a generated artefact traceable to recorded
-tool output, and which retains the measurements taken before each disclosed
-correction so that the disclosure can be checked rather than taken on trust.
+tool output, and which retains the measurements taken before the disclosed
+plan-level policy correction so that the disclosure can be checked rather than taken on trust.
 \end{itemize}
 
 %------------------------------------------------------------------------------
@@ -271,8 +243,8 @@ security smells, first across Puppet and subsequently in Ansible and Chef
 \citep{rahman2020gang}. \citet{sharma2016smell} had earlier catalogued
 configuration smells over 4,621 Puppet repositories, establishing the
 maintainability counterpart to the security work. Complementary studies
-characterise misconfiguration in Kubernetes manifests \citep{rahman2023k8s,
-shamim2020xi}, security practice in Terraform repositories specifically
+characterise misconfiguration in Kubernetes manifests \citep{rahman2023k8s},
+Kubernetes security practices \citep{shamim2020xi}, security practice in Terraform repositories specifically
 \citep{verdet2023exploring, verdet2025adoption}, and practitioner conventions
 drawn from grey literature \citep{kumara2021dos}. Quality and defect-prediction
 metrics for infrastructure code have also been catalogued
@@ -325,12 +297,12 @@ established by \citet{habib2018howmany}, who show that headline detection rates
 are highly sensitive to what counts as a match, and the benchmark-construction
 cautions of the OWASP Benchmark project \citep{owasp2023benchmark}. The
 three-level matching criterion of Section~\ref{sec:normalization} is a direct
-response to the first. Our reporting conventions are those of the SAST
-tool-comparison literature, which reports per-category rather than pooled
+response to the first. Our reporting conventions are those of the static application security testing
+(SAST) tool-comparison literature, which reports per-category rather than pooled
 effectiveness and separates the absence of a rule from the failure of one
 \citep{li2023sast, esposito2024extensive}. \citet{bohme2022reliability}
-establish the wider point that benchmark results fail to replicate when
-configuration and variance go unreported, which is the argument for the version
+show, for fuzzer benchmarking, that a benchmark's conclusions depend on evaluation
+choices a report may leave unstated, which is the argument for the version
 manifest of Section~\ref{sec:environment} and for preferring interval width to
 corpus size as an indicator of evidential strength. Threats to validity are
 organised under the categories of \citet{wohlin2012experimentation}, and the
@@ -338,11 +310,14 @@ study is reported against the empirical standards for software engineering
 research \citep{ralph2021standards, hasselbring2021benchmarking}.
 
 \subsection{Policy as Code and Native Infrastructure Testing}
-Open Policy Agent provides general-purpose policy evaluation over structured
+Open Policy Agent (OPA) provides general-purpose policy evaluation over structured
 documents \citep{openpolicyagent2024}, and Terraform provides a native test
-harness for module behaviour \citep{hashicorp2024tests}. Compliance requirements
-are drawn from the CIS Amazon Web Services Foundations Benchmark
-\citep{cis2024aws} and NIST SP~800-53 \citep{nist2020sp80053}. IaCSecBench
+harness for module behaviour \citep{hashicorp2024tests}. Compliance frameworks
+such as the Center for Internet Security (CIS) Amazon Web Services Foundations
+Benchmark, version 3.0.0 \citep{cis2024aws}, and NIST SP~800-53
+\citep{nist2020sp80053} catalogue the requirements that scanner rules are
+commonly mapped to; where a benchmark control has a CIS counterpart, the
+benchmark cites it. IaCSecBench
 composes these mechanisms; it does not extend them.
 
 %------------------------------------------------------------------------------
@@ -389,9 +364,9 @@ whose warnings they learn to distrust, an effect documented both for static
 analysis generally \citep{vassallo2019engage} and for security warnings
 specifically \citep{tahaei2021notifications}, to the point that identifying which
 warnings merit action is now a research area in its own right
-\citep{ge2023actionable}. This layer's false-positive behaviour is therefore
-reported separately in Section~\ref{sec:results} and is not aggregated with the
-policy layers.
+\citep{ge2023actionable}. This layer is therefore reported as its own row in every
+table of Section~\ref{sec:results} rather than pooled with the policy layers, so
+its false positives stay visible.
 
 \subsection{Layer 2: Native Module Testing}
 The second layer validates module behaviour using Terraform's native test
@@ -401,7 +376,8 @@ provisioning cloud resources.
 
 \subsection{Layer 3: Policy Evaluation over Compiled Plans}
 The third layer converts a Terraform plan to its JSON representation and
-evaluates Rego policies against it \citep{openpolicyagent2024}. Because the plan
+evaluates policies written in Rego, OPA's policy language, against it
+\citep{openpolicyagent2024}. Because the plan
 is produced after expression resolution, policies observe concrete attribute
 values rather than unevaluated references. Plan generation is configured so that
 provider credential validation is disabled, which permits evaluation in
@@ -436,17 +412,24 @@ performance is incidental.
 Reporting all three is deliberate: adopting a single permissive criterion is the
 most common mechanism by which scanner benchmarks overstate detection
 \citep{habib2018howmany}. Where the ground truth does not name a resource
-address, the resource criterion is inapplicable and is reported as such.
+address, the resource criterion is inapplicable, and such cases are left out of
+its denominator; on this corpus that excludes the four external cases.
 
-The three are not a single ordering, and the results make that visible: every
-tool scores lower under \emph{resource} than under \emph{control}
-(Table~\ref{tab:strictness}). Only \emph{control} and \emph{any} nest, because a
-finding that maps to the case's control is a finding. \emph{Resource} is a
-different question from either, and it is stricter than \emph{control} here for a
-reason worth stating: a tool may attribute a correctly identified control to a
-neighbouring resource address --- the encryption-configuration resource rather
-than the bucket it configures, say --- which the control criterion credits and
-the resource criterion does not. Where this paper speaks of relaxing the
+The three are not a single ordering. Only \emph{control} and \emph{any} nest,
+because a finding that maps to the case's control is a finding. \emph{Resource}
+is a different question from either, and it departs from \emph{control} in both
+directions. On the 26 vulnerable cases whose ground truth names a resource
+address, it credits each of Checkov, tfsec, Trivy and the plan-level layer with
+one case more than \emph{control} does, and the repository-edge layer with one
+fewer: on those cases \emph{control} gives 88.46, 73.08, 69.23, 61.54 and 3.85
+percent and \emph{resource} 92.31, 76.92, 73.08, 65.38 and 0.00. A tool may fire on
+the right resource for a different control, which \emph{resource} credits and
+\emph{control} does not, or attribute the right control to a neighbouring resource
+address --- the bucket rather than the encryption-configuration resource the
+ground truth names, say --- which \emph{control} credits and \emph{resource} does
+not. On this corpus the first accounts for five tool--case pairs and the second
+for one, and the repository-edge layer's single control-level detection carries
+no resource address at all. Where this paper speaks of relaxing the
 criterion, and where the $\Delta$ column of Table~\ref{tab:strictness} is
 computed, the movement is from \emph{control} to \emph{any} along the one axis
 that does nest. \emph{Resource} is reported alongside them as a separate
@@ -477,9 +460,13 @@ measured is the corpus coverage of Section~\ref{sec:coverage}.
 \label{sec:corpus}
 \label{sec:admissibility}
 The corpus separates a controlled collection, authored for this evaluation, from
-an external collection sourced independently. The distinction matters because the
-controlled collection shares an author with the policy set and therefore cannot
-provide independent confirmation of detection capability.
+an external collection of four configurations illustrating published CIS
+controls. The distinction was meant to separate cases that share an author with
+the policy set, and so cannot confirm detection capability independently, from
+cases that do not. The replication package does not record an upstream source for
+the external configurations, however, and they entered the repository in a commit
+by the investigator, so we do not rely on them for independence
+(Section~\ref{sec:external}).
 
 Admissibility is enforced mechanically. A case is admitted only if it satisfies
 all of the following:
@@ -513,16 +500,17 @@ value as a filter is untested on a corpus this clean and would be established
 only by a corpus that fails it.
 
 Both gaps require explanation, and they have different causes. The external
-manifests enumerate every example in the source benchmark documents, most of
-which were never transcribed into runnable configurations; a manifest entry
+manifests declare 50 CIS, 75 SecureFlag and 50 Terraform Registry entries, of
+which only four CIS configurations exist and the other two collections have none; a manifest entry
 without a configuration is a citation rather than a case, and counting such
 entries would inflate the external collection by more than a factor of forty
 while contributing no measurement. The controlled catalogue is the residue of a
-larger planned corpus: it enumerates the per-control specifications the generator
-is capable of emitting, of which 52 were generated, validated and admitted. We
+larger planned corpus: none of its 345 entries has a configuration on disk, and
+the 52 controlled cases were instead generated from per-control specifications
+under identifiers of their own. We
 report the declared count rather than pruning the catalogue to match, because the
 gap is itself the datum that motivates reporting admissible rather than
-catalogued size, and because the specifications indicate where the corpus can be
+catalogued size, and because the catalogue indicates where the corpus can be
 extended. No reported figure derives from a declared-but-absent entry.
 
 \subsection{Control Coverage}
@@ -534,21 +522,25 @@ were declared in the taxonomy with nothing run against them. A control in that
 state is invisible in the results rather than reported as a gap, because an absent
 case produces no row, so the four were specified and generated.
 
-Closing them established a distinction the confusion matrix cannot express, and it
-is large enough to change a conclusion. Neither tfsec nor Trivy emits any finding
+Closing them established a distinction the confusion matrix cannot express.
+Neither tfsec nor Trivy emits any finding
 on any \texttt{kubernetes\_*} Terraform resource --- not a different finding, none
 at all, verified on both \texttt{kubernetes\_pod} and
 \texttt{kubernetes\_pod\_security\_policy} and on the compliant variants as well as
 the vulnerable ones. Only Checkov inspects them. Their non-detection on those three
 controls therefore measures the scope of what each tool reads, not its accuracy,
-while \S\ref{sec:rq1} scores it identically to a missed misconfiguration. The
-control map records the two tools as inapplicable for those controls and the
+while \S\ref{sec:rq2} scores it identically to a missed misconfiguration. The
+plan-level layer's misses on the same cases have a different cause: its policy
+set implements no rule for the three controls, so they are a coverage gap in the
+reference implementation and are scored as misses. The control map records tfsec
+and Trivy, and only those two, as inapplicable for those controls and the
 analysis emits a caveat naming them, but the tables cannot separate the two
 failures, so we report the effect directly: including the Kubernetes controls
 moves control-level recall by $+1.1$ points for Checkov, $-8.5$ for tfsec, $-8.1$
-for Trivy and $-7.4$ for the plan-level layer, and widens the spread between the
-best and worst scoring tool from 14.81 to 23.33 points. Where a claim in
-\S\ref{sec:rq2} turns on that spread we state both figures.
+for Trivy and $-7.4$ for the plan-level layer. Treating tfsec's and Trivy's
+Kubernetes cases as inapplicable rather than missed would raise their recall to
+85.19 and 81.48 but leave the best-to-worst spread at 23.33 points, because its
+endpoints are Checkov and the plan-level layer (\S\ref{sec:rq1}).
 
 Auditing the taxonomy against the installed tool catalogues found three defect
 classes in the mapping itself, all corrected. Seven controls named plan-level
@@ -561,7 +553,12 @@ of the layer it is attributed to, and in the first case that layer is the
 reference implementation. That is the direction of error that flatters the
 contribution under evaluation, which is why the audit was mechanical, and why the
 resulting invariant, that every plan-level identifier must exist in the policy
-source, is now enforced by a test.
+source, is now enforced by a test. A later audit found one defect that could have
+produced a spurious detection: tfsec's and Trivy's Lambda tracing rules were
+mapped to the function-encryption control. Neither fires on that control's cases,
+so no classification changed, and both were removed; tfsec and Trivy now have no
+rule for that control, so their miss on it is an absent rule rather than a failed
+one.
 
 The correction left two controls with no implementing rule in any tool, and so
 detectable by none of them. A control in that state scores every case citing it
@@ -569,21 +566,27 @@ as a miss for every tool simultaneously, which reads as unanimous tool failure
 rather than as absent coverage; both were removed, and neither was exercised, so
 no reported figure changes. Two controls retain an unverified flag, down from
 eight. The eight were retained on the grounds that this environment could not
-corroborate a tfsec long identifier: tfsec 1.28 provides no check-listing command,
+corroborate a tfsec long identifier: the recorded tfsec release provides no
+check-listing command,
 and its \texttt{--filter-results} option returns nothing for an unknown identifier
 and for a real but untriggered one alike. Purpose-built cases settle the question
 that the tool's interface cannot. An identifier that fires on the vulnerable member
 of a pair and stays silent on the compliant one is corroborated by observation
-regardless of what the catalogue can be made to list, and on that basis six of the
-eight were confirmed against emitted output and their evidence recorded alongside
-the mapping.
+regardless of what the catalogue can be made to list, and on that basis three of
+the eight were confirmed against emitted output and their evidence recorded
+alongside the mapping. Three more, the Kubernetes controls, were resolved rather
+than confirmed: tfsec emits nothing on Kubernetes resources, so its identifiers
+there were moved out of scope and tfsec and Trivy recorded as inapplicable, with
+Checkov's firing recorded as the evidence for each control.
 
 The two survivors are comparator gaps rather than mapping errors, and we state what
 was observed instead. For a compute instance assigned a public address, Checkov
 fires but tfsec emits nothing for \texttt{associate\_public\_ip\_address} on an
 instance; it flags only the subnet-level form when
 \texttt{map\_public\_ip\_on\_launch} is set, which this case does not set. For
-credential material embedded in configuration, no comparator fires at all: Checkov's
+credential material embedded in configuration, no comparator emits a finding
+mapped to that control, although all three report other findings on the same
+resource: Checkov's
 secret checks belong to its secrets framework and the harness invokes it with
 \texttt{--framework terraform}, so they cannot fire, and only the reference
 pipeline's repository-edge layer detects the case. That second asymmetry favours
@@ -616,18 +619,27 @@ second human investigator}. We name it that way throughout because the word
 \emph{rater} imports a reliability claim this design cannot support, and the
 distinction governs how the agreement below may be read.
 
-The auditing model was \ratermodel, accessed via \rateraccess. Its instruction is
-recorded verbatim in \path{benchmark/labelling/rater_prompt.txt}, and the labels
-and reasons it returned are recorded per case alongside it, in
-\path{independent_relabelling.json}. No case's labelling carried the label or the
-reason returned for any other, with the exception of five cases noted at the end
-of this section. We state the identifier
-and the instruction because the agreement reported below is a property of one
-model under one prompt, and neither that figure nor the single disagreement it
-surfaces can be re-derived without both. The model was used as a measuring
-instrument here and nowhere else in the study's analysis; it is not an author, and
-the responsibility for the labels it produced rests with the author who chose to
-admit them as evidence.
+The identity and version of the auditing model, its access route and decoding
+parameters, and the exact instruction it was given were not recorded when the
+pass was run, and we do not reconstruct them after the fact. What is recorded is
+the blinding procedure described below and the label and reason returned for
+each case, in \path{benchmark/labelling/independent_relabelling.json}. No case's
+labelling carried another case's label or reason by construction, but the cases
+were labelled one at a time within a single session, so earlier cases' labels and
+reasons may have been in context when later ones were labelled, and the record
+cannot exclude it. Five cases are a more direct exception, discussed at the end
+of this section: the model had already seen their configurations and recorded
+labels. The omission matters: the agreement reported below is a
+property of one model under one instruction, and with neither identified the
+labelling cannot be repeated. The per-case labels are recorded, so the agreement
+figure can be recomputed from them, but it cannot be re-obtained from the
+instrument. We therefore report
+it as a record of what was observed, not as a reproducible measurement, and the
+single disagreement it surfaced stands on its own analysis below rather than on
+the audit's authority. The model was used as a measuring
+instrument in this role; it is not an author, and responsibility for how its
+labels are used here rests with the author. The other uses of AI assistance in
+this study are described in Section~\ref{sec:environment}.
 
 For each admissible case a review view was constructed containing only the
 Terraform configuration and the canonical control under test, with every comment
@@ -635,8 +647,9 @@ line removed, since the generator writes the expected label and its rationale
 into each file header, and with the annotation files and the case identifier
 withheld, the latter because its suffix names the class. Cases were presented in
 an order keyed on a hash of the case identifier, and the views were screened for
-residual label vocabulary. Each was then labelled from the configuration and the
-control text alone, with a reason recorded before any comparison.
+residual label vocabulary. The recorded view contained only the configuration and
+the control text; the instruction that accompanied it was not recorded. A label
+and a reason were recorded for each case before any comparison.
 
 Agreement is reported before reconciliation, since resolving disagreements
 guarantees consensus: 47 of 48 cases agreed, giving raw agreement of 97.92\% and
@@ -650,17 +663,22 @@ the raw count; the $2 \times 2$ agreement table is in the replication package.
 The audited set is 48 of the 56 admissible cases, and the eight it excludes are
 the four pairs added to close the coverage gap of \S\ref{sec:coverage}. The
 relabelling pass was run once, blind, against the corpus as it then stood; the
-later cases have not been through it, and re-running it is not something the
-authors can do unblinded to labels they have since read. We therefore report the
+later cases have not been through it, and running the model again would not extend
+the same audit, because the original model and instruction are unrecorded and a
+new run would be a different instrument. We therefore report the
 audit on the set it covered rather than extrapolating its agreement rate to the
 whole corpus, and note that the eight unaudited cases are precisely the ones whose
 labels were written last and reviewed least.
 
 The single disagreement is the kind of defect this pass exists to surface. A
-bucket configured with SSE-S3 (\texttt{AES256}) was labelled violating under a
+bucket configured with SSE-S3, server-side encryption with Amazon S3 managed keys
+(\texttt{AES256}), was labelled violating under a
 control titled \emph{lacks server-side encryption} and citing CIS Amazon Web
-Services 2.1.1. That configuration does not lack server-side encryption, and CIS
-2.1.1 is satisfied by SSE-S3; read against its stated text the case is compliant.
+Services 2.1.1. That is a requirement of version 1.4.0 of the benchmark,
+\emph{Ensure all S3 buckets employ encryption-at-rest} \citep{cis2021aws}, which
+version 3.0.0 removed. The configuration does not lack server-side encryption,
+and that requirement is satisfied by SSE-S3; read against its stated text the
+case is compliant.
 The generator's rationale reveals the intent, namely encryption \emph{other than}
 a customer-managed key, so the label encoded a requirement the control text never
 stated. That stricter requirement is also what the reference policy set enforces,
@@ -670,31 +688,43 @@ agreed with the reference implementation rather than with the control it cited.
 
 We corrected the control text rather than the label, because requiring a
 customer-managed key is a defensible control and is what the corpus, the policy
-set, and the customer-key rules of both source-level scanners all test;
+set, and the customer-key rules of all three source-level scanners test;
 relabelling instead would have left the pair testing nothing. The control is
 retitled to state the key requirement and records that it is stricter than the
-CIS control it cites. No confusion-matrix entry changed. A regression test now
+version 1.4.0 requirement it derives from; it cites no version 3.0.0 requirement,
+because there is none. No confusion-matrix entry changed. A regression test now
 pins the citation in the taxonomy to the one in the generator specification so
 the two cannot drift apart silently.
+
+A later audit of every citation against version 3.0.0 \citep{cis2024aws} found the
+taxonomy mixing its numbering with that of version 1.4.0, and several citations
+naming unrelated requirements. All are now given against version 3.0.0; the five
+controls whose citations had no counterpart there cite none, with the reason
+recorded in the control map. The four external configurations carry labels of
+their own that follow no version's numbering, and their metadata records the
+corresponding version 3.0.0 requirement. No label or classification depends on a
+citation number, so no reported result changed.
 
 Three properties bound what this pass establishes, and we state each at the
 strength the record supports. The audit reads the control texts from the same
 public documentation the specifications were written from, so the two readings
-are not fully independent and agreement is biased upward accordingly. Five cases
-had been inspected during earlier debugging, in a session shared with that
-inspection, so their agreement is not blind; excluding all five leaves 42 of 43
+are not fully independent and agreement is biased upward accordingly. The model
+was run in the same assistant session as earlier debugging, during which it had
+seen the configurations and recorded labels of five cases, so their agreement is
+not blind; excluding all five leaves 42 of 43
 agreeing, with the disagreement outside that set. And the blinding was not
 perfect: one external case declares \texttt{resource "aws\_cloudtrail"
-"insecure\_trail"}, so the screen for residual label vocabulary missed a
-resource name. It is genuine upstream content and was left unmodified rather than
-renamed, since renaming it would have made the released case differ from the
-published example it is drawn from; the case is identified in the replication
+"insecure\_trail"}, a resource name that hints at the label. The screen for
+residual label vocabulary flagged it, and it was left unmodified rather than renamed, so that the released
+case is the one that was audited; the case is identified in the replication
 package so its contribution to the agreement figure can be discounted. The full
 per-case labels, reasons, and these caveats are in the replication package.
 
 Two further checks bear on specification error. The admissibility procedure of
 Section~\ref{sec:admissibility} rejects any case whose label is absent,
-internally contradictory, or resolvable to more than one control in the taxonomy.
+internally contradictory, or inferred to resolve to more than one control in the
+taxonomy; a case may still declare several controls explicitly, as one external
+CIS case does.
 And the audit of the control map reported in Section~\ref{sec:coverage} found
 three classes of mapping defect by mechanical comparison against the installed
 tool catalogues. Neither check can establish that a specification reads its
@@ -727,13 +757,28 @@ equivalence is drawn from them anywhere in this paper.
 \label{sec:environment}
 Tool versions are resolved at execution time and recorded in
 \path{results/run_manifest.json}, together with the platform, processor, and
-repository commit. Versions are not restated in prose, because a hand-copied
+repository commit; for the reported run that commit does not identify the
+measured tree, as Section~\ref{sec:construct} sets out. Versions are not restated in prose, because a hand-copied
 version string is the first thing to drift; the manifest is authoritative
 \citep{bohme2022reliability}.
 
 Tools not installed in the measurement environment are recorded as such and
 omitted from every table. No tool is assigned an assumed detection rate or an
 assumed latency.
+
+AI coding assistants were used in building the study: to write parts of the
+harness and analysis code, the plan-level policy set and the benchmark cases, and
+to help debug the harness and inspect results, and an AI assistant was used to
+draft revisions of manuscript passages under the author's direction. Which
+assistant products were used is stated in the Statements and Declarations. None of these
+uses is an instrument of the detection measurements: every reported detection and
+latency figure is the recorded output of the tools under test, scored by the
+released harness, and every artefact the assistants contributed to is in the
+replication package for inspection. The one instrument role a language model did
+play, as second labeller in the consistency audit, is described in
+Section~\ref{sec:labelling}. What their use in writing both the
+policies and the cases implies for construct validity is discussed in
+Section~\ref{sec:construct}.
 
 \subsection{Tool Selection}
 \label{sec:toolsel}
@@ -783,7 +828,9 @@ detection behaviour.
 
 All tables in this section are generated by \path{evaluation/analyze.py} from
 recorded raw tool output, regenerated by \path{experiments/run_baselines.sh},
-and not edited by hand.
+and not edited by hand. In them, \emph{IaCSecBench L1} is the repository-edge
+layer and \emph{OPA (plan-level)} is the plan-level layer, which evaluates the
+author's policy set.
 
 \subsection{RQ1: Sensitivity to the Matching Criterion}
 \label{sec:rq1}
@@ -799,27 +846,29 @@ from 6.67 to 10.00 percentage points. The spread between those same four tools a
 the control criterion is 23.33 points, from Checkov's 90.00 to the plan-level
 layer's 66.67, which is more than twice the criterion effect.
 
-That comparison does not survive inspection, and the reason is the one
-\S\ref{sec:coverage} sets out. Three of the 26 controls govern Kubernetes
-workloads, and two of the four tools read none of the resources those controls
-are expressed in, so their zero on those cases is a statement about scope rather
-than detection. Excluding the three leaves a 50-case subset on which the spread
-is 14.81 points, against a criterion effect of 6.67 to 10.00 on the same subset.
-The honest statement is therefore weaker than the one this section made of an
-earlier corpus, where the two effects were 11.54 and 7.69--11.54 points and could
-be called the same magnitude: the between-tool effect is larger, by something
-between a factor of one and a half and a factor of two once scope is controlled
-for, and the ordering of the two is not established by a corpus of this size.
+That comparison needs one qualification, which \S\ref{sec:coverage} sets out.
+Three of the 26 controls govern Kubernetes workloads. tfsec and Trivy read none of
+the resources those controls are expressed in, so their zero on those cases is a
+statement about scope rather than detection; the plan-level layer's zero on the
+same cases is a gap in its own policy set and a genuine miss. Treating tfsec's
+and Trivy's Kubernetes cases as inapplicable leaves the spread at 23.33 points,
+because its endpoints are Checkov and the plan-level layer. Excluding the three
+controls altogether would narrow it to 14.81, but only by removing the reference
+implementation's own missing rules, which flatters the reference, so we do not
+treat that figure as scope-controlled. On the point estimates the criterion effect
+is therefore 29 to 43 percent of the between-tool spread, and the spread is 2.3
+to 3.5 times the criterion effect; with intervals as wide as those below, this corpus
+does not establish that ordering beyond the point estimates.
 
 Both effects remain small in cases: two or three of the 30 vulnerable cases move
-for each tool when the criterion is relaxed. The intervals in
+for each of the four source- and plan-level tools when the criterion is relaxed. The intervals in
 Table~\ref{tab:strictness} are correspondingly wide, so what this corpus
 establishes is that the criterion effect is not negligible beside the
 between-tool effect, not the size of either. We state the claim at that strength
 and no further.
 
-Order is the exception, and it is worth being precise about where the criterion
-does and does not disturb it. Among the three source-level scanners and the
+Rank order is where the criterion's effect is uneven, and it is worth being
+precise about where it does and does not disturb it. Among the three source-level scanners and the
 plan-level layer the criterion reorders nothing: Checkov leads at both criteria,
 the plan-level layer trails at both, and relaxation only collapses tfsec and
 Trivy into a tie at 83.33. The
@@ -842,6 +891,11 @@ the available range, and it gives a reader no way to tell which of the two
 situations they are in. That is the argument for reporting the criterion, and it
 does not require that the criterion have reordered anything.
 
+In answer to RQ1, relaxing the criterion from \emph{control} to \emph{any} moves
+recall by 6.67 to 10.00 points for the source- and plan-level tools, 29 to 43
+percent of the 23.33-point spread between them, and by 90.00 points for the
+repository-edge layer, which it moves from last to second.
+
 \subsection{RQ2: Detection Effectiveness and Resolvable Differences}
 \label{sec:rq2}
 \resulttable{performance}
@@ -850,16 +904,18 @@ does not require that the criterion have reordered anything.
 Table~\ref{tab:performance} reports confusion-matrix counts and
 Table~\ref{tab:rates} the corresponding rates with exact Clopper--Pearson
 intervals. Intervals accompany every proportion because a point estimate on a
-corpus of this size is compatible with a wide range of true values; the two
-tools attaining 100.00\% precision carry lower confidence bounds of 85.18 and
-83.16 respectively, and reporting the point estimate alone would misstate what has
+corpus of this size is compatible with a wide range of true values; Checkov and
+the plan-level layer, attaining 100.00\% precision, carry lower confidence bounds
+of 87.23 and 83.16 respectively, and reporting the point estimate alone would misstate what has
 been established.
 
 The Clopper--Pearson form is chosen for its coverage guarantee rather than for
 interval width. Its actual coverage is never below the nominal level, whereas the
 score and adjusted-Wald intervals attain nominal coverage only on average and
 undercover for proportions near the boundary \citep{agresti1998approximate},
-which is where most of these estimates sit. The cost is conservatism, so every
+which is where most of these estimates sit; Agresti and Coull draw the opposite
+recommendation from the same observation, preferring the approximate intervals
+for their width. The cost is conservatism, so every
 interval in Table~\ref{tab:rates} is wider than a score interval on the same
 counts; for a claim about detection capability that is the safe direction of
 error, and the harness computes the score interval as well, so a reader
@@ -876,11 +932,11 @@ Specificity is estimable here because the corpus carries 26 ground-truth
 compliant cases, and it is reported for that reason: a detector's cost to its
 users is carried as much by its false positives as by its misses, and a table
 reporting only recall and precision would have described the half of the
-behaviour that flatters a detector. The Matthews correlation coefficient
+behaviour that flatters a detector. The Matthews correlation coefficient (MCC)
 \citep{matthews1975comparison} is likewise estimable and is given in
 Table~\ref{tab:performance}. What the compliant baseline does not yet support is
 a \emph{precise} false-positive estimate: with 26 negatives the specificity
-intervals span roughly fifteen points even where no false positive occurred.
+intervals span more than thirteen points even where no false positive occurred.
 
 \resulttable{mcnemar}
 \resulttable{allpairs}
@@ -889,7 +945,7 @@ Tables~\ref{tab:mcnemar} and \ref{tab:allpairs} report pairwise comparisons.
 Table~\ref{tab:allpairs} is the confirmatory analysis: it covers all ten
 unordered pairs with Holm--Bonferroni applied across the whole set, so the
 comparison a practitioner most wants, between two third-party scanners, is made,
-and the tool this paper contributes does not sit on one side of every test.
+and the pipeline evaluated here does not sit on one side of every test.
 Table~\ref{tab:mcnemar} retains the against-one-reference form for continuity
 with the way this literature usually reports, and its weaker correction reflects
 its smaller family; where the two disagree, the all-pairs adjustment governs.
@@ -909,14 +965,26 @@ effect size.
 No pairwise difference among the three third-party scanners and the plan-level
 layer is significant after correction. The $d_{\min}$ column states what each
 comparison could have detected, and it is the more informative result. For
-Checkov against the plan-level layer, seven discordant cases mean that only a
-seven-to-zero split would have reached $\alpha = 0.05$; the observed split was
-five to two. For three pairs, Checkov against tfsec, Checkov against Trivy, and
-tfsec against Trivy, the discordant count is five or fewer, at which \emph{no}
-split of the discordant cases reaches significance: the smallest attainable
-two-sided $p$-value at five discordant pairs is $0.0625$. Those three comparisons
-had no power at all, so their non-significance carries no information about the
-tools.
+Checkov against the plan-level layer, eleven discordant cases mean that only a
+split of ten to one or more extreme would have reached $\alpha = 0.05$; the
+observed split was nine to two. Checkov against tfsec and against Trivy each have
+eight discordant cases, and the plan-level layer against tfsec and against Trivy
+each have seven, so each of those four comparisons could have reached
+significance only if every discordant case had fallen the same way. For tfsec
+against Trivy the discordant count is two, at which \emph{no} split reaches
+significance: the smallest attainable two-sided $p$-value at two discordant pairs
+is $0.5$. That comparison had no power at all, and the other five had power only
+against near-unanimous disagreement, so their non-significance carries little
+information about the tools.
+
+Those thresholds are uncorrected, and the correction that governs is stricter.
+The four repository-edge comparisons occupy the first four Holm ranks, so any
+other pair needs $p \le 0.05/6 \approx 0.0083$ to survive. Holding the other
+comparisons as observed, the plan-level layer against tfsec and against Trivy
+could not have survived under any split of their seven discordant cases, whose
+smallest attainable $p$ is $0.0156$, nor could tfsec against Trivy; the remaining
+three pairs could have survived only under a unanimous split.
+Table~\ref{tab:allpairs} reports $d_{\min}$ at the uncorrected level.
 
 The one significant family is the repository-edge layer against each of the
 other four, which reflects that it addresses a different class of defect
@@ -925,11 +993,17 @@ Table~\ref{tab:rates} and the $d_{\min}$ column of Table~\ref{tab:allpairs}
 together are what this corpus establishes about relative effectiveness among the
 scanners, which is little, in a form a reader can act on.
 
+In answer to RQ2, control-level recall among the four source- and plan-level tools
+ranges from 66.67 for the plan-level layer to 90.00 for Checkov, with 95 percent
+intervals between 24 and 36 points wide, and no difference among them survives
+correction.
+
 \subsubsection{Divergence within the shared rule lineage}
 The tfsec/Trivy pair (Section~\ref{sec:toolsel}) permits one measurement the rest
 of the comparison cannot make: how much a rule set changes as it is carried from
 a retired product into its successor. The two agree on 54 of 56 cases. Both
-disagreements concern the same control, IAM policy wildcards: tfsec reports
+disagreements concern the same control, identity and access management (IAM)
+policy wildcards: tfsec reports
 \texttt{aws-iam-no-policy-wildcards} on both members of the pair, and Trivy emits
 its counterpart \texttt{AWS-0057} on neither, not on these two cases and nowhere
 in the corpus.
@@ -944,12 +1018,15 @@ versioning rule, unrelated to IAM policy wildcards, so no mapping gap is
 concealing a detection.
 
 The remainder of the two tools' output corroborates the shared provenance
-quantitatively. Of the rule identifiers each emitted that the taxonomy does not
-cover, 12 of tfsec's 13 have an exact Trivy counterpart reported on an identical
-number of cases; the thirteenth, a CloudFront TLS-policy rule, is absent from
-Trivy as \texttt{AWS-0057} is. Two products separated by a major version and a
-change of engine thus differ, on this corpus, by two rules, in both cases by the
-successor being silent where the predecessor fires. Section~\ref{sec:discussion}
+quantitatively. Every rule Trivy emitted has a tfsec counterpart reported on an
+identical number of cases. The converse fails for four rules, which tfsec emits
+and Trivy emits nowhere in the corpus: the IAM policy-wildcard rule above; a
+CloudFront TLS-policy rule the taxonomy does not cover; and two mapped rules, S3
+bucket encryption (\texttt{AWS-0088}, on 14 cases) and public database access
+(\texttt{AWS-0082}, on one), neither of which changes a classification, since
+the two tools disagree only on the IAM pair. Two products separated by a change of
+engine thus differ, on this corpus, by four rules, in every case by the successor
+being silent where the predecessor fires. Section~\ref{sec:discussion}
 takes up what that implies for practitioners migrating between them.
 
 \subsection{RQ3: Execution Cost and Suite Size}
@@ -958,8 +1035,8 @@ takes up what that implies for practitioners migrating between them.
 
 Table~\ref{tab:latency} reports per-case latency as a mean with standard
 deviation over 168 samples per tool, three repetitions across the 56 cases.
-Single-run figures are not reported: variance on shared-tenancy runners is large
-enough that a single sample is not a measurement.
+Single-run figures are not reported, because a single sample carries no estimate
+of its own dispersion.
 
 On engineering effort we report a measurement of the native suite alone and
 withdraw the comparative claim. The validation suite comprises 11
@@ -980,6 +1057,11 @@ volume is therefore outside this paper's scope. The native suite does require no
 language runtime, dependency manifest, or build step beyond the Terraform binary
 already needed to plan the configuration --- a difference in toolchain surface,
 not a measured difference in effort.
+
+In answer to RQ3, per-case latency ranges from 0.15\,ms for the repository-edge
+layer to about 1.9\,s for Checkov (Table~\ref{tab:latency}), the plan-level
+figure being a lower bound that excludes plan generation, and the native suite
+expresses its assertions in 26 \texttt{assert} blocks across 11 files.
 
 \subsection{RQ4: Layer Attribution}
 \resulttable{layers}
@@ -1011,15 +1093,21 @@ validates the project's own infrastructure and is not exercised per benchmark
 case, so it is excluded from this table and reported under RQ3; its omission is a
 scope boundary, not a null result.
 
+In answer to RQ4, the plan-level layer accounts for 20 of the scored pipeline's 21
+detections and the repository-edge layer for the remaining one, with no case
+detected by both.
+
 \subsection{RQ5: External Generalization}
 \label{sec:external}
 
-Generalization is assessed only on subsets whose configurations are present in
-the replication package, four in total (Table~\ref{tab:admissibility}). They are
-drawn from published CIS Amazon Web Services Benchmark examples and carry
-ground-truth labels derived from the benchmark control each example illustrates;
-they enter the admissible corpus on the same terms as the internal cases and are
-validated by the same procedure.
+Two subsets lie outside the controlled corpus, and neither supports an
+independent effectiveness estimate. The first is four labelled configurations
+illustrating CIS Amazon Web Services controls (Table~\ref{tab:admissibility}),
+whose labels derive from the control each illustrates; they enter the admissible
+corpus on the same terms as the internal cases and are validated by the same
+procedure. The replication package does not record an upstream source for them,
+and they entered the repository in a commit by the investigator, so we do not
+treat them as independent of the investigator.
 
 One defect in how they were stored is worth reporting, because its signature is
 invisible in aggregate. A case is scanned as a directory rather than as a file,
@@ -1038,18 +1126,42 @@ a directory: case isolation has to be enforced rather than assumed.
 
 Four cases are too few for a per-subset recall estimate, whose interval would
 span most of the unit interval, so we report them within the combined admissible
-corpus and treat the external subset as a check that the harness operates on
-configurations it did not generate rather than as an independent effectiveness
-estimate.
+corpus.
+
+\resulttable{external}
+\resulttable{external_agreement}
+
+The second subset is 25 Terraform repositories published by Amazon Web Services
+under the MIT-0 licence, 15,226 lines in all, each pinned to an exact commit, with
+the selection criteria recorded in the replication package. These are the only
+configurations here whose third-party provenance is recorded, but they carry no
+ground-truth label, so they yield no detection figure and nothing measured on
+them enters a confusion matrix: Table~\ref{tab:external} counts alerts instead.
+They bear on two points made elsewhere. The share of alerts whose native rule has
+no entry in the control map is 73 percent for Checkov, 19 for tfsec and 35 for
+Trivy, against 72, 25 and 27 percent on the labelled corpus. Checkov's share is nearly
+the same on both, tfsec's is lower on production-shaped code and Trivy's higher,
+so the labelled corpus does not overstate how much of a tool's output a
+control-level comparison can score. And the tools agree little
+(Table~\ref{tab:external-agreement}): by flagged resource the Jaccard index is
+0.21 for Checkov against tfsec, 0.42 against Trivy, and 0.49 between tfsec and
+Trivy, whose shared lineage (Section~\ref{sec:toolsel}) makes the last not an
+independent comparison. Agreement is not correctness, since two tools may agree
+and both be wrong.
+
+In answer to RQ5, this study cannot say whether effectiveness persists on
+independently sourced configurations: the labelled external cases are too few and
+of unrecorded provenance, and the independently sourced repositories are
+unlabelled.
 
 We make no claim that effectiveness measured here transfers to production
 infrastructure. Establishing that requires a labelled corpus of real-world
 configurations, and the position of this literature deserves to be stated
 precisely rather than as an absence. Manually annotated oracle datasets of
-real-world IaC scripts do exist: GLITCH releases three, covering Terraform among
-five technologies, validated by the authors and three independent external
-raters \citep{saavedra2022glitch}. They are not the corpus used here because
-their labels are security-smell categories in the sense of
+real-world IaC scripts do exist: GLITCH releases three, for Ansible, Chef and
+Puppet \citep{saavedra2022glitch}, and later versions of the tool add Terraform
+support \citep{saavedra2023polyglot}. They are not the corpus used here, first
+because none of the oracles is a Terraform corpus, and second because their labels are security-smell categories in the sense of
 \citet{rahman2019sins}, whereas this evaluation's unit of ground truth is a CIS
 control identifier, and the two taxonomies are not in correspondence: a single
 smell category spans several CIS controls and several controls have no smell
@@ -1067,10 +1179,10 @@ Section~\ref{sec:conclusion}.
 Five findings from building the harness bear on how IaC security tooling should
 be evaluated.
 
-First, the matching criterion is as consequential as the choice of tool. Because
+First, the matching criterion is a consequential choice in its own right. Because
 native rule identifiers carry no shared semantics, any comparison implicitly
 chooses what counts as a correct detection, and on this corpus that choice moves
-recall by as much as the entire spread between the tools compared
+recall by 29 to 43 percent of the spread between the tools compared, and by most of the available range for one layer
 (Section~\ref{sec:rq1}). \citet{habib2018howmany} established the sensitivity for
 analysers of one language, which share a vocabulary of defect kinds even where
 they disagree about instances. The IaC case is the harder one: the tools compared
@@ -1084,17 +1196,22 @@ response to the same problem \citep{li2023sast}.
 
 Second, taxonomy coverage is a bias mechanism. When a canonical taxonomy is
 authored around one tool's rule set, findings that other tools emit under
-identifiers the taxonomy lacks are scored as misses. The effect is systematic and
-favours the authoring tool. Auditing observed rule identifiers against the
+identifiers the taxonomy lacks are scored as misses. The effect, where it occurs,
+is systematic and favours the authoring tool. Auditing observed rule identifiers against the
 taxonomy after execution, and reporting the unmapped remainder, is the minimum
-control; during this work the audit identified rules from comparator tools that
+control. On this corpus 367 findings fell outside the control map, 255 of
+Checkov's, 57 of tfsec's and 55 of Trivy's, but only 11 of them sit on vulnerable
+cases the emitting tool missed (8, 1 and 2 respectively). They fall on five
+tool--case pairs, so at most five misses could reflect a gap in the map rather
+than in the tool. During this work the audit identified rules from comparator tools that
 the initial taxonomy omitted and that would otherwise have been scored as
 failures.
 
 A third observation concerns statistical reporting rather than IaC. On corpora of
 this size a non-significant paired test is routinely read as evidence of
-similarity, and for three of the ten pairs measured here no outcome could have
-been significant at all. The quantity that distinguishes the two readings, the
+similarity, yet under the correction applied here three of the six comparisons
+among the four source- and plan-level tools could not have been significant
+under any outcome, and the other three only under a unanimous split. The quantity that distinguishes the two readings, the
 smallest discordant imbalance the test could resolve, is computable from the
 discordant count alone and costs nothing to report. We suggest it accompany every
 paired comparison on a small corpus.
@@ -1104,8 +1221,8 @@ term of that trade-off is a defect class rather than a cost. Because the compile
 plan is produced after expression resolution, policies observe concrete values
 and avoid a class of interpolation-related imprecision that source-level analysis
 must otherwise reason about \citep{opdebeeck2023control}. Plan generation in
-exchange dominates the layer's latency and requires a working provider
-configuration. It also introduces a distinction that a policy author must handle
+exchange adds a step that the latency figures here exclude and that is expected
+to dominate the layer's cost, and it requires a working provider configuration. It also introduces a distinction that a policy author must handle
 explicitly, because Terraform serialises three configuration states of a scalar
 optional attribute into shapes that a presence test orders wrongly. An attribute
 set to a literal carries its value. An attribute set from a reference to another
@@ -1129,10 +1246,9 @@ over blocks.
 
 A fifth observation concerns tool succession rather than tool comparison. The
 tfsec/Trivy pair measured here (Section~\ref{sec:rq2}) is a rule set carried from
-a retired product into its maintained successor across a major version and a
-change of engine, and on this corpus the two differ by two rules --- one IAM
-policy-wildcard rule and one CloudFront TLS-policy rule, both present in the
-predecessor and silent in the successor. The magnitude is small; the direction is
+a retired product into its maintained successor across a change of engine, and on
+this corpus the two differ by four rules, all present in the predecessor and
+silent in the successor; one of them costs the successor a detection. The magnitude is small; the direction is
 what matters, since coverage was lost rather than gained and nothing in either
 product's output announces it. Practitioners migrating between a scanner and its
 replacement should not assume that coverage transfers rule for rule, and a
@@ -1150,13 +1266,20 @@ Threats are organised under the categories of
 The controlled corpus was authored by the same investigator who implemented the
 evaluated policy set. Ground-truth labels therefore encode the same reading of
 each control that the policies encode, and agreement between the two is not
-independent evidence of detection capability. This is the most serious limitation
+independent evidence of detection capability. AI coding assistance was used in
+writing both the policy set and the benchmark cases, so the two share that
+influence as well as an author, and the dependence is if anything stronger than
+single authorship alone implies. This is the most serious limitation
 of the evaluation, and it is only partly mitigated.
 
-Two mitigations apply. Labels derive from the text of the originating control
-rather than from any policy implementation, and both the specifications and the
+Two mitigations apply. Labels are intended to derive from the text of the
+originating control rather than from any policy implementation, though
+Section~\ref{sec:labelling} documents one case where a label encoded the reference
+policy's stricter reading instead, and both the specifications and the
 generator that consumes them are released, so a reader can audit the derivation.
-And generalization is assessed on configurations the investigator did not author.
+And the harness is also run on 25 third-party repositories the investigator did
+not author, though these are unlabelled and support no effectiveness estimate
+(Section~\ref{sec:external}).
 
 A third check bears on it partially. The blind relabelling pass of
 Section~\ref{sec:labelling} agreed with 47 of the 48 labels it covered, and the one
@@ -1170,8 +1293,14 @@ The audit is not a sufficient mitigation. Its second labeller is a language mode
 whose reading of control texts derives from the same public documentation the
 specifications were written from, so the two readings share provenance, agreement
 is biased upward, and no claim of human inter-rater reliability is available from
-it. A single investigator still wrote every specification, and the external
-subset, the only part of the corpus outside this failure mode, is four cases.
+it. It also ran in the same assistant session used for earlier debugging
+(Section~\ref{sec:labelling}), so it is not independent of the AI assistance used
+in building the study (Section~\ref{sec:environment}), which weakens its
+independence further. Its
+identity, parameters and instruction were not recorded, so the audit cannot be
+repeated as run. A single investigator, with AI assistance, still wrote every
+specification, and no labelled part of the corpus has a recorded source outside
+this failure mode.
 
 What would remove this threat rather than bound it is a separation of benchmark
 authorship from policy implementation, and we state it as a protocol because this
@@ -1179,14 +1308,18 @@ corpus does not satisfy it: controls selected by someone other than the author o
 the detection rules; cases generated without reference to any detection
 implementation; labels fixed and recorded before the rules that detect them are
 written; and the corpus frozen, by commit, before any tool is executed against it.
-Only the last holds here, mechanically, since the run manifest records the
-repository commit each measurement was taken against. The first three are the
-substantive ones, and independent relabelling by a second human who has not read
+None holds fully here. The run manifest records the commit checked out at
+measurement time, but the reported run was taken on a working tree with
+uncommitted changes: the recorded commit is release 1.3.1, whose corpus had 44
+internal cases, not the 52 measured. The measured corpus is therefore identified
+by the released package rather than by that commit, and the harness now records
+the tree's uncommitted paths alongside it. The first three are the substantive
+ones, and independent relabelling by a second human who has not read
 the policy set is the cheapest step toward them. A benchmark satisfying all four
 could offer its ground truth as independent evidence of detection capability;
 this one offers it as a stated and auditable assumption.
 
-Results on the controlled corpus should therefore be read as an upper bound on
+Results on the controlled corpus should therefore not be read as an estimate of
 field performance. A high score on a developer-authored corpus is at least as
 consistent with insufficient corpus difficulty as with strong detection, and we
 do not interpret it as the latter.
@@ -1218,8 +1351,8 @@ Latency was measured on a single host with recorded specifications, so absolute
 figures do not transfer across environments. Latency additionally measures each
 tool at its own interface: the plan-level figure covers policy evaluation over an
 already-compiled plan document and excludes the \texttt{terraform init} and
-\texttt{terraform plan} invocations that produce it, which dominate that layer's
-true wall-clock cost in continuous integration. The source-level scanners have no
+\texttt{terraform plan} invocations that produce it, which are expected to
+dominate that layer's true wall-clock cost in continuous integration. The source-level scanners have no
 comparable preparation step. Plan-level and source-level latencies are therefore
 not interchangeable, and the plan-level figure is a lower bound on deployed cost.
 
@@ -1246,8 +1379,9 @@ characterises performance on a published taxonomy of known misconfiguration
 classes; no claim is made regarding novel or deliberately obfuscated insecure
 configurations, or an adversary who has read the policy set. On statistical
 conclusion validity, the $d_{\min}$ column of Table~\ref{tab:allpairs} bounds
-what the paired tests could establish, and three of the ten comparisons could not
-have reached significance under any outcome. We therefore draw no conclusion of
+what the paired tests could establish: under the Holm correction three of the six
+comparisons among the four source- and plan-level tools could not have reached
+significance under any outcome, and the other three only under a unanimous split. We therefore draw no conclusion of
 equivalence anywhere in this paper, and the effectiveness comparison among
 scanners should be read as unresolved rather than as settled in either direction.
 
@@ -1262,7 +1396,7 @@ relabelling pass of Section~\ref{sec:labelling}, with its reasons and its stated
 limitations; the execution harness, which records raw tool output, resolved
 versions, and repeated latency samples; the normalization engine; the statistical
 implementation, with a test suite pinning each method to independently derived
-values; and the analysis stage that generates every table in this paper. It also
+values; and the analysis stage that generates every results table in this paper. It also
 retains the measured results from before the plan-level policy correction
 disclosed in Section~\ref{sec:internal}, so that the disclosure can be checked
 rather than taken on trust.
@@ -1271,7 +1405,7 @@ Three properties are worth stating explicitly. The harness declines to emit
 results when no case is admissible, instead of producing an empty but plausible
 table. The statistical implementation refuses to report a proportion whose
 denominator is zero, returning a not-estimable marker instead of a value a reader
-could mistake for a measurement. And both figures in this paper are generated
+could mistake for a measurement. And both diagrams in this paper are generated
 from the recorded results rather than drawn, with a continuous-integration check
 that fails if a re-measurement moves a corpus size or tool version that a figure
 asserts.
@@ -1286,7 +1420,8 @@ recorded artefact it is computed from. One command,
 \path{experiments/run_baselines.sh}, executes the scanners, writes the raw output,
 and regenerates every row; \path{paper/Makefile} then refuses to typeset if any
 generated table is absent, so a manuscript built from this package cannot contain a
-number that no recorded measurement supports. The mapping is given because
+results table that no recorded measurement supports; figures quoted in the prose
+are computed from the same recorded output but are not checked mechanically. The mapping is given because
 describing a package as complete is not the same as telling a reader which file
 answers which question.
 
@@ -1308,17 +1443,20 @@ Criterion sensitivity (RQ1) & \texttt{analyze.py} & \path{results/raw/} \\
 \addlinespace[2pt]
 Effectiveness and intervals (RQ2) & \texttt{analyze.py} & \path{results/raw/} \\
 \addlinespace[2pt]
-Paired tests and $d_{\min}$ (RQ2) & \texttt{stats.py} &
+Paired tests and $d_{\min}$ (RQ2) & \texttt{analyze.py} &
 \path{results/evaluation.json} \\
 \addlinespace[2pt]
 Latency and suite size (RQ3) & \texttt{analyze.py} &
-\path{results/run_manifest.json} \\
+\path{results/run_manifest.json}, \path{infrastructure/tests/} \\
 \addlinespace[2pt]
 Layer attribution (RQ4) & \texttt{analyze.py} & \path{results/raw/} \\
 \addlinespace[2pt]
-External subset (RQ5) & \texttt{corpus.py} & \path{benchmark/external/} \\
+Labelled external cases (RQ5) & \texttt{analyze.py} & \path{results/raw/} \\
 \addlinespace[2pt]
-Both figures & \texttt{generate\_figures.py} &
+Unlabelled subset (RQ5) & \texttt{external.py} &
+\path{results/raw/external/}, \path{results/external_subset.json} \\
+\addlinespace[2pt]
+Both diagrams & \texttt{generate\_figures.py} &
 \path{results/evaluation.json}, \path{results/run_manifest.json} \\
 \bottomrule
 \end{tabularx}
@@ -1333,7 +1471,7 @@ Both figures & \texttt{generate\_figures.py} &
 \footnotesize
 \begin{verbatim}
 benchmark/
-  benchmark.json          case catalogue + labels
+  benchmark.json          planned case catalogue
   generate_corpus.py      case generator
   internal/               authored cases
   external/               CIS-derived cases,
@@ -1377,23 +1515,24 @@ Section~\ref{sec:internal}.}
 
 This paper contributes an evaluation methodology for IaC security validation
 tools: a finding-normalization scheme that makes heterogeneous scanner output
-commensurable, an explicit treatment of matching strictness, a mechanically
-enforced corpus admissibility procedure, and a statistical protocol suited to
+commensurable, an explicit treatment of matching strictness, a stated and
+re-runnable corpus admissibility rule whose value as a filter is untested here,
+and a statistical protocol suited to
 paired small-sample comparison. The accompanying framework composes
 repository-edge validation, native module testing, and plan-level policy
 evaluation, and is released with a harness in which every reported figure is a
 generated artefact traceable to recorded tool output.
 
 The methodological findings are the transferable result. On this corpus the
-matching criterion moves reported recall by as much as the entire spread between
+matching criterion moves reported recall by 29 to 43 percent of the spread between
 the tools compared, and by most of the available range for a tool whose findings
 are of a different kind from the corpus's controls, which means comparative
 claims in this area should report their criterion as part of their method.
-Taxonomy coverage exerts a bias in the same direction as its author. Plan-level
+Taxonomy coverage can favour the tool the taxonomy was authored around. Plan-level
 policy evaluation inherits a three-way serialisation distinction that silently
 inverts controls when it is collapsed. And corpus size is a weaker indicator of
-evidential strength than admissibility, interval width, and the smallest
-difference the chosen test could have resolved \citep{bohme2022reliability}.
+evidential strength than interval width and the smallest difference the chosen
+test could have resolved.
 
 The outcome stated in Section~\ref{sec:intro} holds without adjustment: a
 third-party scanner attains the highest point-estimate control-level recall and
@@ -1405,7 +1544,7 @@ Three lines of future work follow directly. A mapping between the security-smell
 taxonomy that existing manually annotated IaC oracles are labelled against and
 the CIS control identifiers this evaluation uses would allow effectiveness to be
 measured on real-world configurations the investigator did not author, which is
-the mitigation Section~\ref{sec:construct} identifies as outstanding and the
+one of the mitigations Section~\ref{sec:construct} identifies as outstanding and the
 single change that would most strengthen the evidence. Enlarging the compliant
 baseline would narrow the specificity intervals to a width at which
 false-positive behaviour can be compared rather than merely reported. And
@@ -1418,8 +1557,11 @@ sensitivity measured here is a property of IaC scanning or of this technology.
 
 \paragraph{Funding} This research received no external funding.
 
-\paragraph{Competing interests} The author declares no competing interests. The
-author is not affiliated with, and receives no support from, the vendor or
+\paragraph{Competing interests} The author designed and implemented the plan-level
+policy set and the repository-edge layer evaluated here alongside third-party
+tools. This is a non-financial interest, and Sections~\ref{sec:construct}
+and~\ref{sec:internal} disclose the asymmetries it creates. The author declares no financial interests and is not
+affiliated with, and receives no support from, the vendor or
 maintainer of any tool evaluated in this study.
 
 \paragraph{Ethics approval} Not applicable. This study analyses software
@@ -1441,19 +1583,23 @@ table in this paper is generated are openly available:
 
 \paragraph{Author contributions} The sole author designed the study, implemented
 the harness and the normalization engine, conducted the measurements, performed
-the analysis, and wrote the manuscript.
+the analysis, and wrote the manuscript, with AI assistance as described under Use
+of AI-assisted technologies.
 
-\paragraph{Use of AI-assisted technologies} A large language model was used for
-two purposes, both bounded. Methodologically, it was the second labeller in the
-automated consistency audit of Section~\ref{sec:labelling}, which names the model,
-its access route, and its instruction, and states what the resulting agreement
-does and does not establish; the per-case labels and reasons are in the
-replication package. Editorially, a language model was used for language editing
-of the manuscript text. It was not used to design the study, generate the corpus
-or its labels, implement the harness or the policies, run or analyse the
-measurements, or draw any conclusion. All technical content, measurements,
-analysis and conclusions are the author's, who accepts full responsibility for the
-manuscript.
+\paragraph{Use of AI-assisted technologies} AI assistance was used in three
+roles. As a measuring instrument, a large language model was the second labeller
+in the automated consistency audit of Section~\ref{sec:labelling}, which states
+that the model's identity, parameters and instruction were not recorded and what
+the resulting agreement does and does not establish in consequence; the per-case
+labels and reasons are in the replication package. In building the study, AI
+coding assistants were used to write parts of the harness and analysis code, the
+plan-level policy set and the benchmark cases, and to help debug the harness and
+inspect results, as described in Section~\ref{sec:environment}. In preparing the
+manuscript, an AI assistant was used for language editing and to draft revisions
+of manuscript passages under the author's direction. The assistant products used were Claude Code (Anthropic) and Gemini
+(Google); their model versions and parameters were not recorded. The study design and conclusions are
+the author's. The author reviewed all AI-assisted work and accepts full
+responsibility for the manuscript and its content.
 
 %------------------------------------------------------------------------------
 \appendix
@@ -1461,7 +1607,8 @@ manuscript.
 \label{app:threats}
 
 The controls the pipeline enforces were selected against a STRIDE decomposition
-\citep{shostack2014threat} of a continuous-integration deployment path,
+(spoofing, tampering, repudiation, information disclosure, denial of service,
+elevation of privilege) \citep{shostack2014threat} of a continuous-integration deployment path,
 summarised in Table~\ref{tab:stride}. Protected assets are infrastructure
 configurations and compiled plan states, ingested datasets, policy and test
 definitions, and pipeline credentials; the trust boundaries separate the developer
@@ -1471,8 +1618,8 @@ repository, and the compiled plan from the policy engine.
 We record the decomposition to delimit which misconfiguration classes the corpus
 exercises, and claim nothing further from it. The pipeline was not subjected to
 adversarial testing and no adversary model was validated, so the table states
-intended coverage rather than a result. Readers seeking a threat model of IaC
-pipelines as such should look to dedicated work \citep{shamim2020xi}.
+intended coverage rather than a result; it is not a threat model of IaC
+pipelines, which this paper does not attempt.
 
 \begin{table}[!t]
 \caption{STRIDE categories, mitigations, and the layer that enforces them.}
