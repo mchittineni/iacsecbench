@@ -243,7 +243,7 @@
                     "tags": [
                         {
                             "type": "locals",
-                            "name": "collector_name",
+                            "name": "common_tags",
                             "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/main.tf",
                             "module_connection": false
                         }
@@ -314,6 +314,20 @@
                 "check_len": null,
                 "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/main.tf",
                 "breadcrumbs": {
+                    "retention_in_days": [
+                        {
+                            "type": "module",
+                            "name": "adot_collector",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "log_retention_days",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "tags": [
                         {
                             "type": "module",
@@ -357,20 +371,6 @@
                             "type": "output",
                             "name": "cloudwatch_namespace",
                             "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/outputs.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "retention_in_days": [
-                        {
-                            "type": "module",
-                            "name": "adot_collector",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "log_retention_days",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/variables.tf",
                             "module_connection": false
                         }
                     ],
@@ -426,40 +426,6 @@
                 "check_len": null,
                 "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/main.tf",
                 "breadcrumbs": {
-                    "retention_in_days": [
-                        {
-                            "type": "module",
-                            "name": "adot_collector",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "log_retention_days",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "tags": [
-                        {
-                            "type": "module",
-                            "name": "adot_collector",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "tags",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/variables.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "locals",
-                            "name": "common_tags",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/main.tf",
-                            "module_connection": false
-                        }
-                    ],
                     "name": [
                         {
                             "type": "module",
@@ -483,6 +449,40 @@
                             "type": "output",
                             "name": "cloudwatch_namespace",
                             "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/outputs.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "type": "module",
+                            "name": "adot_collector",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "tags",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "locals",
+                            "name": "common_tags",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "retention_in_days": [
+                        {
+                            "type": "module",
+                            "name": "adot_collector",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "log_retention_days",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/variables.tf",
                             "module_connection": false
                         }
                     ],
@@ -538,7 +538,7 @@
                 "check_len": null,
                 "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/main.tf",
                 "breadcrumbs": {
-                    "name": [
+                    "retention_in_days": [
                         {
                             "type": "module",
                             "name": "adot_collector",
@@ -547,20 +547,8 @@
                         },
                         {
                             "type": "variable",
-                            "name": "ecs_cluster_name",
+                            "name": "log_retention_days",
                             "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/variables.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "locals",
-                            "name": "cw_namespace",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "output",
-                            "name": "cloudwatch_namespace",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/outputs.tf",
                             "module_connection": false
                         }
                     ],
@@ -584,7 +572,7 @@
                             "module_connection": false
                         }
                     ],
-                    "retention_in_days": [
+                    "name": [
                         {
                             "type": "module",
                             "name": "adot_collector",
@@ -593,8 +581,20 @@
                         },
                         {
                             "type": "variable",
-                            "name": "log_retention_days",
+                            "name": "ecs_cluster_name",
                             "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "locals",
+                            "name": "cw_namespace",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "output",
+                            "name": "cloudwatch_namespace",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway/modules/adot-collector/outputs.tf",
                             "module_connection": false
                         }
                     ],

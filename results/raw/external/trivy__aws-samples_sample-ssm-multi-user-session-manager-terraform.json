@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-de36-7877-9e6e-eed98f60b413",
-  "CreatedAt": "2026-08-20T09:52:08.886557+01:00",
+  "ReportID": "01a0ce97-9d39-78cd-9b7d-b3444af58596",
+  "CreatedAt": "2026-09-23T15:07:17.817578+01:00",
   "ArtifactID": "sha256:a1f4ae9106ec94ea354651fa0b484fc916c03e369170f157ac1a2dce549edad9",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ssm-multi-user-session-manager-terraform",
   "ArtifactType": "repository",

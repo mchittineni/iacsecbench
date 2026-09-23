@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-5392-7e1d-b32d-2209007e4aab",
-  "CreatedAt": "2026-08-20T09:51:33.394926+01:00",
+  "ReportID": "01a0ce97-0ec0-7274-b98c-05b4c489f1d8",
+  "CreatedAt": "2026-09-23T15:06:41.344162+01:00",
   "ArtifactID": "sha256:f6f477274ccabda7bfa438b3b6d42d646618e3fdd635421dc9bb4ede1dac34b2",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-codepipeline-terraform-cicd-samples",
   "ArtifactType": "repository",

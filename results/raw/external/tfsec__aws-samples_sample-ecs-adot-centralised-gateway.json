@@ -58,7 +58,7 @@
 				"https://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/iam/no-policy-wildcards/",
 				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document"
 			],
-			"description": "IAM policy document uses sensitive action 'logs:CreateLogStream' on wildcarded resource 'e760b90e-4f6d-4000-972f-9221d19a2292'",
+			"description": "IAM policy document uses sensitive action 'logs:DescribeLogGroups' on wildcarded resource '*'",
 			"severity": "HIGH",
 			"warning": false,
 			"status": 0,
@@ -81,7 +81,7 @@
 				"https://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/iam/no-policy-wildcards/",
 				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document"
 			],
-			"description": "IAM policy document uses sensitive action 'logs:DescribeLogGroups' on wildcarded resource '*'",
+			"description": "IAM policy document uses sensitive action 'logs:CreateLogStream' on wildcarded resource 'e02a6167-9ca9-4f93-9ac5-a25b8ec83be1'",
 			"severity": "HIGH",
 			"warning": false,
 			"status": 0,

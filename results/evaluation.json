@@ -542,22 +542,22 @@
         "confusion_matrix": {
           "tp": 24,
           "fp": 0,
-          "tn": 26,
-          "fn": 6,
-          "total": 56,
-          "positives": 30,
-          "negatives": 26,
-          "accuracy": 0.8928571428571429,
+          "tn": 0,
+          "fn": 2,
+          "total": 26,
+          "positives": 26,
+          "negatives": 0,
+          "accuracy": 0.9230769230769231,
           "precision": 1.0,
-          "recall": 0.8,
-          "specificity": 1.0,
-          "f1": 0.888888888888889,
-          "balanced_accuracy": 0.9,
-          "mcc": 0.806225774829855,
+          "recall": 0.9230769230769231,
+          "specificity": null,
+          "f1": 0.9600000000000001,
+          "balanced_accuracy": null,
+          "mcc": null,
           "recall_ci": {
-            "point": 0.8,
-            "lower": 0.6143334890033931,
-            "upper": 0.9228644879989338,
+            "point": 0.9230769230769231,
+            "lower": 0.7486970833046258,
+            "upper": 0.9905446089962875,
             "level": 0.95,
             "method": "Clopper-Pearson (exact)"
           },
@@ -568,17 +568,11 @@
             "level": 0.95,
             "method": "Clopper-Pearson (exact)"
           },
-          "specificity_ci": {
-            "point": 1.0,
-            "lower": 0.8677253955022457,
-            "upper": 1.0,
-            "level": 0.95,
-            "method": "Clopper-Pearson (exact)"
-          },
+          "specificity_ci": null,
           "accuracy_ci": {
-            "point": 0.8928571428571429,
-            "lower": 0.7812435281547194,
-            "upper": 0.9596520538091782,
+            "point": 0.9230769230769231,
+            "lower": 0.7486970833046258,
+            "upper": 0.9905446089962875,
             "level": 0.95,
             "method": "Clopper-Pearson (exact)"
           }
@@ -591,8 +585,8 @@
         "n_execution_errors": 0,
         "n_unmapped_findings": 255,
         "n_unmapped_findings_on_missed_cases": 8,
-        "specificity_estimable": true,
-        "mcc_estimable": true
+        "specificity_estimable": false,
+        "mcc_estimable": false
       },
       "any": {
         "tool": "checkov",
@@ -718,37 +712,31 @@
         "confusion_matrix": {
           "tp": 0,
           "fp": 0,
-          "tn": 26,
-          "fn": 30,
-          "total": 56,
-          "positives": 30,
-          "negatives": 26,
-          "accuracy": 0.4642857142857143,
+          "tn": 0,
+          "fn": 26,
+          "total": 26,
+          "positives": 26,
+          "negatives": 0,
+          "accuracy": 0.0,
           "precision": null,
           "recall": 0.0,
-          "specificity": 1.0,
+          "specificity": null,
           "f1": null,
-          "balanced_accuracy": 0.5,
-          "mcc": 0.0,
+          "balanced_accuracy": null,
+          "mcc": null,
           "recall_ci": {
             "point": 0.0,
             "lower": 0.0,
-            "upper": 0.11570330822202779,
+            "upper": 0.1322746044977543,
             "level": 0.95,
             "method": "Clopper-Pearson (exact)"
           },
           "precision_ci": null,
-          "specificity_ci": {
-            "point": 1.0,
-            "lower": 0.8677253955022457,
-            "upper": 1.0,
-            "level": 0.95,
-            "method": "Clopper-Pearson (exact)"
-          },
+          "specificity_ci": null,
           "accuracy_ci": {
-            "point": 0.4642857142857143,
-            "lower": 0.32991469026354325,
-            "upper": 0.6025639949700676,
+            "point": 0.0,
+            "lower": 0.0,
+            "upper": 0.1322746044977543,
             "level": 0.95,
             "method": "Clopper-Pearson (exact)"
           }
@@ -761,8 +749,8 @@
         "n_execution_errors": 0,
         "n_unmapped_findings": 0,
         "n_unmapped_findings_on_missed_cases": 0,
-        "specificity_estimable": true,
-        "mcc_estimable": true
+        "specificity_estimable": false,
+        "mcc_estimable": false
       },
       "any": {
         "tool": "iacsb_layer1",
@@ -888,22 +876,22 @@
         "confusion_matrix": {
           "tp": 17,
           "fp": 0,
-          "tn": 26,
-          "fn": 13,
-          "total": 56,
-          "positives": 30,
-          "negatives": 26,
-          "accuracy": 0.7678571428571429,
+          "tn": 0,
+          "fn": 9,
+          "total": 26,
+          "positives": 26,
+          "negatives": 0,
+          "accuracy": 0.6538461538461539,
           "precision": 1.0,
-          "recall": 0.5666666666666667,
-          "specificity": 1.0,
-          "f1": 0.7234042553191489,
-          "balanced_accuracy": 0.7833333333333333,
-          "mcc": 0.6146362971528592,
+          "recall": 0.6538461538461539,
+          "specificity": null,
+          "f1": 0.7906976744186047,
+          "balanced_accuracy": null,
+          "mcc": null,
           "recall_ci": {
-            "point": 0.5666666666666667,
-            "lower": 0.3742734506092211,
-            "upper": 0.745392450096737,
+            "point": 0.6538461538461539,
+            "lower": 0.44332807395760954,
+            "upper": 0.8278558619943337,
             "level": 0.95,
             "method": "Clopper-Pearson (exact)"
           },
@@ -914,17 +902,11 @@
             "level": 0.95,
             "method": "Clopper-Pearson (exact)"
           },
-          "specificity_ci": {
-            "point": 1.0,
-            "lower": 0.8677253955022457,
-            "upper": 1.0,
-            "level": 0.95,
-            "method": "Clopper-Pearson (exact)"
-          },
+          "specificity_ci": null,
           "accuracy_ci": {
-            "point": 0.7678571428571429,
-            "lower": 0.6358157483491618,
-            "upper": 0.8702079672131338,
+            "point": 0.6538461538461539,
+            "lower": 0.44332807395760954,
+            "upper": 0.8278558619943337,
             "level": 0.95,
             "method": "Clopper-Pearson (exact)"
           }
@@ -937,8 +919,8 @@
         "n_execution_errors": 0,
         "n_unmapped_findings": 0,
         "n_unmapped_findings_on_missed_cases": 0,
-        "specificity_estimable": true,
-        "mcc_estimable": true
+        "specificity_estimable": false,
+        "mcc_estimable": false
       },
       "any": {
         "tool": "opa",
@@ -1053,8 +1035,8 @@
           "n": 168
         },
         "n_execution_errors": 0,
-        "n_unmapped_findings": 55,
-        "n_unmapped_findings_on_missed_cases": 0,
+        "n_unmapped_findings": 57,
+        "n_unmapped_findings_on_missed_cases": 1,
         "specificity_estimable": true,
         "mcc_estimable": true
       },
@@ -1064,22 +1046,22 @@
         "confusion_matrix": {
           "tp": 20,
           "fp": 0,
-          "tn": 26,
-          "fn": 10,
-          "total": 56,
-          "positives": 30,
-          "negatives": 26,
-          "accuracy": 0.8214285714285714,
+          "tn": 0,
+          "fn": 6,
+          "total": 26,
+          "positives": 26,
+          "negatives": 0,
+          "accuracy": 0.7692307692307693,
           "precision": 1.0,
-          "recall": 0.6666666666666666,
-          "specificity": 1.0,
-          "f1": 0.8,
-          "balanced_accuracy": 0.8333333333333333,
-          "mcc": 0.693888666488711,
+          "recall": 0.7692307692307693,
+          "specificity": null,
+          "f1": 0.8695652173913044,
+          "balanced_accuracy": null,
+          "mcc": null,
           "recall_ci": {
-            "point": 0.6666666666666666,
-            "lower": 0.47187995521011983,
-            "upper": 0.827125778473961,
+            "point": 0.7692307692307693,
+            "lower": 0.5635249030586134,
+            "upper": 0.9102598891154252,
             "level": 0.95,
             "method": "Clopper-Pearson (exact)"
           },
@@ -1090,17 +1072,11 @@
             "level": 0.95,
             "method": "Clopper-Pearson (exact)"
           },
-          "specificity_ci": {
-            "point": 1.0,
-            "lower": 0.8677253955022457,
-            "upper": 1.0,
-            "level": 0.95,
-            "method": "Clopper-Pearson (exact)"
-          },
+          "specificity_ci": null,
           "accuracy_ci": {
-            "point": 0.8214285714285714,
-            "lower": 0.6960283930577567,
-            "upper": 0.9108990467860232,
+            "point": 0.7692307692307693,
+            "lower": 0.5635249030586134,
+            "upper": 0.9102598891154252,
             "level": 0.95,
             "method": "Clopper-Pearson (exact)"
           }
@@ -1111,10 +1087,10 @@
           "n": 168
         },
         "n_execution_errors": 0,
-        "n_unmapped_findings": 55,
-        "n_unmapped_findings_on_missed_cases": 0,
-        "specificity_estimable": true,
-        "mcc_estimable": true
+        "n_unmapped_findings": 57,
+        "n_unmapped_findings_on_missed_cases": 1,
+        "specificity_estimable": false,
+        "mcc_estimable": false
       },
       "any": {
         "tool": "tfsec",
@@ -1169,8 +1145,8 @@
           "n": 168
         },
         "n_execution_errors": 0,
-        "n_unmapped_findings": 55,
-        "n_unmapped_findings_on_missed_cases": 0,
+        "n_unmapped_findings": 57,
+        "n_unmapped_findings_on_missed_cases": 1,
         "specificity_estimable": true,
         "mcc_estimable": true
       }
@@ -1229,8 +1205,8 @@
           "n": 168
         },
         "n_execution_errors": 0,
-        "n_unmapped_findings": 53,
-        "n_unmapped_findings_on_missed_cases": 1,
+        "n_unmapped_findings": 55,
+        "n_unmapped_findings_on_missed_cases": 2,
         "specificity_estimable": true,
         "mcc_estimable": true
       },
@@ -1240,22 +1216,22 @@
         "confusion_matrix": {
           "tp": 19,
           "fp": 0,
-          "tn": 26,
-          "fn": 11,
-          "total": 56,
-          "positives": 30,
-          "negatives": 26,
-          "accuracy": 0.8035714285714286,
+          "tn": 0,
+          "fn": 7,
+          "total": 26,
+          "positives": 26,
+          "negatives": 0,
+          "accuracy": 0.7307692307692307,
           "precision": 1.0,
-          "recall": 0.6333333333333333,
-          "specificity": 1.0,
-          "f1": 0.7755102040816326,
-          "balanced_accuracy": 0.8166666666666667,
-          "mcc": 0.6671169650406479,
+          "recall": 0.7307692307692307,
+          "specificity": null,
+          "f1": 0.8444444444444443,
+          "balanced_accuracy": null,
+          "mcc": null,
           "recall_ci": {
-            "point": 0.6333333333333333,
-            "lower": 0.43855984901195777,
-            "upper": 0.8007013749879648,
+            "point": 0.7307692307692307,
+            "lower": 0.5221252103061684,
+            "upper": 0.8842677867084965,
             "level": 0.95,
             "method": "Clopper-Pearson (exact)"
           },
@@ -1266,17 +1242,11 @@
             "level": 0.95,
             "method": "Clopper-Pearson (exact)"
           },
-          "specificity_ci": {
-            "point": 1.0,
-            "lower": 0.8677253955022457,
-            "upper": 1.0,
-            "level": 0.95,
-            "method": "Clopper-Pearson (exact)"
-          },
+          "specificity_ci": null,
           "accuracy_ci": {
-            "point": 0.8035714285714286,
-            "lower": 0.6756670140758856,
-            "upper": 0.897651697398921,
+            "point": 0.7307692307692307,
+            "lower": 0.5221252103061684,
+            "upper": 0.8842677867084965,
             "level": 0.95,
             "method": "Clopper-Pearson (exact)"
           }
@@ -1287,10 +1257,10 @@
           "n": 168
         },
         "n_execution_errors": 0,
-        "n_unmapped_findings": 53,
-        "n_unmapped_findings_on_missed_cases": 1,
-        "specificity_estimable": true,
-        "mcc_estimable": true
+        "n_unmapped_findings": 55,
+        "n_unmapped_findings_on_missed_cases": 2,
+        "specificity_estimable": false,
+        "mcc_estimable": false
       },
       "any": {
         "tool": "trivy",
@@ -1345,8 +1315,8 @@
           "n": 168
         },
         "n_execution_errors": 0,
-        "n_unmapped_findings": 53,
-        "n_unmapped_findings_on_missed_cases": 1,
+        "n_unmapped_findings": 55,
+        "n_unmapped_findings_on_missed_cases": 2,
         "specificity_estimable": true,
         "mcc_estimable": true
       }
@@ -1502,7 +1472,7 @@
     "tfsec is out of scope for 3 controls (K8S_NO_RESOURCE_LIMITS, K8S_PRIVILEGED_CONTAINER, K8S_ROOT_CONTAINER): it emits no finding on the resources they govern, so its non-detections there measure scope rather than recall and must not be read as missed detections.",
     "trivy is out of scope for 3 controls (K8S_NO_RESOURCE_LIMITS, K8S_PRIVILEGED_CONTAINER, K8S_ROOT_CONTAINER): it emits no finding on the resources they govern, so its non-detections there measure scope rather than recall and must not be read as missed detections.",
     "2 control-map entries are unverified against tool output; detection may be under-credited for affected controls.",
-    "363 findings were unmappable and are excluded from control-level scoring. 9 of them occurred on cases the emitting tool missed, so recall for those tools may be under-credited; extend the control map to resolve them.",
+    "367 findings were unmappable and are excluded from control-level scoring. 11 of them occurred on cases the emitting tool missed, so recall for those tools may be under-credited; extend the control map to resolve them.",
     "Comparator tools ran with default rulesets; the plan-level policy set was authored with knowledge of the corpus. This asymmetry favours the reference."
   ]
 }

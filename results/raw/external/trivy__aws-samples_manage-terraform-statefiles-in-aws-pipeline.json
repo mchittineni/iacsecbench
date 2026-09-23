@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-9e3b-7013-a7d3-1f0da5b13ff0",
-  "CreatedAt": "2026-08-20T09:51:52.507006+01:00",
+  "ReportID": "01a0ce97-5af0-760a-b593-b8bef86730bf",
+  "CreatedAt": "2026-09-23T15:07:00.848398+01:00",
   "ArtifactID": "sha256:301d9f975bc5d45fd190e5f618fcb93e170f253b0672738e21f3672a3d67e236",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_manage-terraform-statefiles-in-aws-pipeline",
   "ArtifactType": "repository",

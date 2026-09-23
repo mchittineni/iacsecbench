@@ -161,8 +161,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "lifecycle_rule",
-                        "resource_type"
+                        "resource_type",
+                        "lifecycle_rule"
                     ]
                 },
                 "code_block": null,
@@ -229,8 +229,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "lifecycle_rule",
-                        "resource_type"
+                        "resource_type",
+                        "lifecycle_rule"
                     ]
                 },
                 "code_block": null,

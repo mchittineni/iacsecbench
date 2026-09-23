@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-5d86-7407-9b1c-8687ed8c992c",
-  "CreatedAt": "2026-08-20T09:51:35.942265+01:00",
+  "ReportID": "01a0ce97-18ce-7547-8049-9a508adb480d",
+  "CreatedAt": "2026-09-23T15:06:43.918347+01:00",
   "ArtifactID": "sha256:7d619f15f729d293af88e051c114c3eac6dfdfeffb2c87a38ecef5f46f28cbe3",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-control-tower-controls-terraform",
   "ArtifactType": "repository",

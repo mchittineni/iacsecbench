@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-6957-761e-b14a-0cab323b2b2e",
-  "CreatedAt": "2026-08-20T09:51:38.967403+01:00",
+  "ReportID": "01a0ce97-2566-7a54-b5c0-8418bbf48389",
+  "CreatedAt": "2026-09-23T15:06:47.142679+01:00",
   "ArtifactID": "sha256:3784f03aaac261efea81fc90399a84301721cb94d86c90ccc90718e91bf83c9c",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform",
   "ArtifactType": "repository",

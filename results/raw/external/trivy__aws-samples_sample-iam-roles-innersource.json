@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-d420-7985-b6cc-2be9e8a98d85",
-  "CreatedAt": "2026-08-20T09:52:06.304625+01:00",
+  "ReportID": "01a0ce97-9230-741a-a9c6-f665e3e47601",
+  "CreatedAt": "2026-09-23T15:07:14.992271+01:00",
   "ArtifactID": "sha256:3ee79fdd3a538bbe95a0b96dcfc4cb50906c8416caab01dc9ad61a2c0f9d462e",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-iam-roles-innersource",
   "ArtifactType": "repository",

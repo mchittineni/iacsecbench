@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-b2c8-7269-85ab-ab18981cd82b",
-  "CreatedAt": "2026-08-20T09:51:57.768159+01:00",
+  "ReportID": "01a0ce97-6fa8-7510-9849-bb5b7a7573d2",
+  "CreatedAt": "2026-09-23T15:07:06.152334+01:00",
   "ArtifactID": "sha256:f57a71f8c250beea5a4602dcce8b1cca287ab8694bcc77fcd38e5c32b7e1b7bc",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-aws-security-hub-cspm-control-tower",
   "ArtifactType": "repository",

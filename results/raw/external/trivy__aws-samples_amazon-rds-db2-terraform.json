@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-3443-7d1b-b967-d869b08aaf27",
-  "CreatedAt": "2026-08-20T09:51:25.379861+01:00",
+  "ReportID": "01a0ce96-ef1f-761a-95bb-06f3126edf93",
+  "CreatedAt": "2026-09-23T15:06:33.247401+01:00",
   "ArtifactID": "sha256:f04240c7e9ef18835dc29708463863d213b73e89688e0e9b605aeee740f91787",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_amazon-rds-db2-terraform",
   "ArtifactType": "repository",

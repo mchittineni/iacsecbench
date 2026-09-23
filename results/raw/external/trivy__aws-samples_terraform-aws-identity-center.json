@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-fd4b-7606-8487-f79fe3636320",
-  "CreatedAt": "2026-08-20T09:52:16.843396+01:00",
+  "ReportID": "01a0ce97-bd8a-77a1-b214-c67480e44942",
+  "CreatedAt": "2026-09-23T15:07:26.090501+01:00",
   "ArtifactID": "sha256:27d8d15685616dfb89d284acc3df65814872160edba4493b7608549fe3f22b45",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_terraform-aws-identity-center",
   "ArtifactType": "repository",

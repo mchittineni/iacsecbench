@@ -147,7 +147,7 @@
                         },
                         {
                             "type": "variable",
-                            "name": "project_name",
+                            "name": "account_abbr",
                             "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-cross-region-bedrock-private-endpoint/module/vpc/variables.tf",
                             "module_connection": false
                         }
@@ -225,7 +225,7 @@
                 "check_len": null,
                 "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-cross-region-bedrock-private-endpoint/module/vpc/vpc_shared_oregon.tf",
                 "breadcrumbs": {
-                    "name": [
+                    "tags.Name": [
                         {
                             "type": "module",
                             "name": "vpc",
@@ -239,7 +239,7 @@
                             "module_connection": false
                         }
                     ],
-                    "tags.Name": [
+                    "name": [
                         {
                             "type": "module",
                             "name": "vpc",
@@ -248,7 +248,7 @@
                         },
                         {
                             "type": "variable",
-                            "name": "project_name",
+                            "name": "account_abbr",
                             "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-cross-region-bedrock-private-endpoint/module/vpc/variables.tf",
                             "module_connection": false
                         }
@@ -292,15 +292,15 @@
                         }
                     },
                     "evaluated_keys": [
+                        "egress/cidr_blocks",
+                        "egress/protocol",
+                        "ingress/protocol",
                         "ingress/from_port",
                         "egress/to_port",
-                        "egress/cidr_blocks",
-                        "resource_type",
-                        "egress/protocol",
                         "ingress/self",
-                        "ingress/to_port",
+                        "resource_type",
                         "egress/from_port",
-                        "ingress/protocol"
+                        "ingress/to_port"
                     ]
                 },
                 "code_block": null,
@@ -343,7 +343,7 @@
                         },
                         {
                             "type": "variable",
-                            "name": "account_abbr",
+                            "name": "region_abbr",
                             "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-cross-region-bedrock-private-endpoint/module/vpc/variables.tf",
                             "module_connection": false
                         }
@@ -390,15 +390,15 @@
                         }
                     },
                     "evaluated_keys": [
+                        "egress/cidr_blocks",
+                        "egress/protocol",
+                        "ingress/protocol",
                         "ingress/from_port",
                         "egress/to_port",
-                        "egress/cidr_blocks",
-                        "resource_type",
-                        "egress/protocol",
                         "ingress/self",
-                        "ingress/to_port",
+                        "resource_type",
                         "egress/from_port",
-                        "ingress/protocol"
+                        "ingress/to_port"
                     ]
                 },
                 "code_block": null,
@@ -485,8 +485,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "networking",
-                        "resource_type"
+                        "resource_type",
+                        "networking"
                     ]
                 },
                 "code_block": null,
@@ -529,7 +529,7 @@
                         },
                         {
                             "type": "variable",
-                            "name": "account_abbr",
+                            "name": "region_abbr",
                             "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-cross-region-bedrock-private-endpoint/module/vpc/variables.tf",
                             "module_connection": false
                         }
@@ -576,8 +576,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "networking",
-                        "resource_type"
+                        "resource_type",
+                        "networking"
                     ]
                 },
                 "code_block": null,

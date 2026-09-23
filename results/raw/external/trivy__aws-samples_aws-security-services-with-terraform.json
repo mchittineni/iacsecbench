@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-74a5-77a5-bef3-5c04254bead1",
-  "CreatedAt": "2026-08-20T09:51:41.861502+01:00",
+  "ReportID": "01a0ce97-30aa-787b-a3e2-ead010fa5ad5",
+  "CreatedAt": "2026-09-23T15:06:50.026557+01:00",
   "ArtifactID": "sha256:b0dd888201fbd1740e4256e853e86ca9674312907b1b7bae4dd7f77d2b41b2ac",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform",
   "ArtifactType": "repository",
@@ -1612,8 +1612,8 @@
             "Resource": "aws_security_group.CIS_Linux_SG",
             "Provider": "AWS",
             "Service": "ec2",
-            "StartLine": 385,
-            "EndLine": 390,
+            "StartLine": 373,
+            "EndLine": 378,
             "Code": {
               "Lines": [
                 {
@@ -1636,57 +1636,57 @@
                   "LastCause": false
                 },
                 {
-                  "Number": 385,
-                  "Content": "  egress {",
+                  "Number": 373,
+                  "Content": "  ingress {",
                   "IsCause": true,
                   "Annotation": "",
                   "Truncated": false,
-                  "Highlighted": "  egress {",
+                  "Highlighted": "\u001b[0m  ingress {",
                   "FirstCause": true,
                   "LastCause": false
                 },
                 {
-                  "Number": 386,
-                  "Content": "    from_port       = 0",
+                  "Number": 374,
+                  "Content": "    from_port   = 22",
                   "IsCause": true,
                   "Annotation": "",
                   "Truncated": false,
-                  "Highlighted": "    \u001b[38;5;245mfrom_port\u001b[0m       = \u001b[38;5;37m0",
+                  "Highlighted": "    \u001b[38;5;245mfrom_port\u001b[0m   = \u001b[38;5;37m22",
                   "FirstCause": false,
                   "LastCause": false
                 },
                 {
-                  "Number": 387,
-                  "Content": "    to_port         = 0",
+                  "Number": 375,
+                  "Content": "    to_port     = 22",
                   "IsCause": true,
                   "Annotation": "",
                   "Truncated": false,
-                  "Highlighted": "\u001b[0m    \u001b[38;5;245mto_port\u001b[0m         = \u001b[38;5;37m0",
+                  "Highlighted": "\u001b[0m    \u001b[38;5;245mto_port\u001b[0m     = \u001b[38;5;37m22",
                   "FirstCause": false,
                   "LastCause": false
                 },
                 {
-                  "Number": 388,
-                  "Content": "    protocol        = \"-1\"",
+                  "Number": 376,
+                  "Content": "    protocol    = \"tcp\"",
                   "IsCause": true,
                   "Annotation": "",
                   "Truncated": false,
-                  "Highlighted": "\u001b[0m    \u001b[38;5;245mprotocol\u001b[0m        = \u001b[38;5;37m\"-1\"",
+                  "Highlighted": "\u001b[0m    \u001b[38;5;245mprotocol\u001b[0m    = \u001b[38;5;37m\"tcp\"",
                   "FirstCause": false,
                   "LastCause": false
                 },
                 {
-                  "Number": 389,
-                  "Content": "    cidr_blocks     = [\"0.0.0.0/0\"]",
+                  "Number": 377,
+                  "Content": "    cidr_blocks = [\"${var.TRUSTED_IP}\"]",
                   "IsCause": true,
                   "Annotation": "",
                   "Truncated": false,
-                  "Highlighted": "\u001b[0m    \u001b[38;5;245mcidr_blocks\u001b[0m     = [\u001b[38;5;37m\"0.0.0.0/0\"\u001b[0m]",
+                  "Highlighted": "\u001b[0m    \u001b[38;5;245mcidr_blocks\u001b[0m = [\u001b[38;5;37m\"\u001b[0m\u001b[38;5;37m${\u001b[0m\u001b[38;5;33mvar\u001b[0m.TRUSTED_IP\u001b[38;5;37m}\u001b[0m\u001b[38;5;37m\"\u001b[0m]",
                   "FirstCause": false,
                   "LastCause": false
                 },
                 {
-                  "Number": 390,
+                  "Number": 378,
                   "Content": "  }",
                   "IsCause": true,
                   "Annotation": "",
@@ -1884,8 +1884,8 @@
             "Resource": "aws_security_group.CIS_Linux_SG",
             "Provider": "AWS",
             "Service": "ec2",
-            "StartLine": 373,
-            "EndLine": 378,
+            "StartLine": 385,
+            "EndLine": 390,
             "Code": {
               "Lines": [
                 {
@@ -1908,57 +1908,57 @@
                   "LastCause": false
                 },
                 {
-                  "Number": 373,
-                  "Content": "  ingress {",
+                  "Number": 385,
+                  "Content": "  egress {",
                   "IsCause": true,
                   "Annotation": "",
                   "Truncated": false,
-                  "Highlighted": "\u001b[0m  ingress {",
+                  "Highlighted": "  egress {",
                   "FirstCause": true,
                   "LastCause": false
                 },
                 {
-                  "Number": 374,
-                  "Content": "    from_port   = 22",
+                  "Number": 386,
+                  "Content": "    from_port       = 0",
                   "IsCause": true,
                   "Annotation": "",
                   "Truncated": false,
-                  "Highlighted": "    \u001b[38;5;245mfrom_port\u001b[0m   = \u001b[38;5;37m22",
+                  "Highlighted": "    \u001b[38;5;245mfrom_port\u001b[0m       = \u001b[38;5;37m0",
                   "FirstCause": false,
                   "LastCause": false
                 },
                 {
-                  "Number": 375,
-                  "Content": "    to_port     = 22",
+                  "Number": 387,
+                  "Content": "    to_port         = 0",
                   "IsCause": true,
                   "Annotation": "",
                   "Truncated": false,
-                  "Highlighted": "\u001b[0m    \u001b[38;5;245mto_port\u001b[0m     = \u001b[38;5;37m22",
+                  "Highlighted": "\u001b[0m    \u001b[38;5;245mto_port\u001b[0m         = \u001b[38;5;37m0",
                   "FirstCause": false,
                   "LastCause": false
                 },
                 {
-                  "Number": 376,
-                  "Content": "    protocol    = \"tcp\"",
+                  "Number": 388,
+                  "Content": "    protocol        = \"-1\"",
                   "IsCause": true,
                   "Annotation": "",
                   "Truncated": false,
-                  "Highlighted": "\u001b[0m    \u001b[38;5;245mprotocol\u001b[0m    = \u001b[38;5;37m\"tcp\"",
+                  "Highlighted": "\u001b[0m    \u001b[38;5;245mprotocol\u001b[0m        = \u001b[38;5;37m\"-1\"",
                   "FirstCause": false,
                   "LastCause": false
                 },
                 {
-                  "Number": 377,
-                  "Content": "    cidr_blocks = [\"${var.TRUSTED_IP}\"]",
+                  "Number": 389,
+                  "Content": "    cidr_blocks     = [\"0.0.0.0/0\"]",
                   "IsCause": true,
                   "Annotation": "",
                   "Truncated": false,
-                  "Highlighted": "\u001b[0m    \u001b[38;5;245mcidr_blocks\u001b[0m = [\u001b[38;5;37m\"\u001b[0m\u001b[38;5;37m${\u001b[0m\u001b[38;5;33mvar\u001b[0m.TRUSTED_IP\u001b[38;5;37m}\u001b[0m\u001b[38;5;37m\"\u001b[0m]",
+                  "Highlighted": "\u001b[0m    \u001b[38;5;245mcidr_blocks\u001b[0m     = [\u001b[38;5;37m\"0.0.0.0/0\"\u001b[0m]",
                   "FirstCause": false,
                   "LastCause": false
                 },
                 {
-                  "Number": 378,
+                  "Number": 390,
                   "Content": "  }",
                   "IsCause": true,
                   "Annotation": "",

@@ -14,7 +14,7 @@ records their unmodified output.
 | `evaluation.json`        | Confusion matrices at all three matching levels, exact Clopper–Pearson intervals, pairwise McNemar tests, and the caveats that must accompany the numbers.                                                                                     |
 | `corpus_report.json`     | Corpus admissibility per case, and the declared-versus-present counts for each external collection.                                                                                                                                            |
 | `raw/<tool>/<case>.json` | Unmodified scanner output, one file per tool per case. Everything else is derived from these.                                                                                                                                                  |
-| `tables/*.tex`           | Generated LaTeX tables (`corpus`, `performance`, `rates`, `strictness`, `mcnemar`, `allpairs`, `latency`, `layers`) -- eight in all. `paper/Makefile` refuses to typeset without them, so the manuscript cannot contain hand-written result tables. `performance.tex` carries the confusion-matrix counts and `rates.tex` the recall, precision and specificity over them; they are separate because ten columns do not fit a single-column journal measure. `allpairs.tex` carries every tool pair with Holm--Bonferroni applied across the whole set rather than against one reference, and both McNemar tables carry a $d_{\min}$ column giving the smallest discordant imbalance the exact test could have resolved, so a non-significant row can be told apart from a powerless one.                                                                                                         |
+| `tables/*.tex`           | Generated LaTeX tables (`corpus`, `performance`, `rates`, `strictness`, `mcnemar`, `allpairs`, `latency`, `layers`, and `external` and `external_agreement` for the unlabelled subset) -- ten in all, every one included in the manuscript. The resource column of `strictness.tex` is computed only over cases whose ground truth names a resource address; the four external CIS cases name none and are left out of it. `paper/Makefile` refuses to typeset without them, so the manuscript cannot contain hand-written result tables. `performance.tex` carries the confusion-matrix counts and `rates.tex` the recall, precision and specificity over them; they are separate because ten columns do not fit a single-column journal measure. `allpairs.tex` carries every tool pair with Holm--Bonferroni applied across the whole set rather than against one reference, and both McNemar tables carry a $d_{\min}$ column giving the smallest discordant imbalance the exact test could have resolved, so a non-significant row can be told apart from a powerless one.                                                                                                         |
 | `pre_opa_polarity_fix/`  | Measured results from _before_ a disclosed policy correction. See the README there.                                                                                                                                                            |
 
 The measured leaderboard lives outside this directory, at
@@ -41,11 +41,13 @@ of it.
 | `../benchmark/reports/experiment_results.json` | `pipeline/run_experiments.py`    |
 | `../leaderboard/results.synthetic.csv`         | `evaluation/score.py`            |
 
-The producing stages still exist and still work, but they refuse to run without an
+`pipeline/run_experiments.py` has since been removed along with the application
+it belonged to. The two producing stages that remain refuse to run without an
 explicit opt-in:
 
 ```bash
-IACSECBENCH_ALLOW_SYNTHETIC=1 python pipeline/run_experiments.py
+IACSECBENCH_ALLOW_SYNTHETIC=1 python -m evaluation.score
+IACSECBENCH_ALLOW_SYNTHETIC=1 python experiments/generate_charts.py
 ```
 
 Anything they write is a projection of hardcoded rates, not a measurement. If you
@@ -85,3 +87,12 @@ The fabricated files are now gone, which is a stronger guarantee than a warning
 header. This index remains so that the distinction is documented, and so that
 anyone who regenerates one of them knows not to leave it here. Deleted content is
 recoverable from git history if it is ever wanted.
+
+## Provenance of the reported run
+
+`run_manifest.json` records commit `cc56e14` (release 1.3.1), but the reported run
+was taken on a working tree with uncommitted changes: that commit's corpus has 44
+internal cases, and 52 were measured. The measured corpus is the one in the
+released package, not the one at that commit. `evaluation/run_baselines.py` now
+records `git_dirty` and `git_dirty_paths` alongside the commit, so a future
+manifest cannot misidentify its tree silently.

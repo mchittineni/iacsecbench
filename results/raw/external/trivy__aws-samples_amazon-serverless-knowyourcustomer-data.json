@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-3eb9-7046-9ab3-2cfe61e7d0de",
-  "CreatedAt": "2026-08-20T09:51:28.057019+01:00",
+  "ReportID": "01a0ce96-f988-71c5-bce0-b0e155c4d5f9",
+  "CreatedAt": "2026-09-23T15:06:35.912117+01:00",
   "ArtifactID": "sha256:7e48216563d5436407c93b689d2df0ec823519f82617aa33b8f635f2cbb0f85d",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_amazon-serverless-knowyourcustomer-data",
   "ArtifactType": "repository",

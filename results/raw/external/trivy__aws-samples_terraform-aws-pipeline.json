@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5f-2993-73ff-83cd-1a96ae710ba7",
-  "CreatedAt": "2026-08-20T09:52:28.179264+01:00",
+  "ReportID": "01a0ce97-eb9f-7979-a419-f4b7550ac8b7",
+  "CreatedAt": "2026-09-23T15:07:37.887623+01:00",
   "ArtifactID": "sha256:193c7eb0a9ee0dd85131af5446ba77129705f012320d8db921ff058ecbb7184c",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_terraform-aws-pipeline",
   "ArtifactType": "repository",
