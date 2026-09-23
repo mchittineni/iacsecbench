@@ -62,7 +62,7 @@ This repository provides **IaCSecBench**, a unified evaluation framework to meas
 | Capability | Description |
 | --- | --- |
 | 🎯 **Canonical control taxonomy** | 26 controls that heterogeneous scanner output is normalized onto, so tools reporting different rule identifiers for the same misconfiguration are compared on equal terms ([`evaluation/control_map.json`](evaluation/control_map.json)) |
-| 🧪 **Labelled corpus** | 56 admissible cases — 30 vulnerable, 26 compliant — each a minimal vulnerable/compliant pair generated from a specification, plus four third-party CIS examples |
+| 🧪 **Labelled corpus** | 56 admissible cases — 30 vulnerable, 26 compliant — each a minimal vulnerable/compliant pair generated from a specification, plus four CIS-illustrating examples of unrecorded provenance |
 | 🚪 **Mechanical admission gate** | Every case must carry a ground-truth label, resolve to a canonical control, and pass `terraform init` + `validate` before it can enter a measurement |
 | 📐 **Three matching criteria** | Control attribution, resource attribution, and any-finding — reported side by side, because which one is chosen moves apparent recall |
 | 📊 **Exact statistics** | Clopper–Pearson intervals and exact McNemar tests under Holm–Bonferroni correction; metrics that are not estimable are reported as such rather than as zero |
@@ -107,11 +107,32 @@ iacsecbench/
 
 ---
 
+## 📄 Research Paper & Replication Package
+
+This repository accompanies the research manuscript:
+
+> **IaCSecBench: A Finding-Normalization Methodology and Reproducible Harness for Evaluating Infrastructure-as-Code Security Validation**  
+> *Target Venue:* Empirical Software Engineering (Springer)  
+> *Author:* Manideep Chittineni (ORCID: [0009-0003-9709-5842](https://orcid.org/0009-0003-9709-5842))  
+> *Permanent Archive:* [https://doi.org/10.5281/zenodo.21645016](https://doi.org/10.5281/zenodo.21645016)
+
+For complete step-by-step instructions to reproduce all empirical tables, statistical tests, and diagrams, see [**REPLICATION.md**](REPLICATION.md).
+
+To build the submission manuscript bundle:
+```bash
+cd paper
+make check   # Verify EMSE format compliance and zero TODO markers
+make paper   # Compile manuscript PDF
+make dist    # Assemble standalone submission tarball
+```
+
+---
+
 ## 💻 Reproducing a measurement
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
-pip install -r experiments/requirements.txt
+pip install -e '.[dev]'
 
 # Scanners under comparison must be on PATH; a missing tool is reported as
 # not_run and omitted, never assigned an assumed detection rate.
