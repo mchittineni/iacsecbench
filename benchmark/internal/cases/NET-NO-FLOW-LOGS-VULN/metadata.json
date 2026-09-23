@@ -8,7 +8,7 @@
     "NET_NO_FLOW_LOGS"
   ],
   "benchmark_category": "MON",
-  "cis_control": "3.9",
+  "cis_control": "3.7",
   "severity": "MEDIUM",
   "provider": "aws",
   "benchmark_features": [

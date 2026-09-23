@@ -11,7 +11,7 @@ This directory records a second labelling pass designed to detect exactly that.
 
 ## Method
 
-1. **Blinding.** For each of the 48 admissible cases, a review view was built
+1. **Blinding.** For each of the 48 cases admissible when the pass was run, a review view was built
    containing only the Terraform configuration and the canonical control under
    test. Everything carrying the answer was removed:
    - every comment line, because the generator writes `# Expected: COMPLIANT` and
@@ -23,16 +23,17 @@ This directory records a second labelling pass designed to detect exactly that.
 2. **Screening.** The blinded views were scanned for residual label words
    (`safe`, `vuln*`, `compliant`, `violation`, `insecure`, `secure`). Three hits
    were inspected: two were the control title `"...image vulnerability scanning"`,
-   and one is genuine upstream content (see Limitations).
+   and one is CIS-illustrating content of unrecorded provenance, left in (see Limitations).
 3. **Labelling.** Each view was assigned `VIOLATION` or `COMPLIANT` for the named
    control, with a one-line reason recorded before any comparison.
 4. **Comparison.** Agreement computed **before** reconciliation. Reporting
    agreement after resolving disagreements would be circular: resolution
    guarantees consensus.
 
-Regenerate the blinded views with the script recorded in
-`independent_relabelling.json`'s method notes, or re-derive them from the corpus —
-the blinding is a pure function of the case directory.
+No script for the blinded views was recorded. Re-derive them from the corpus by
+applying the five steps listed under `method.blinding` in
+`independent_relabelling.json`; the blinding is a pure function of the case
+directory.
 
 ## Agreement, before reconciliation
 
@@ -55,9 +56,9 @@ Machine-readable, with every per-case label and reason:
 
 The configuration declares an `aws_s3_bucket_server_side_encryption_configuration`
 with `sse_algorithm = "AES256"`. The control was titled _"Object storage bucket
-lacks server-side encryption"_ and cited CIS AWS 2.1.1. An AES256 bucket does not
-lack server-side encryption, and CIS 2.1.1 — encryption at rest — is satisfied by
-SSE-S3. Read against its own stated text, the case is compliant.
+lacks server-side encryption"_ and cited CIS AWS 2.1.1, a v1.4.0 requirement
+(encryption at rest) that v3.0.0 removed. An AES256 bucket does not lack
+server-side encryption, and that requirement is satisfied by SSE-S3. Read against its own stated text, the case is compliant.
 
 The generator's intent was different: its rationale reads _"Bucket encryption uses
 AES256 rather than a customer-managed key."_ The label encodes a **customer-managed
@@ -83,8 +84,8 @@ across all three rather than being weakened by the addition.)
 
 `STO_UNENCRYPTED_BUCKET` is now titled _"Object storage bucket not encrypted with a
 customer-managed key"_, matching the phrasing already used by
-`MON_NO_LOG_ENCRYPTION`, and carries a `note` recording that it is **stricter than
-CIS AWS 2.1.1**. No confusion-matrix entry changed.
+`MON_NO_LOG_ENCRYPTION`, and carries a `cis_aws_note` recording that it is **stricter than
+CIS AWS v1.4.0 2.1.1** and has no v3.0.0 counterpart. No confusion-matrix entry changed.
 
 A regression test (`evaluation/tests/test_control_map.py`) now pins the CIS citation
 in the control map to the one in the generator specification, so the two cannot
@@ -92,13 +93,18 @@ drift apart silently again.
 
 ## Identity of the second rater
 
-Springer requires methodological use of a language model to be disclosed in the
-methods, and κ is unverifiable without it: the figure is a property of one model
-under one prompt. **This is not yet recorded.** [`rater_prompt.txt`](rater_prompt.txt)
-holds the two fields to fill (`rater2_model`, `rater2_access`) and the verbatim
-instruction to paste; the same values fill `\ratermodel` and `\rateraccess` in
-`paper/iacsecbench.tex`, where they currently render as visible TODO placeholders
-and `make check` blocks submission on them.
+The second rater was a large language model, and that use is disclosed in the
+paper's methods (Section 4.3) and its AI-use declaration. **Its identity and
+version, access route, decoding parameters, and the exact instruction it was given
+were not recorded when the pass was run.** They are not reconstructed here,
+because a reconstructed prompt presented as the one sent would be a false record.
+
+The consequence is stated in the paper: κ is a property of one model under one
+instruction, and with neither identified the labelling cannot be repeated. κ can
+be recomputed from the recorded labels but not re-obtained from the instrument.
+Read it as a record of what was observed, not as a reproducible measurement.
+`independent_relabelling.json` records `"rater2_identity_recorded": false` under
+`method`, alongside the per-case labels and reasons, which are recorded.
 
 ## Limitations — read before citing κ
 
@@ -117,7 +123,7 @@ and `make check` blocks submission on them.
   five, agreement is 42/43 with the same single disagreement outside that set.
 - **One residual blinding leak.** `external/cis_examples/aws/cis_3_1_cloudtrail` declares
   `resource "aws_cloudtrail" "insecure_trail"`. The name hints at the label. It is
-  genuine upstream CIS-example content and was left unmodified rather than renamed,
+  CIS-illustrating content of unrecorded provenance and was left unmodified rather than renamed,
   since renaming would alter the case under test.
 - **κ is inflated by a near-balanced corpus at high agreement.** With 26/22 class
   balance, chance agreement is ~50%, so a single disagreement moves κ by roughly

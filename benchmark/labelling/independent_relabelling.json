@@ -221,7 +221,9 @@
       "views screened for residual label vocabulary before labelling"
     ],
     "agreement_computed": "before reconciliation",
-    "rater2_is": "an automated (LLM) rater, NOT an independent human investigator"
+    "rater2_is": "an automated (LLM) rater, NOT an independent human investigator",
+    "rater2_identity_recorded": false,
+    "rater2_note": "model identity and version, access route, decoding parameters and the exact instruction were not recorded when the pass was run and are not reconstructed; the labelling cannot be repeated, though the agreement figure can be recomputed from the recorded labels"
   },
   "limitations": {
     "not_human_inter_rater_reliability": true,
@@ -235,7 +237,7 @@
     ],
     "contamination_note": "these five were inspected during earlier debugging in the same session, so their agreement is not blind; all five agreed",
     "agreement_excluding_contaminated": "42/43",
-    "residual_blinding_leak": "cis_examples/cis_3_1_cloudtrail declares resource \"aws_cloudtrail\" \"insecure_trail\"; genuine upstream content, left unmodified rather than renamed",
+    "residual_blinding_leak": "cis_examples/cis_3_1_cloudtrail declares resource \"aws_cloudtrail\" \"insecure_trail\"; CIS-illustrating content of unrecorded provenance, flagged by the screen and left unmodified rather than renamed",
     "kappa_sensitivity": "with 26/22 class balance at n=48, one disagreement moves kappa by roughly 0.04; the interval around 0.958 is wide"
   },
   "reconciliation": {
@@ -244,7 +246,7 @@
     "control": "STO_UNENCRYPTED_BUCKET",
     "title_before": "Object storage bucket lacks server-side encryption",
     "title_after": "Object storage bucket not encrypted with a customer-managed key",
-    "why": "the label encoded a customer-managed-key requirement the stated text did not; requiring a CMK is defensible and is what the corpus, the policy set and the CMK rules of both source-level scanners test. Relabelling instead would have left the vulnerable/compliant pair testing nothing.",
+    "why": "the label encoded a customer-managed-key requirement the stated text did not; requiring a CMK is defensible and is what the corpus, the policy set and the CMK rules of all three source-level scanners test. Relabelling instead would have left the vulnerable/compliant pair testing nothing.",
     "confusion_matrix_impact": "none; no case label changed",
     "post_reconciliation_note": "under the corrected title an AES256 bucket does violate the control, so rater 2 would agree; this is stated for clarity and does NOT revise the 47/48 figure above, which is pre-reconciliation",
     "regression_test": "evaluation/tests/test_control_map.py::test_cis_citation_agrees_with_the_corpus_generator"

@@ -8,7 +8,7 @@
     "NET_PUBLIC_INSTANCE"
   ],
   "benchmark_category": "NET",
-  "cis_control": "5.6",
+  "cis_control": "n/a",
   "severity": "HIGH",
   "provider": "aws",
   "benchmark_features": [

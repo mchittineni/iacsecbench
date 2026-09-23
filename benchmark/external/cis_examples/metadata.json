@@ -1,4 +1,5 @@
 {
+  "$comment": "The 'id' and 'control' values here (2.1, 2.2, 3.1, 4.1, 5.1) are this collection's own labels and do not follow the numbering of any CIS AWS Foundations Benchmark version; 'source' names v3.0 but the numbers are not its requirement numbers. They are kept unchanged because case identifiers and recorded tool output are keyed on them. 'cis_v3_0_0' gives the corresponding v3.0.0 requirement for each case that has a configuration. The upstream source of these configurations is not recorded.",
   "dataset": "CIS Misconfiguration Examples",
   "source": "CIS AWS Foundations Benchmark v3.0",
   "description": "Compliance-driven security failure scenarios mapped directly to CIS Benchmark controls for AWS infrastructure.",
@@ -13,7 +14,8 @@
       "source": "CIS AWS Foundations Benchmark v3",
       "canonical_controls": [
         "STO_PUBLIC_BUCKET"
-      ]
+      ],
+      "cis_v3_0_0": "2.1.4"
     },
     {
       "id": "CIS-AWS-2.2",
@@ -24,7 +26,8 @@
       "source": "CIS AWS Foundations Benchmark v3",
       "canonical_controls": [
         "STO_UNENCRYPTED_BUCKET"
-      ]
+      ],
+      "cis_v3_0_0": "n/a (v1.4.0 2.1.1, removed in v3.0.0)"
     },
     {
       "id": "CIS-AWS-4.1",
@@ -35,7 +38,8 @@
       "source": "CIS AWS Foundations Benchmark v3",
       "canonical_controls": [
         "NET_UNRESTRICTED_INGRESS"
-      ]
+      ],
+      "cis_v3_0_0": "5.2"
     },
     {
       "id": "CIS-AWS-5.1",
@@ -55,7 +59,8 @@
       "canonical_controls": [
         "MON_TRAIL_NOT_MULTIREGION",
         "MON_NO_TRAIL_VALIDATION"
-      ]
+      ],
+      "cis_v3_0_0": "3.1, 3.2"
     }
   ]
 }
