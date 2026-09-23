@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-93ee-7e82-9f15-7859e915cebd",
-  "CreatedAt": "2026-08-20T09:51:49.870953+01:00",
+  "ReportID": "01a0ce97-508a-75d0-a86f-e1f61b6403a0",
+  "CreatedAt": "2026-09-23T15:06:58.186383+01:00",
   "ArtifactID": "sha256:6f4a655555965ef05893eba3c9c5e930e3c66a431b1674cdc4f128842ed5d3cc",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_docker-ecr-actions-workflow",
   "ArtifactType": "repository",

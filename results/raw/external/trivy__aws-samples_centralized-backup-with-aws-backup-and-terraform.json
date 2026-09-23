@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-89f0-721e-a02d-0b5d9e4a6143",
-  "CreatedAt": "2026-08-20T09:51:47.31214+01:00",
+  "ReportID": "01a0ce97-462c-7e5b-b777-864a192c88fe",
+  "CreatedAt": "2026-09-23T15:06:55.532942+01:00",
   "ArtifactID": "sha256:c673b1944548938cb3d604f539d8ed75a2d4aa870e5dd70f186728a1f5b543e9",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_centralized-backup-with-aws-backup-and-terraform",
   "ArtifactType": "repository",

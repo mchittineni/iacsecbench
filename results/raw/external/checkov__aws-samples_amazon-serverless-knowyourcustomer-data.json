@@ -1610,8 +1610,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "lifecycle_rule",
-                        "resource_type"
+                        "resource_type",
+                        "lifecycle_rule"
                     ]
                 },
                 "code_block": null,
@@ -1702,8 +1702,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "logging",
-                        "resource_type"
+                        "resource_type",
+                        "logging"
                     ]
                 },
                 "code_block": null,
@@ -1794,9 +1794,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "block_public_acls",
+                        "block_public_policy",
                         "resource_type",
-                        "block_public_policy"
+                        "block_public_acls"
                     ]
                 },
                 "code_block": null,
@@ -1887,9 +1887,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "versioning/enabled",
                         "versioning_configuration/status",
-                        "resource_type"
+                        "resource_type",
+                        "versioning/enabled"
                     ]
                 },
                 "code_block": null,
@@ -1980,9 +1980,9 @@
                         }
                     },
                     "evaluated_keys": [
+                        "server_side_encryption_configuration/rule/apply_server_side_encryption_by_default/sse_algorithm",
                         "resource_type",
-                        "rule/apply_server_side_encryption_by_default/sse_algorithm",
-                        "server_side_encryption_configuration/rule/apply_server_side_encryption_by_default/sse_algorithm"
+                        "rule/apply_server_side_encryption_by_default/sse_algorithm"
                     ]
                 },
                 "code_block": null,
@@ -2073,8 +2073,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "resource_type",
                         "rule/*/status",
+                        "resource_type",
                         "replication_configuration/rules/*/status"
                     ]
                 },

@@ -104,7 +104,7 @@
 				"https://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/iam/no-policy-wildcards/",
 				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document"
 			],
-			"description": "IAM policy document uses sensitive action 's3:GetObject' on wildcarded resource 'eb0ba574-dfd7-417f-9025-5b012d805d9c'",
+			"description": "IAM policy document uses sensitive action 's3:GetObject' on wildcarded resource '9a93df30-1abc-43e4-bf6a-259dc8985606'",
 			"severity": "HIGH",
 			"warning": false,
 			"status": 0,
@@ -127,7 +127,7 @@
 				"https://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/iam/no-policy-wildcards/",
 				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document"
 			],
-			"description": "IAM policy document uses sensitive action 's3:GetObject' on wildcarded resource 'eb0ba574-dfd7-417f-9025-5b012d805d9c'",
+			"description": "IAM policy document uses sensitive action 's3:GetObject' on wildcarded resource '9a93df30-1abc-43e4-bf6a-259dc8985606'",
 			"severity": "HIGH",
 			"warning": false,
 			"status": 0,
@@ -150,7 +150,7 @@
 				"https://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/iam/no-policy-wildcards/",
 				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document"
 			],
-			"description": "IAM policy document uses sensitive action 's3:GetObject' on wildcarded resource 'eb0ba574-dfd7-417f-9025-5b012d805d9c'",
+			"description": "IAM policy document uses sensitive action 's3:GetObject' on wildcarded resource '9a93df30-1abc-43e4-bf6a-259dc8985606'",
 			"severity": "HIGH",
 			"warning": false,
 			"status": 0,

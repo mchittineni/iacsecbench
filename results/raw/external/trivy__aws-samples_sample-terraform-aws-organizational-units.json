@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-e83e-77b4-bee1-e6fc1841afff",
-  "CreatedAt": "2026-08-20T09:52:11.454507+01:00",
+  "ReportID": "01a0ce97-a7bb-7f03-aec5-b906ab337c56",
+  "CreatedAt": "2026-09-23T15:07:20.507985+01:00",
   "ArtifactID": "sha256:e930caa1534d30157bbe7bc6a06cc174a8ce9277ebce20e96f4ace6a7abca452",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-terraform-aws-organizational-units",
   "ArtifactType": "repository",

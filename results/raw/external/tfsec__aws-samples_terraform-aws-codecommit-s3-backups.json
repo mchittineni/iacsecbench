@@ -12,7 +12,7 @@
 				"https://aquasecurity.github.io/tfsec/v1.28.14/checks/aws/iam/no-policy-wildcards/",
 				"https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document"
 			],
-			"description": "IAM policy document uses sensitive action 's3:PutObjectAcl' on wildcarded resource '9760e58b-760c-4942-91cc-882e7b912745'",
+			"description": "IAM policy document uses sensitive action 's3:PutObjectAcl' on wildcarded resource '8b8734ae-3f0a-42f0-b13e-40f05a397329'",
 			"severity": "HIGH",
 			"warning": false,
 			"status": 0,

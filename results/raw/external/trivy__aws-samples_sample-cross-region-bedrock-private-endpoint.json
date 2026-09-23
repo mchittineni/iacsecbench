@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-bd1f-7353-8330-c2b1108cbed3",
-  "CreatedAt": "2026-08-20T09:52:00.415219+01:00",
+  "ReportID": "01a0ce97-7a2c-756a-a73e-990e9dd75edd",
+  "CreatedAt": "2026-09-23T15:07:08.844356+01:00",
   "ArtifactID": "sha256:50d825017540ba8170b17de45b3fa629c5f54d2de92e5313d2018a49f9669bf0",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-cross-region-bedrock-private-endpoint",
   "ArtifactType": "repository",

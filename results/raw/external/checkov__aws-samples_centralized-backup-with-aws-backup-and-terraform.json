@@ -2151,8 +2151,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "lifecycle_rule",
-                        "resource_type"
+                        "resource_type",
+                        "lifecycle_rule"
                     ]
                 },
                 "code_block": null,
@@ -2247,8 +2247,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "resource_type",
-                        "logging"
+                        "logging",
+                        "resource_type"
                     ]
                 },
                 "code_block": null,
@@ -2343,9 +2343,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "replication_configuration/rules/*/status",
+                        "resource_type",
                         "rule/*/status",
-                        "resource_type"
+                        "replication_configuration/rules/*/status"
                     ]
                 },
                 "code_block": null,

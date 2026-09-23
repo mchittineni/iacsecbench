@@ -3,6 +3,54 @@
     "results": {
         "failed_checks": [
             {
+                "check_id": "CKV_AWS_338",
+                "bc_check_id": "BC_AWS_LOGGING_46",
+                "check_name": "Ensure CloudWatch log groups retains logs for at least 1 year",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "retention_in_days"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/cloudwatch.tf",
+                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_terraform-aws-codecommit-s3-backups/cloudwatch.tf",
+                "repo_file_path": "/cloudwatch.tf",
+                "file_line_range": [
+                    4,
+                    8
+                ],
+                "resource": "aws_cloudwatch_log_group.this",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.CloudWatchLogGroupRetentionYear",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-338",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_terraform-aws-codecommit-s3-backups/cloudwatch.tf",
+                "breadcrumbs": {
+                    "retention_in_days": [
+                        {
+                            "type": "variable",
+                            "name": "log_retention",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_terraform-aws-codecommit-s3-backups/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
                 "check_id": "CKV_AWS_111",
                 "bc_check_id": "BC_AWS_IAM_57",
                 "check_name": "Ensure IAM policies does not allow write access without constraints",
@@ -77,54 +125,6 @@
                 "details": [],
                 "check_len": null,
                 "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_terraform-aws-codecommit-s3-backups/cloudwatch.tf"
-            },
-            {
-                "check_id": "CKV_AWS_338",
-                "bc_check_id": "BC_AWS_LOGGING_46",
-                "check_name": "Ensure CloudWatch log groups retains logs for at least 1 year",
-                "check_result": {
-                    "result": "FAILED",
-                    "evaluated_keys": [
-                        "retention_in_days"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/cloudwatch.tf",
-                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_terraform-aws-codecommit-s3-backups/cloudwatch.tf",
-                "repo_file_path": "/cloudwatch.tf",
-                "file_line_range": [
-                    4,
-                    8
-                ],
-                "resource": "aws_cloudwatch_log_group.this",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.CloudWatchLogGroupRetentionYear",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-338",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_terraform-aws-codecommit-s3-backups/cloudwatch.tf",
-                "breadcrumbs": {
-                    "retention_in_days": [
-                        {
-                            "type": "variable",
-                            "name": "log_retention",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_terraform-aws-codecommit-s3-backups/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
             },
             {
                 "check_id": "CKV2_AWS_61",
@@ -246,8 +246,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "rule/*/status",
                         "replication_configuration/rules/*/status",
+                        "rule/*/status",
                         "resource_type"
                     ]
                 },

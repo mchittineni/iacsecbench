@@ -102,13 +102,12 @@
           "exit_code": 1,
           "raw_path": "results/raw/external/tfsec__aws-samples_amazon-serverless-knowyourcustomer-data.json",
           "findings": 22,
-          "mapped": 19,
-          "unmapped": 3,
+          "mapped": 16,
+          "unmapped": 6,
           "in_module": 9,
           "controls": [
             "IAM_WILDCARD_ACTION",
             "IAM_WILDCARD_TRUST",
-            "SRV_NO_FUNCTION_ENCRYPTION",
             "STO_NO_ACCESS_LOGGING",
             "STO_PUBLIC_BUCKET",
             "STO_UNENCRYPTED_BUCKET"
@@ -116,9 +115,6 @@
           "claims": [
             "IAM_WILDCARD_ACTION|aws_iam_policy.lambda_s3_policy",
             "IAM_WILDCARD_TRUST|aws_iam_policy.lambda_s3_policy",
-            "SRV_NO_FUNCTION_ENCRYPTION|aws_lambda_function.extract_data_lambda",
-            "SRV_NO_FUNCTION_ENCRYPTION|aws_lambda_function.process_pdf_lambda",
-            "SRV_NO_FUNCTION_ENCRYPTION|aws_lambda_function.s3eventlambda",
             "STO_NO_ACCESS_LOGGING|module.s3module",
             "STO_PUBLIC_BUCKET|module.s3module",
             "STO_UNENCRYPTED_BUCKET|module.s3module"
@@ -138,19 +134,15 @@
           "exit_code": 0,
           "raw_path": "results/raw/external/trivy__aws-samples_amazon-serverless-knowyourcustomer-data.json",
           "findings": 18,
-          "mapped": 10,
-          "unmapped": 8,
+          "mapped": 7,
+          "unmapped": 11,
           "in_module": 8,
           "controls": [
-            "SRV_NO_FUNCTION_ENCRYPTION",
             "STO_NO_ACCESS_LOGGING",
             "STO_PUBLIC_BUCKET",
             "STO_UNENCRYPTED_BUCKET"
           ],
           "claims": [
-            "SRV_NO_FUNCTION_ENCRYPTION|aws_lambda_function.extract_data_lambda",
-            "SRV_NO_FUNCTION_ENCRYPTION|aws_lambda_function.process_pdf_lambda",
-            "SRV_NO_FUNCTION_ENCRYPTION|aws_lambda_function.s3eventlambda",
             "STO_NO_ACCESS_LOGGING|module.s3module",
             "STO_PUBLIC_BUCKET|module.s3module",
             "STO_UNENCRYPTED_BUCKET|module.s3module"
@@ -456,12 +448,11 @@
           "exit_code": 0,
           "raw_path": "results/raw/external/trivy__aws-samples_aws-security-services-with-terraform.json",
           "findings": 41,
-          "mapped": 30,
-          "unmapped": 11,
+          "mapped": 28,
+          "unmapped": 13,
           "in_module": 41,
           "controls": [
             "MON_NO_LOG_ENCRYPTION",
-            "SRV_NO_FUNCTION_ENCRYPTION",
             "STO_NO_ACCESS_LOGGING",
             "STO_PUBLIC_BUCKET",
             "STO_UNENCRYPTED_BUCKET"
@@ -470,8 +461,6 @@
             "MON_NO_LOG_ENCRYPTION|aws_cloudwatch_log_group.CIS_CloudWatch_LogsGroup",
             "MON_NO_LOG_ENCRYPTION|aws_cloudwatch_log_group.CIS_FlowLogs_CWL_Group",
             "MON_NO_LOG_ENCRYPTION|aws_cloudwatch_log_group.Kinesis_Firehose_Errors_LogsGroup",
-            "SRV_NO_FUNCTION_ENCRYPTION|aws_lambda_function.Cloudtrail_Lambda_To_Firehose_Function",
-            "SRV_NO_FUNCTION_ENCRYPTION|aws_lambda_function.VPCFlowLogs_Lambda_To_Firehose_Function",
             "STO_NO_ACCESS_LOGGING|aws_s3_bucket.Config_Recorder_Bucket",
             "STO_NO_ACCESS_LOGGING|aws_s3_bucket.Kinesis_Failed_Logs_Bucket",
             "STO_PUBLIC_BUCKET|aws_s3_bucket.CIS_CloudTrail_Logs_S3_Bucket",
@@ -613,17 +602,15 @@
           "exit_code": 1,
           "raw_path": "results/raw/external/tfsec__aws-samples_centralized-backup-with-aws-backup-and-terraform.json",
           "findings": 5,
-          "mapped": 5,
-          "unmapped": 0,
+          "mapped": 3,
+          "unmapped": 2,
           "in_module": 5,
           "controls": [
             "MON_NO_LOG_ENCRYPTION",
-            "SRV_NO_FUNCTION_ENCRYPTION",
             "STO_NO_ACCESS_LOGGING"
           ],
           "claims": [
             "MON_NO_LOG_ENCRYPTION|module.backup-account",
-            "SRV_NO_FUNCTION_ENCRYPTION|module.backup-account",
             "STO_NO_ACCESS_LOGGING|module.backup-account"
           ],
           "resources": [
@@ -635,17 +622,15 @@
           "exit_code": 0,
           "raw_path": "results/raw/external/trivy__aws-samples_centralized-backup-with-aws-backup-and-terraform.json",
           "findings": 5,
-          "mapped": 5,
-          "unmapped": 0,
+          "mapped": 3,
+          "unmapped": 2,
           "in_module": 5,
           "controls": [
             "MON_NO_LOG_ENCRYPTION",
-            "SRV_NO_FUNCTION_ENCRYPTION",
             "STO_NO_ACCESS_LOGGING"
           ],
           "claims": [
             "MON_NO_LOG_ENCRYPTION|module.backup-account",
-            "SRV_NO_FUNCTION_ENCRYPTION|module.backup-account",
             "STO_NO_ACCESS_LOGGING|module.backup-account"
           ],
           "resources": [
@@ -1640,9 +1625,9 @@
       "tfsec": {
         "repositories_scanned": 25,
         "findings": 118,
-        "mapped": 101,
-        "unmapped": 17,
-        "unmapped_share": 0.1441,
+        "mapped": 96,
+        "unmapped": 22,
+        "unmapped_share": 0.1864,
         "in_module": 56,
         "in_module_share": 0.4746,
         "findings_per_kloc": 7.75,
@@ -1653,7 +1638,6 @@
           "NET_NO_FLOW_LOGS",
           "NET_PUBLIC_INSTANCE",
           "NET_UNRESTRICTED_INGRESS",
-          "SRV_NO_FUNCTION_ENCRYPTION",
           "STO_NO_ACCESS_LOGGING",
           "STO_PUBLIC_BUCKET",
           "STO_UNENCRYPTED_BUCKET"
@@ -1662,9 +1646,9 @@
       "trivy": {
         "repositories_scanned": 25,
         "findings": 141,
-        "mapped": 98,
-        "unmapped": 43,
-        "unmapped_share": 0.305,
+        "mapped": 91,
+        "unmapped": 50,
+        "unmapped_share": 0.3546,
         "in_module": 106,
         "in_module_share": 0.7518,
         "findings_per_kloc": 9.26,
@@ -1672,7 +1656,6 @@
           "MON_NO_LOG_ENCRYPTION",
           "NET_NO_FLOW_LOGS",
           "NET_UNRESTRICTED_INGRESS",
-          "SRV_NO_FUNCTION_ENCRYPTION",
           "STO_NO_ACCESS_LOGGING",
           "STO_PUBLIC_BUCKET",
           "STO_UNENCRYPTED_BUCKET"
@@ -1681,25 +1664,25 @@
     },
     "agreement": {
       "checkov|tfsec": {
-        "shared_claims": 14,
-        "union_claims": 87,
-        "jaccard": 0.1609,
+        "shared_claims": 13,
+        "union_claims": 84,
+        "jaccard": 0.1548,
         "shared_resources": 22,
         "union_resources": 104,
         "resource_jaccard": 0.2115
       },
       "checkov|trivy": {
-        "shared_claims": 36,
-        "union_claims": 75,
-        "jaccard": 0.48,
+        "shared_claims": 33,
+        "union_claims": 72,
+        "jaccard": 0.4583,
         "shared_resources": 42,
         "union_resources": 99,
         "resource_jaccard": 0.4242
       },
       "tfsec|trivy": {
-        "shared_claims": 26,
-        "union_claims": 74,
-        "jaccard": 0.3514,
+        "shared_claims": 22,
+        "union_claims": 68,
+        "jaccard": 0.3235,
         "shared_resources": 28,
         "union_resources": 57,
         "resource_jaccard": 0.4912

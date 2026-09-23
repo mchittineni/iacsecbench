@@ -3,114 +3,6 @@
     "results": {
         "failed_checks": [
             {
-                "check_id": "CKV_AWS_356",
-                "bc_check_id": "BC_AWS_IAM_89",
-                "check_name": "Ensure no IAM policies documents allow \"*\" as a statement's resource for restrictable actions",
-                "check_result": {
-                    "result": "FAILED",
-                    "evaluated_keys": [
-                        "statement/[0]/actions"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/example-spoke-vpc/modules/network/flow_logs.tf",
-                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/modules/network/flow_logs.tf",
-                "repo_file_path": "/example-spoke-vpc/modules/network/flow_logs.tf",
-                "file_line_range": [
-                    73,
-                    101
-                ],
-                "resource": "module.network.aws_iam_policy_document.policy_kms_logs_document",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.data.aws.ResourcePolicyDocument",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": "/example-spoke-vpc/main.tf",
-                "caller_file_line_range": [
-                    4,
-                    19
-                ],
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-356",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/modules/network/flow_logs.tf",
-                "breadcrumbs": {
-                    "statement.1.principals.identifiers.0": [
-                        {
-                            "type": "module",
-                            "name": "network",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "aws_region",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/modules/network/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "statement.1.principals.identifiers": [
-                        {
-                            "type": "module",
-                            "name": "network",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "aws_region",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/modules/network/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "statement.1.principals": [
-                        {
-                            "type": "module",
-                            "name": "network",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "aws_region",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/modules/network/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "statement.1": [
-                        {
-                            "type": "module",
-                            "name": "network",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/main.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "variable",
-                            "name": "aws_region",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/modules/network/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "source_module_": [
-                        {
-                            "type": "module",
-                            "name": "network",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/main.tf",
-                            "idx": 23,
-                            "source_module_object": null
-                        }
-                    ]
-                }
-            },
-            {
                 "check_id": "CKV_AWS_338",
                 "bc_check_id": "BC_AWS_LOGGING_46",
                 "check_name": "Ensure CloudWatch log groups retains logs for at least 1 year",
@@ -277,6 +169,114 @@
                     ]
                 },
                 "code_block": null,
+                "file_path": "/example-spoke-vpc/modules/network/flow_logs.tf",
+                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/modules/network/flow_logs.tf",
+                "repo_file_path": "/example-spoke-vpc/modules/network/flow_logs.tf",
+                "file_line_range": [
+                    73,
+                    101
+                ],
+                "resource": "module.network.aws_iam_policy_document.policy_kms_logs_document",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.data.aws.ResourcePolicyDocument",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": "/example-spoke-vpc/main.tf",
+                "caller_file_line_range": [
+                    4,
+                    19
+                ],
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-356",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/modules/network/flow_logs.tf",
+                "breadcrumbs": {
+                    "statement.1.principals.identifiers.0": [
+                        {
+                            "type": "module",
+                            "name": "network",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "aws_region",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/modules/network/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "statement.1.principals.identifiers": [
+                        {
+                            "type": "module",
+                            "name": "network",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "aws_region",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/modules/network/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "statement.1.principals": [
+                        {
+                            "type": "module",
+                            "name": "network",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "aws_region",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/modules/network/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "statement.1": [
+                        {
+                            "type": "module",
+                            "name": "network",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/main.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "aws_region",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/modules/network/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "source_module_": [
+                        {
+                            "type": "module",
+                            "name": "network",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/example-spoke-vpc/main.tf",
+                            "idx": 23,
+                            "source_module_object": null
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_356",
+                "bc_check_id": "BC_AWS_IAM_89",
+                "check_name": "Ensure no IAM policies documents allow \"*\" as a statement's resource for restrictable actions",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": [
+                        "statement/[0]/actions"
+                    ]
+                },
+                "code_block": null,
                 "file_path": "/main.tf",
                 "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/main.tf",
                 "repo_file_path": "/main.tf",
@@ -316,6 +316,12 @@
                             "name": "aws_region",
                             "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/variables.tf",
                             "module_connection": false
+                        },
+                        {
+                            "type": "locals",
+                            "name": "endpoints",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/locals.tf",
+                            "module_connection": false
                         }
                     ],
                     "statement.1.principals.identifiers": [
@@ -329,6 +335,12 @@
                             "type": "variable",
                             "name": "aws_region",
                             "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "locals",
+                            "name": "endpoints",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/locals.tf",
                             "module_connection": false
                         }
                     ],
@@ -344,6 +356,12 @@
                             "name": "aws_region",
                             "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/variables.tf",
                             "module_connection": false
+                        },
+                        {
+                            "type": "locals",
+                            "name": "endpoints",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/locals.tf",
+                            "module_connection": false
                         }
                     ],
                     "statement.1": [
@@ -357,6 +375,12 @@
                             "type": "variable",
                             "name": "aws_region",
                             "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "locals",
+                            "name": "endpoints",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-network-hub-for-terraform/locals.tf",
                             "module_connection": false
                         }
                     ]

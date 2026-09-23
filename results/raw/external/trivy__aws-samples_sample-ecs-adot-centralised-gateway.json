@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-c9e9-7962-97b9-4be8b954bee8",
-  "CreatedAt": "2026-08-20T09:52:03.689616+01:00",
+  "ReportID": "01a0ce97-8748-7a21-96c7-1b00fbdd3fba",
+  "CreatedAt": "2026-09-23T15:07:12.200665+01:00",
   "ArtifactID": "sha256:8acf8510a484a04bf0b18786a75bf1b9c4a569cfbda2f32d45ce66afe5a84f1c",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-ecs-adot-centralised-gateway",
   "ArtifactType": "repository",

@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-a87c-7923-a016-cf132d7d48b8",
-  "CreatedAt": "2026-08-20T09:51:55.132601+01:00",
+  "ReportID": "01a0ce97-654e-72da-b86d-5a1454b3919d",
+  "CreatedAt": "2026-09-23T15:07:03.502188+01:00",
   "ArtifactID": "sha256:bfcc5221fcfa4a3c37477284047d585f17b5186959c822ee9b651430e722ebf1",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_sample-aws-backup-lag-vaults-with-terraform",
   "ArtifactType": "repository",

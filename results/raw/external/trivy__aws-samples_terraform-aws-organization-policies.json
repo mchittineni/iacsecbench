@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5f-1dd7-7868-9311-962ea547c906",
-  "CreatedAt": "2026-08-20T09:52:25.175552+01:00",
+  "ReportID": "01a0ce97-df74-738e-8f87-6ed309a31d2f",
+  "CreatedAt": "2026-09-23T15:07:34.772235+01:00",
   "ArtifactID": "sha256:c754c5a58e3367d0d63cfe50de266fb0b7461d38a4402a32c9e1a086e18d55c7",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_terraform-aws-organization-policies",
   "ArtifactType": "repository",

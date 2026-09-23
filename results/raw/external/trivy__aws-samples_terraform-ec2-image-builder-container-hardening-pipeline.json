@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5f-345d-7c40-bb8c-b1db374cc9df",
-  "CreatedAt": "2026-08-20T09:52:30.941805+01:00",
+  "ReportID": "01a0ce97-f6e5-7b89-8b21-26629ef190e2",
+  "CreatedAt": "2026-09-23T15:07:40.773758+01:00",
   "ArtifactID": "sha256:dc44395b1c73e40f3c4d6e95470b5d7e7baeeab90789b3fc9425c140f9680c92",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_terraform-ec2-image-builder-container-hardening-pipeline",
   "ArtifactType": "repository",

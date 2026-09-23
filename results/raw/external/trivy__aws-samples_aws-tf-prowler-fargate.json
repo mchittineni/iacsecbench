@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-7f55-78be-9fdc-4376a1e4a151",
-  "CreatedAt": "2026-08-20T09:51:44.597575+01:00",
+  "ReportID": "01a0ce97-3b89-7edc-8184-65bef669675a",
+  "CreatedAt": "2026-09-23T15:06:52.809975+01:00",
   "ArtifactID": "sha256:afd0e37c8408f654ca19b27d127b628e0686dc7c9586f8954c896050e9c1a1c1",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-tf-prowler-fargate",
   "ArtifactType": "repository",

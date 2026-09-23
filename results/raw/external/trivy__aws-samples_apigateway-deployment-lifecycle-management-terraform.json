@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-48db-7e5f-ae42-7e83a571d91f",
-  "CreatedAt": "2026-08-20T09:51:30.651943+01:00",
+  "ReportID": "01a0ce97-03d6-7173-a4d9-fb531aae7b97",
+  "CreatedAt": "2026-09-23T15:06:38.550096+01:00",
   "ArtifactID": "sha256:7ae992cbf1dfb0cbef5fa54cd2658d27dedf39553103c5138a5acb8b1093a4ca",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_apigateway-deployment-lifecycle-management-terraform",
   "ArtifactType": "repository",

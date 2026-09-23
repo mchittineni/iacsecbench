@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.73.0"
   },
-  "ReportID": "01a01e5e-f2e9-7330-bd41-2beb8f3e77d7",
-  "CreatedAt": "2026-08-20T09:52:14.18521+01:00",
+  "ReportID": "01a0ce97-b2df-7478-a35d-d4c18e34975c",
+  "CreatedAt": "2026-09-23T15:07:23.359294+01:00",
   "ArtifactID": "sha256:01f3e22ade3773daf1fe532767bdb8dc8485a62985197df487c96deb284f954c",
   "ArtifactName": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_terraform-aws-codecommit-s3-backups",
   "ArtifactType": "repository",

@@ -3473,8 +3473,8 @@
                         }
                     },
                     "evaluated_keys": [
-                        "networking",
-                        "resource_type"
+                        "resource_type",
+                        "networking"
                     ]
                 },
                 "code_block": null,
@@ -3703,6 +3703,558 @@
                 }
             },
             {
+                "check_id": "CKV2_AWS_61",
+                "bc_check_id": "BC_AWS_LOGGING_35",
+                "check_name": "Ensure that an S3 bucket has a lifecycle configuration",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "aws_s3_bucket": {
+                            "Server_Access_Log_S3_Bucket": {
+                                "__end_line__": 120,
+                                "__start_line__": 107,
+                                "acl": [
+                                    "log-delivery-write"
+                                ],
+                                "bucket_prefix": [
+                                    "cis-accesslogs-bucket"
+                                ],
+                                "server_side_encryption_configuration": [
+                                    {
+                                        "rule": [
+                                            {
+                                                "apply_server_side_encryption_by_default": [
+                                                    {
+                                                        "sse_algorithm": [
+                                                            "AES256"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "versioning": [
+                                    {
+                                        "enabled": [
+                                            true
+                                        ]
+                                    }
+                                ],
+                                "__address__": "aws_s3_bucket.Server_Access_Log_S3_Bucket"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "resource_type",
+                        "lifecycle_rule"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "repo_file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "file_line_range": [
+                    107,
+                    120
+                ],
+                "resource": "aws_s3_bucket.Server_Access_Log_S3_Bucket",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-61",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "breadcrumbs": {
+                    "bucket_prefix": [
+                        {
+                            "type": "variable",
+                            "name": "AccessLog_Bucket_Prefix",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV2_AWS_61",
+                "bc_check_id": "BC_AWS_LOGGING_35",
+                "check_name": "Ensure that an S3 bucket has a lifecycle configuration",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "aws_s3_bucket": {
+                            "CIS_CloudTrail_Logs_S3_Bucket": {
+                                "__end_line__": 200,
+                                "__start_line__": 183,
+                                "acl": [
+                                    "private"
+                                ],
+                                "bucket_prefix": [
+                                    "cis-cloudtrail-logs-bucket"
+                                ],
+                                "logging": [
+                                    {
+                                        "target_bucket": [
+                                            "aws_s3_bucket.Server_Access_Log_S3_Bucket.id"
+                                        ],
+                                        "target_prefix": [
+                                            "cloudtrailaccess/"
+                                        ]
+                                    }
+                                ],
+                                "server_side_encryption_configuration": [
+                                    {
+                                        "rule": [
+                                            {
+                                                "apply_server_side_encryption_by_default": [
+                                                    {
+                                                        "sse_algorithm": [
+                                                            "AES256"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "versioning": [
+                                    {
+                                        "enabled": [
+                                            true
+                                        ]
+                                    }
+                                ],
+                                "__address__": "aws_s3_bucket.CIS_CloudTrail_Logs_S3_Bucket"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "resource_type",
+                        "lifecycle_rule"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "repo_file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "file_line_range": [
+                    183,
+                    200
+                ],
+                "resource": "aws_s3_bucket.CIS_CloudTrail_Logs_S3_Bucket",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-61",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "breadcrumbs": {
+                    "bucket_prefix": [
+                        {
+                            "type": "variable",
+                            "name": "CloudTrail_Bucket_Prefix",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV2_AWS_19",
+                "bc_check_id": "BC_AWS_NETWORKING_48",
+                "check_name": "Ensure that all EIP addresses allocated to a VPC are attached to EC2 instances",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "aws_eip": {
+                            "NATGW_Elastic_IPs[0]": {
+                                "__end_line__": 281,
+                                "__start_line__": 274,
+                                "depends_on": [
+                                    [
+                                        "aws_internet_gateway.CIS_IGW"
+                                    ]
+                                ],
+                                "tags": [
+                                    {
+                                        "Name": [
+                                            "NAT-Gateway-EIP-${element(aws_subnet.CIS_Public_Subnets.*.id, 0)}"
+                                        ]
+                                    }
+                                ],
+                                "vpc": [
+                                    true
+                                ],
+                                "__address__": "aws_eip.NATGW_Elastic_IPs[0]"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "vpc",
+                        "instance_id",
+                        "domain",
+                        "resource_type",
+                        "instance"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "repo_file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "file_line_range": [
+                    274,
+                    281
+                ],
+                "resource": "aws_eip.NATGW_Elastic_IPs[0]",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {
+                    "Name": [
+                        "NAT-Gateway-EIP-${element(aws_subnet.CIS_Public_Subnets.*.id, 0)}"
+                    ]
+                },
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-that-all-eip-addresses-allocated-to-a-vpc-are-attached-to-ec2-instances",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf"
+            },
+            {
+                "check_id": "CKV_AWS_18",
+                "bc_check_id": "BC_AWS_S3_13",
+                "check_name": "Ensure the S3 bucket has access logging enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "aws_s3_bucket": {
+                            "Server_Access_Log_S3_Bucket": {
+                                "__end_line__": 120,
+                                "__start_line__": 107,
+                                "acl": [
+                                    "log-delivery-write"
+                                ],
+                                "bucket_prefix": [
+                                    "cis-accesslogs-bucket"
+                                ],
+                                "server_side_encryption_configuration": [
+                                    {
+                                        "rule": [
+                                            {
+                                                "apply_server_side_encryption_by_default": [
+                                                    {
+                                                        "sse_algorithm": [
+                                                            "AES256"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "versioning": [
+                                    {
+                                        "enabled": [
+                                            true
+                                        ]
+                                    }
+                                ],
+                                "__address__": "aws_s3_bucket.Server_Access_Log_S3_Bucket"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "resource_type",
+                        "logging"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "repo_file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "file_line_range": [
+                    107,
+                    120
+                ],
+                "resource": "aws_s3_bucket.Server_Access_Log_S3_Bucket",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
+                "breadcrumbs": {
+                    "bucket_prefix": [
+                        {
+                            "type": "variable",
+                            "name": "AccessLog_Bucket_Prefix",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_18",
+                "bc_check_id": "BC_AWS_S3_13",
+                "check_name": "Ensure the S3 bucket has access logging enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "aws_s3_bucket": {
+                            "Config_Recorder_Bucket": {
+                                "__end_line__": 64,
+                                "__start_line__": 42,
+                                "acl": [
+                                    "private"
+                                ],
+                                "bucket_prefix": [
+                                    "config-bucket"
+                                ],
+                                "lifecycle_rule": [
+                                    {
+                                        "enabled": [
+                                            true
+                                        ],
+                                        "expiration": [
+                                            {
+                                                "days": [
+                                                    365
+                                                ]
+                                            }
+                                        ],
+                                        "noncurrent_version_expiration": [
+                                            {
+                                                "days": [
+                                                    365
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "server_side_encryption_configuration": [
+                                    {
+                                        "rule": [
+                                            {
+                                                "apply_server_side_encryption_by_default": [
+                                                    {
+                                                        "sse_algorithm": [
+                                                            "AES256"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "versioning": [
+                                    {
+                                        "enabled": [
+                                            true
+                                        ]
+                                    }
+                                ],
+                                "__address__": "aws_s3_bucket.Config_Recorder_Bucket"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "resource_type",
+                        "logging"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/aws-security-hub-boostrap-and-operationalization/config.tf",
+                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/config.tf",
+                "repo_file_path": "/aws-security-hub-boostrap-and-operationalization/config.tf",
+                "file_line_range": [
+                    42,
+                    64
+                ],
+                "resource": "aws_s3_bucket.Config_Recorder_Bucket",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/config.tf",
+                "breadcrumbs": {
+                    "bucket_prefix": [
+                        {
+                            "type": "variable",
+                            "name": "Config_Bucket_Prefix",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_18",
+                "bc_check_id": "BC_AWS_S3_13",
+                "check_name": "Ensure the S3 bucket has access logging enabled",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "aws_s3_bucket": {
+                            "Kinesis_Failed_Logs_Bucket": {
+                                "__end_line__": 364,
+                                "__start_line__": 342,
+                                "acl": [
+                                    "private"
+                                ],
+                                "bucket_prefix": [
+                                    "elastic-kdf-logs-bucket"
+                                ],
+                                "lifecycle_rule": [
+                                    {
+                                        "enabled": [
+                                            true
+                                        ],
+                                        "expiration": [
+                                            {
+                                                "days": [
+                                                    365
+                                                ]
+                                            }
+                                        ],
+                                        "noncurrent_version_expiration": [
+                                            {
+                                                "days": [
+                                                    365
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "server_side_encryption_configuration": [
+                                    {
+                                        "rule": [
+                                            {
+                                                "apply_server_side_encryption_by_default": [
+                                                    {
+                                                        "sse_algorithm": [
+                                                            "AES256"
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "versioning": [
+                                    {
+                                        "enabled": [
+                                            true
+                                        ]
+                                    }
+                                ],
+                                "__address__": "aws_s3_bucket.Kinesis_Failed_Logs_Bucket"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "resource_type",
+                        "logging"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/aws-security-hub-boostrap-and-operationalization/security_hub_siem.tf",
+                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/security_hub_siem.tf",
+                "repo_file_path": "/aws-security-hub-boostrap-and-operationalization/security_hub_siem.tf",
+                "file_line_range": [
+                    342,
+                    364
+                ],
+                "resource": "aws_s3_bucket.Kinesis_Failed_Logs_Bucket",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/security_hub_siem.tf",
+                "breadcrumbs": {
+                    "bucket_prefix": [
+                        {
+                            "type": "variable",
+                            "name": "KDF_Bucket_Prefix",
+                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
                 "check_id": "CKV2_AWS_3",
                 "bc_check_id": "BC_AWS_GENERAL_66",
                 "check_name": "Ensure GuardDuty is enabled to specific org/region",
@@ -3729,10 +4281,10 @@
                         }
                     },
                     "evaluated_keys": [
+                        "resource_type",
                         "auto_enable_organization_members",
                         "enable",
-                        "auto_enable",
-                        "resource_type"
+                        "auto_enable"
                     ]
                 },
                 "code_block": null,
@@ -3774,76 +4326,6 @@
                 }
             },
             {
-                "check_id": "CKV2_AWS_19",
-                "bc_check_id": "BC_AWS_NETWORKING_48",
-                "check_name": "Ensure that all EIP addresses allocated to a VPC are attached to EC2 instances",
-                "check_result": {
-                    "result": "FAILED",
-                    "entity": {
-                        "aws_eip": {
-                            "NATGW_Elastic_IPs[0]": {
-                                "__end_line__": 281,
-                                "__start_line__": 274,
-                                "depends_on": [
-                                    [
-                                        "aws_internet_gateway.CIS_IGW"
-                                    ]
-                                ],
-                                "tags": [
-                                    {
-                                        "Name": [
-                                            "NAT-Gateway-EIP-${element(aws_subnet.CIS_Public_Subnets.*.id, 0)}"
-                                        ]
-                                    }
-                                ],
-                                "vpc": [
-                                    true
-                                ],
-                                "__address__": "aws_eip.NATGW_Elastic_IPs[0]"
-                            }
-                        }
-                    },
-                    "evaluated_keys": [
-                        "instance_id",
-                        "domain",
-                        "resource_type",
-                        "instance",
-                        "vpc"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "repo_file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "file_line_range": [
-                    274,
-                    281
-                ],
-                "resource": "aws_eip.NATGW_Elastic_IPs[0]",
-                "evaluations": null,
-                "check_class": "checkov.common.graph.checks_infra.base_check",
-                "fixed_definition": null,
-                "entity_tags": {
-                    "Name": [
-                        "NAT-Gateway-EIP-${element(aws_subnet.CIS_Public_Subnets.*.id, 0)}"
-                    ]
-                },
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-that-all-eip-addresses-allocated-to-a-vpc-are-attached-to-ec2-instances",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf"
-            },
-            {
                 "check_id": "CKV2_AWS_62",
                 "bc_check_id": "BC_AWS_LOGGING_36",
                 "check_name": "Ensure S3 buckets should have event notifications enabled",
@@ -4236,488 +4718,6 @@
                 }
             },
             {
-                "check_id": "CKV_AWS_18",
-                "bc_check_id": "BC_AWS_S3_13",
-                "check_name": "Ensure the S3 bucket has access logging enabled",
-                "check_result": {
-                    "result": "FAILED",
-                    "entity": {
-                        "aws_s3_bucket": {
-                            "Server_Access_Log_S3_Bucket": {
-                                "__end_line__": 120,
-                                "__start_line__": 107,
-                                "acl": [
-                                    "log-delivery-write"
-                                ],
-                                "bucket_prefix": [
-                                    "cis-accesslogs-bucket"
-                                ],
-                                "server_side_encryption_configuration": [
-                                    {
-                                        "rule": [
-                                            {
-                                                "apply_server_side_encryption_by_default": [
-                                                    {
-                                                        "sse_algorithm": [
-                                                            "AES256"
-                                                        ]
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "versioning": [
-                                    {
-                                        "enabled": [
-                                            true
-                                        ]
-                                    }
-                                ],
-                                "__address__": "aws_s3_bucket.Server_Access_Log_S3_Bucket"
-                            }
-                        }
-                    },
-                    "evaluated_keys": [
-                        "logging",
-                        "resource_type"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "repo_file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "file_line_range": [
-                    107,
-                    120
-                ],
-                "resource": "aws_s3_bucket.Server_Access_Log_S3_Bucket",
-                "evaluations": null,
-                "check_class": "checkov.common.graph.checks_infra.base_check",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "breadcrumbs": {
-                    "bucket_prefix": [
-                        {
-                            "type": "variable",
-                            "name": "AccessLog_Bucket_Prefix",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_18",
-                "bc_check_id": "BC_AWS_S3_13",
-                "check_name": "Ensure the S3 bucket has access logging enabled",
-                "check_result": {
-                    "result": "FAILED",
-                    "entity": {
-                        "aws_s3_bucket": {
-                            "Config_Recorder_Bucket": {
-                                "__end_line__": 64,
-                                "__start_line__": 42,
-                                "acl": [
-                                    "private"
-                                ],
-                                "bucket_prefix": [
-                                    "config-bucket"
-                                ],
-                                "lifecycle_rule": [
-                                    {
-                                        "enabled": [
-                                            true
-                                        ],
-                                        "expiration": [
-                                            {
-                                                "days": [
-                                                    365
-                                                ]
-                                            }
-                                        ],
-                                        "noncurrent_version_expiration": [
-                                            {
-                                                "days": [
-                                                    365
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "server_side_encryption_configuration": [
-                                    {
-                                        "rule": [
-                                            {
-                                                "apply_server_side_encryption_by_default": [
-                                                    {
-                                                        "sse_algorithm": [
-                                                            "AES256"
-                                                        ]
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "versioning": [
-                                    {
-                                        "enabled": [
-                                            true
-                                        ]
-                                    }
-                                ],
-                                "__address__": "aws_s3_bucket.Config_Recorder_Bucket"
-                            }
-                        }
-                    },
-                    "evaluated_keys": [
-                        "logging",
-                        "resource_type"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/aws-security-hub-boostrap-and-operationalization/config.tf",
-                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/config.tf",
-                "repo_file_path": "/aws-security-hub-boostrap-and-operationalization/config.tf",
-                "file_line_range": [
-                    42,
-                    64
-                ],
-                "resource": "aws_s3_bucket.Config_Recorder_Bucket",
-                "evaluations": null,
-                "check_class": "checkov.common.graph.checks_infra.base_check",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/config.tf",
-                "breadcrumbs": {
-                    "bucket_prefix": [
-                        {
-                            "type": "variable",
-                            "name": "Config_Bucket_Prefix",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_18",
-                "bc_check_id": "BC_AWS_S3_13",
-                "check_name": "Ensure the S3 bucket has access logging enabled",
-                "check_result": {
-                    "result": "FAILED",
-                    "entity": {
-                        "aws_s3_bucket": {
-                            "Kinesis_Failed_Logs_Bucket": {
-                                "__end_line__": 364,
-                                "__start_line__": 342,
-                                "acl": [
-                                    "private"
-                                ],
-                                "bucket_prefix": [
-                                    "elastic-kdf-logs-bucket"
-                                ],
-                                "lifecycle_rule": [
-                                    {
-                                        "enabled": [
-                                            true
-                                        ],
-                                        "expiration": [
-                                            {
-                                                "days": [
-                                                    365
-                                                ]
-                                            }
-                                        ],
-                                        "noncurrent_version_expiration": [
-                                            {
-                                                "days": [
-                                                    365
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "server_side_encryption_configuration": [
-                                    {
-                                        "rule": [
-                                            {
-                                                "apply_server_side_encryption_by_default": [
-                                                    {
-                                                        "sse_algorithm": [
-                                                            "AES256"
-                                                        ]
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "versioning": [
-                                    {
-                                        "enabled": [
-                                            true
-                                        ]
-                                    }
-                                ],
-                                "__address__": "aws_s3_bucket.Kinesis_Failed_Logs_Bucket"
-                            }
-                        }
-                    },
-                    "evaluated_keys": [
-                        "logging",
-                        "resource_type"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/aws-security-hub-boostrap-and-operationalization/security_hub_siem.tf",
-                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/security_hub_siem.tf",
-                "repo_file_path": "/aws-security-hub-boostrap-and-operationalization/security_hub_siem.tf",
-                "file_line_range": [
-                    342,
-                    364
-                ],
-                "resource": "aws_s3_bucket.Kinesis_Failed_Logs_Bucket",
-                "evaluations": null,
-                "check_class": "checkov.common.graph.checks_infra.base_check",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/security_hub_siem.tf",
-                "breadcrumbs": {
-                    "bucket_prefix": [
-                        {
-                            "type": "variable",
-                            "name": "KDF_Bucket_Prefix",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV2_AWS_61",
-                "bc_check_id": "BC_AWS_LOGGING_35",
-                "check_name": "Ensure that an S3 bucket has a lifecycle configuration",
-                "check_result": {
-                    "result": "FAILED",
-                    "entity": {
-                        "aws_s3_bucket": {
-                            "Server_Access_Log_S3_Bucket": {
-                                "__end_line__": 120,
-                                "__start_line__": 107,
-                                "acl": [
-                                    "log-delivery-write"
-                                ],
-                                "bucket_prefix": [
-                                    "cis-accesslogs-bucket"
-                                ],
-                                "server_side_encryption_configuration": [
-                                    {
-                                        "rule": [
-                                            {
-                                                "apply_server_side_encryption_by_default": [
-                                                    {
-                                                        "sse_algorithm": [
-                                                            "AES256"
-                                                        ]
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "versioning": [
-                                    {
-                                        "enabled": [
-                                            true
-                                        ]
-                                    }
-                                ],
-                                "__address__": "aws_s3_bucket.Server_Access_Log_S3_Bucket"
-                            }
-                        }
-                    },
-                    "evaluated_keys": [
-                        "resource_type",
-                        "lifecycle_rule"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "repo_file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "file_line_range": [
-                    107,
-                    120
-                ],
-                "resource": "aws_s3_bucket.Server_Access_Log_S3_Bucket",
-                "evaluations": null,
-                "check_class": "checkov.common.graph.checks_infra.base_check",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-61",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "breadcrumbs": {
-                    "bucket_prefix": [
-                        {
-                            "type": "variable",
-                            "name": "AccessLog_Bucket_Prefix",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV2_AWS_61",
-                "bc_check_id": "BC_AWS_LOGGING_35",
-                "check_name": "Ensure that an S3 bucket has a lifecycle configuration",
-                "check_result": {
-                    "result": "FAILED",
-                    "entity": {
-                        "aws_s3_bucket": {
-                            "CIS_CloudTrail_Logs_S3_Bucket": {
-                                "__end_line__": 200,
-                                "__start_line__": 183,
-                                "acl": [
-                                    "private"
-                                ],
-                                "bucket_prefix": [
-                                    "cis-cloudtrail-logs-bucket"
-                                ],
-                                "logging": [
-                                    {
-                                        "target_bucket": [
-                                            "aws_s3_bucket.Server_Access_Log_S3_Bucket.id"
-                                        ],
-                                        "target_prefix": [
-                                            "cloudtrailaccess/"
-                                        ]
-                                    }
-                                ],
-                                "server_side_encryption_configuration": [
-                                    {
-                                        "rule": [
-                                            {
-                                                "apply_server_side_encryption_by_default": [
-                                                    {
-                                                        "sse_algorithm": [
-                                                            "AES256"
-                                                        ]
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "versioning": [
-                                    {
-                                        "enabled": [
-                                            true
-                                        ]
-                                    }
-                                ],
-                                "__address__": "aws_s3_bucket.CIS_CloudTrail_Logs_S3_Bucket"
-                            }
-                        }
-                    },
-                    "evaluated_keys": [
-                        "resource_type",
-                        "lifecycle_rule"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "file_abs_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "repo_file_path": "/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "file_line_range": [
-                    183,
-                    200
-                ],
-                "resource": "aws_s3_bucket.CIS_CloudTrail_Logs_S3_Bucket",
-                "evaluations": null,
-                "check_class": "checkov.common.graph.checks_infra.base_check",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-61",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/cis_baseline_infrastructure.tf",
-                "breadcrumbs": {
-                    "bucket_prefix": [
-                        {
-                            "type": "variable",
-                            "name": "CloudTrail_Bucket_Prefix",
-                            "path": "/Users/manideepchittineni/Desktop/GitHub/Personal/iacsecbench/.external-corpus/aws-samples_aws-security-services-with-terraform/aws-security-hub-boostrap-and-operationalization/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
                 "check_id": "CKV2_AWS_6",
                 "bc_check_id": "BC_AWS_NETWORKING_52",
                 "check_name": "Ensure that S3 bucket has a Public Access block",
@@ -4761,9 +4761,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "block_public_acls",
+                        "resource_type",
                         "block_public_policy",
-                        "resource_type"
+                        "block_public_acls"
                     ]
                 },
                 "code_block": null,
@@ -4858,9 +4858,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "block_public_acls",
+                        "resource_type",
                         "block_public_policy",
-                        "resource_type"
+                        "block_public_acls"
                     ]
                 },
                 "code_block": null,
@@ -4966,9 +4966,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "block_public_acls",
+                        "resource_type",
                         "block_public_policy",
-                        "resource_type"
+                        "block_public_acls"
                     ]
                 },
                 "code_block": null,
@@ -5074,9 +5074,9 @@
                         }
                     },
                     "evaluated_keys": [
-                        "block_public_acls",
+                        "resource_type",
                         "block_public_policy",
-                        "resource_type"
+                        "block_public_acls"
                     ]
                 },
                 "code_block": null,
