@@ -29,6 +29,13 @@ Releases are published automatically by [`release-please.yml`](.github/workflows
 - **`MINOR` (x.Y.0)** — New corpus cases, new canonical controls, or new rule mappings (`benchmark/**`, `evaluation/control_map.json`).
 - **`MAJOR` (X.0.0)** — Changes to what a reported number means: the control taxonomy, the matching criteria, or the admissibility gate.
 
+## [3.0.1](https://github.com/mchittineni/iacsecbench/compare/v3.0.0...v3.0.1) (2026-09-25)
+
+
+### Bug Fixes
+
+* **release:** drop Zenodo metadata fields that failed archiving ([f03c1ce](https://github.com/mchittineni/iacsecbench/commit/f03c1ce5291b2c35d76a6d1ea87a93c77a1377be))
+
 ## [3.0.0](https://github.com/mchittineni/iacsecbench/compare/v2.1.0...v3.0.0) (2026-09-23)
 
 
