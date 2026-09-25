@@ -93,14 +93,15 @@ guidelines](https://link.springer.com/journal/10664/submission-guidelines):
 | Abstract 150–250 words                                 | 229 words, structured (Context…Conclusion)        |
 | 4–6 keywords                                           | 6                                                 |
 | Single-blind review                                    | no anonymisation needed; author details stay      |
-| Statements and Declarations (Springer's exact heading) | present, all seven sub-statements                 |
+| Declarations section before the references            | Funding, Ethical approval, Informed consent, Author Contributions, Data Availability Statement, Conflict of Interest, AI use |
 | Affiliation as institution, city, country              | present (London, United Kingdom)                  |
 | ORCID                                                  | present (`0009-0003-9709-5842`)                   |
 | `svjour3` class files                                  | fetched locally (gitignored), shipped in bundle   |
+| Title page with clinical trial number | `make titlepage` ("Clinical trial number: not applicable") |
 | Running head                                           | `\titlerunning` and `\authorrunning` set          |
 | DOIs as full links in references                       | 43 of 53, rendered as https://doi.org links; the rest are books and standards |
 | LaTeX source without subfolders                        | `make dist` emits a flat bundle and fails if not  |
-| Data availability statement                            | in Statements and Declarations                    |
+| Data availability statement                            | in Declarations; cites the v3.0.0 DOI             |
 
 The abstract is 229 words. **Re-run `make check` after any edit to it**: the ceiling
 is 250, and an added clause can cross it.
