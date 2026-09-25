@@ -19,7 +19,7 @@ HAVE_PDFLATEX := $(shell command -v pdflatex 2>/dev/null)
 
 DIST    := dist
 
-.PHONY: all paper tables clean distclean check dist
+.PHONY: all paper tables clean distclean check dist titlepage
 
 all: tables paper
 
@@ -187,6 +187,17 @@ dist: nodraft $(TEX).pdf
 	@echo
 	@echo "Built $(TEX)-submission.tar.gz from $(DIST)/"
 	@echo "Check the PDF in $(DIST)/ before uploading."
+
+## Separate title page for Editorial Manager, written to $(DIST)/.
+titlepage: title_page.tex
+	mkdir -p $(DIST)
+ifneq ($(HAVE_TECTONIC),)
+	tectonic -X compile --outdir $(DIST) title_page.tex
+else
+	$(LATEX) -output-directory=$(DIST) title_page.tex
+endif
+	mv $(DIST)/title_page.pdf $(DIST)/$(TEX)-title-page.pdf
+	@echo "Built $(DIST)/$(TEX)-title-page.pdf"
 
 clean:
 	rm -f $(TEX).aux $(TEX).log $(TEX).bbl $(TEX).blg $(TEX).out $(TEX).toc
