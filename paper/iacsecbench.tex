@@ -770,7 +770,7 @@ AI coding assistants were used in building the study: to write parts of the
 harness and analysis code, the plan-level policy set and the benchmark cases, and
 to help debug the harness and inspect results, and an AI assistant was used to
 draft revisions of manuscript passages under the author's direction. Which
-assistant products were used is stated in the Statements and Declarations. None of these
+assistant products were used is stated in the Declarations. None of these
 uses is an instrument of the detection measurements: every reported detection and
 latency figure is the recorded output of the tools under test, scored by the
 released harness, and every artefact the assistants contributed to is in the
@@ -1552,59 +1552,6 @@ extending the taxonomy beyond Terraform would establish whether the criterion
 sensitivity measured here is a property of IaC scanning or of this technology.
 
 %------------------------------------------------------------------------------
-% Springer's own heading for this block is "Statements and Declarations".
-\section*{Statements and Declarations}
-
-\paragraph{Funding} This research received no external funding.
-
-\paragraph{Competing interests} The author designed and implemented the plan-level
-policy set and the repository-edge layer evaluated here alongside third-party
-tools. This is a non-financial interest, and Sections~\ref{sec:construct}
-and~\ref{sec:internal} disclose the asymmetries it creates. The author declares no financial interests and is not
-affiliated with, and receives no support from, the vendor or
-maintainer of any tool evaluated in this study.
-
-\paragraph{Ethics approval} Not applicable. This study analyses software
-artefacts and involves no human participants or personal data.
-
-\paragraph{Consent to participate} Not applicable.
-
-\paragraph{Consent for publication} Not applicable.
-
-\paragraph{Data and code availability} The corpus, ground-truth annotations,
-canonical control taxonomy, normalization engine, execution harness, statistical
-implementation, analysis code, and the raw per-case tool output from which every
-table in this paper is generated are openly available. The version reported here
-is release 3.0.0, archived at the first DOI below; the second always resolves to
-the latest release.
-
-\begin{center}
-\url{https://doi.org/10.5281/zenodo.22921654}\\
-\url{https://doi.org/10.5281/zenodo.21645016}\\
-\url{https://github.com/mchittineni/IaCSecBench}
-\end{center}
-
-\paragraph{Author contributions} The sole author designed the study, implemented
-the harness and the normalization engine, conducted the measurements, performed
-the analysis, and wrote the manuscript, with AI assistance as described under Use
-of AI-assisted technologies.
-
-\paragraph{Use of AI-assisted technologies} AI assistance was used in three
-roles. As a measuring instrument, a large language model was the second labeller
-in the automated consistency audit of Section~\ref{sec:labelling}, which states
-that the model's identity, parameters and instruction were not recorded and what
-the resulting agreement does and does not establish in consequence; the per-case
-labels and reasons are in the replication package. In building the study, AI
-coding assistants were used to write parts of the harness and analysis code, the
-plan-level policy set and the benchmark cases, and to help debug the harness and
-inspect results, as described in Section~\ref{sec:environment}. In preparing the
-manuscript, an AI assistant was used for language editing and to draft revisions
-of manuscript passages under the author's direction. The assistant products used were Claude Code (Anthropic) and Gemini
-(Google); their model versions and parameters were not recorded. The study design and conclusions are
-the author's. The author reviewed all AI-assisted work and accepts full
-responsibility for the manuscript and its content.
-
-%------------------------------------------------------------------------------
 \appendix
 \section{Scope of the Validated Threats}
 \label{app:threats}
@@ -1664,6 +1611,68 @@ container and hypervisor vulnerabilities; supply-chain compromise of provider
 binaries or registry mirrors; IaC technologies other than Terraform, since the
 plan-level layer presupposes Terraform plan JSON; and physical and
 social-engineering attacks.
+
+%------------------------------------------------------------------------------
+% Heading and subsection titles follow the EMSE editorial office's checklist:
+% Funding, Ethical approval, Informed consent, Author Contributions, Data
+% Availability Statement, Conflict of Interest. The section sits immediately
+% before the references, as the office asked.
+\section*{Declarations}
+
+\subsection*{Funding}
+This research received no external funding.
+
+\subsection*{Ethical approval}
+Not applicable. This study analyses software artefacts and involves no human
+participants, animals or personal data.
+
+\subsection*{Informed consent}
+Not applicable. The study involved no human participants, so neither consent to
+participate nor consent for publication was required.
+
+\subsection*{Author Contributions}
+Manideep Chittineni, the sole author, designed the study, implemented
+the harness and the normalization engine, conducted the measurements, performed
+the analysis, and wrote the manuscript, with AI assistance as described under Use
+of AI-assisted technologies below.
+
+\subsection*{Data Availability Statement}
+The corpus, ground-truth annotations,
+canonical control taxonomy, normalization engine, execution harness, statistical
+implementation, analysis code, and the raw per-case tool output from which every
+table in this paper is generated are openly available. The version reported here
+is release 3.0.0, archived at the first DOI below; the second always resolves to
+the latest release.
+
+\begin{center}
+\url{https://doi.org/10.5281/zenodo.22921654}\\
+\url{https://doi.org/10.5281/zenodo.21645016}\\
+\url{https://github.com/mchittineni/IaCSecBench}
+\end{center}
+
+\subsection*{Conflict of Interest}
+The author designed and implemented the plan-level
+policy set and the repository-edge layer evaluated here alongside third-party
+tools. This is a non-financial interest, and Sections~\ref{sec:construct}
+and~\ref{sec:internal} disclose the asymmetries it creates. The author declares no financial interests and is not
+affiliated with, and receives no support from, the vendor or
+maintainer of any tool evaluated in this study.
+
+\subsection*{Use of AI-assisted technologies}
+AI assistance was used in three
+roles. As a measuring instrument, a large language model was the second labeller
+in the automated consistency audit of Section~\ref{sec:labelling}, which states
+that the model's identity, parameters and instruction were not recorded and what
+the resulting agreement does and does not establish in consequence; the per-case
+labels and reasons are in the replication package. In building the study, AI
+coding assistants were used to write parts of the harness and analysis code, the
+plan-level policy set and the benchmark cases, and to help debug the harness and
+inspect results, as described in Section~\ref{sec:environment}. In preparing the
+manuscript, an AI assistant was used for language editing and to draft revisions
+of manuscript passages under the author's direction. The assistant products used were Claude Code (Anthropic) and Gemini
+(Google); their model versions and parameters were not recorded. The study design and conclusions are
+the author's. The author reviewed all AI-assisted work and accepts full
+responsibility for the manuscript and its content.
 
 %------------------------------------------------------------------------------
 % spbasic is Springer's author-year style and ships with the svjour3 template.
