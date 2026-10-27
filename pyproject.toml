@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "iacsecbench"
-version = "3.0.0" # x-release-please-version
+version = "3.0.1" # x-release-please-version
 description = "IaCSecBench: a reproducible benchmark for Infrastructure-as-Code security scanners"
 authors = [{ name = "Manideep Chittineni", email = "manideep.chittineni@hotmail.com" }]
 readme = "README.md"
